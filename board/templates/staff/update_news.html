@@ -1,0 +1,30 @@
+{% load static %}
+{% block header %}
+  {% include 'base_header2.html' %}
+{% endblock %}
+
+<div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true" uk-scrollspy="cls:uk-animation-fade">
+        <div class="uk-position-relative uk-visible-toggle uk-light" >
+            <ul class="uk-slideshow-items" >
+                <li>
+                    <img src="{% static 'images/header_normal.png' %}" alt="" uk-cover height="500" width="1100">
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="margin-left:20px; margin-top:20px;">
+        หัวข้อ:<br>
+        <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="title" value="Test2"><br><br>
+        วันที่:<br>
+        <input style="font-size: 20px; font-family: Kanit" type="date"" ><br><br>
+        <input style="font-family: Kanit" type="file"><br><br><br>
+        <a class=".uk-text-lead" href=""><button class="uk-button uk-button-danger">update</button></a>
+        <a class=".uk-text-lead" href=""><button class="uk-button uk-button-danger">delete</button></a>
+    </div>
+
+{% block footer %}
+  {% include 'base_footer.html' %}
+{% endblock %}
+
+  

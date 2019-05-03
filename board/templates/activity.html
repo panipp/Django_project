@@ -4,8 +4,54 @@
 {% endblock %}
 
 {% block content  %}
-
-
+<div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true" uk-scrollspy="cls:uk-animation-fade">
+    <div class="uk-position-relative uk-visible-toggle uk-light" >
+        <ul class="uk-slideshow-items" >
+            <li>
+                <img src="{% static 'images/header_normal.png' %}" alt="" uk-cover height="500" width="1100">
+            </li>
+        </ul>
+    </div>
+</div>
+    <div style="margin-left:20px; margin-right:20px; margin-top: 50px;" uk-scrollspy="cls:uk-animation-fade">
+      <table class="uk-table uk-table-middle uk-table-divider">
+          <tbody >
+              <h3>
+                  <span class=".uk-text-lead" style="font-size: 20px;font-weight: bold; font-family: Kanit">กิจกรรมนักศึกษา</span>
+              </h3>
+              <tr>
+                <th >วันที่</th>
+                <th>หัวข้อ</th>
+            </tr>
+              <tr>
+                <td style="width:20%;font-family: Kanit">test</td>
+                <td>
+                    <a class=".uk-text-lead"  href="/activity2/" style="font-family: Kanit">test2</a>
+                </td>
+            </tr>
+            <tr>
+              <td style="width:20%;font-family: Kanit">test3</td>
+              <td>
+                  <a class=".uk-text-lead"  href="/news/public/{{ public.id }}/" style="font-family: Kanit">test4</a>
+              </td>
+          </tr>
+          <tr>
+            <td style="width:20%;font-family: Kanit">test3</td>
+            <td>
+                <a class=".uk-text-lead"  href="/news/public/{{ public.id }}/" style="font-family: Kanit">test4</a>
+            </td>
+        </tr>
+        <tr>
+          <td style="width:20%;font-family: Kanit">test3</td>
+          <td>
+              <a class=".uk-text-lead"  href="/news/public/{{ public.id }}/" style="font-family: Kanit">test4</a>
+          </td>
+      </tr>
+              
+          </tbody>
+          
+      </table>
+    </div>
 {% endblock %}
 
 
