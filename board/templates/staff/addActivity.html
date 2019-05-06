@@ -2,6 +2,7 @@
 {% block header %}
   {% include 'base_header2.html' %}
 {% endblock %}
+{% load widget_tweaks %}
 
 {% block content  %}
 <div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true" uk-scrollspy="cls:uk-animation-fade">
@@ -15,14 +16,15 @@
     </div>
 <div style="margin-left:20px; margin-right:20px;margin-top: 15px;" uk-scrollspy="cls:uk-animation-fade">
 
-    <form method="post" enctype="multipart/form-data">
-    หัวข้อ:<br>
-                <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="title"><br><br>
+    <form method="post" enctype="multipart/form-data" action="/addActivity_summit/">
+    {%csrf_token%}
+        หัวข้อ:<br>
+                <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="titleboard"><br><br>
                 วันที่:<br>
-                <input style="font-size: 20px; font-family: Kanit" type="date" ><br><br>
+                <input style="font-size: 20px; font-family: Kanit" type="date"  ><br><br>
                 คำอธิบาย:<br>
-                <textarea id="txtArea" rows="20" cols="100" style="resize:none;" ></textarea><br><br>
-                <input type="file" name="files" multiple /><br><br>
+                <textarea id="txtArea" rows="20" cols="100" style="resize:none;" name="detail" ></textarea><br><br>
+                <input type="file" name="image" multiple /><br><br>
     <button style="text-align: right" type="submit" class="uk-button uk-button-primary" >Submit</button>
     </form>
 </div>

@@ -1,29 +1,31 @@
 from django.db import models
+from django.urls import reverse
+from django import forms
+from django.core.exceptions import ValidationError
+
 
 # Create your models here.
 class User(models.Model):
-    user_id = models.CharField(max_length =100)
     firstname = models.CharField(max_length = 50)
     lastname = models.CharField(max_length = 50)
     role = models.CharField(max_length = 1)
 
 class News(models.Model):
-    news_id = models.CharField(max_length = 100)
-    title = models.CharField(max_length=500)
+    title = models.CharField(max_length=100)
     date = models.DateField()
-    file = models.FileField(upload_to='files/',blank=False)
-    detail = models.TextField(max_length = 500 , blank = True, null = True)
-    def __str__(self):
-        return self.title, self.date
+    file = models.FileField(blank = True)
+    # detail = models.TextField(max_length = 100 , blank = True, null = True)
+
 
 class Board(models.Model):
-    board_id = models.CharField(max_length = 100)
+    titleboard = models.CharField(max_length = 50,blank=True)
     detail = models.TextField(max_length = 100) 
     image = models.ImageField() 
-    date = models.DateField()
+    date = models.DateField(null=True)
 
 class Exam (models.Model):
-    exam_id = models.CharField(max_length = 100)
-    detail = models.CharField(max_length=500)
+    titleexam =models.CharField(max_length = 50,null=True)
+    CATEGORY_CHOICES = (('ENG','English'),('MATH','Math'),('OTHERS','Others'))
     date = models.DateField()
-    category = models.CharField(max_length=50)
+    category = models.CharField(max_length=10,choices=CATEGORY_CHOICES,default='ENG')
+    link = models.CharField(max_length = 100,null=True)
