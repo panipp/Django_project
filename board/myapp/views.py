@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponseRedirect
 from .models import User,Exam,News,Board
 from django.template import loader
@@ -89,6 +89,10 @@ def addNews_summit(request):
     news.save()
     return render(request,'staff/addNews.html')
 
+def delete_news(request,id):
+    deletenews = News.objects.get(pk=id).delete()
+    return render(request,'staff/update_news.html')
+
 # def get_title(request):
 #     if request.method == 'POST':
 #         form = AddNewsForm(request.POST)
@@ -100,9 +104,11 @@ def addNews_summit(request):
 #     return render(request,'staff/addNews.html',{'form' : form})
 
 def updateNews(request):
+
     return render(request,'staff/update_news.html')
 
 def addActivity(request):
+    # pylint: disable=no-member
     activity = Board.objects.all()
     if request.method == 'POST':
         form = AddBoard(request.POST,request.FILES)
@@ -122,7 +128,15 @@ def addActivity_summit(request):
     board.save()
     return render(request,'staff/addActivity.html')    
 
-def updateActivity(request):
+def updateActivity(request,**kwargs):
+    pk = kwargs['pk']
+    # pylint: disable=no-member
+    activity = Board.objects.filter(pk=pk)
+    return render(request,'staff/update_activity.html',{'activity':activity})
+
+def delete_board(request,id):
+    # pylint: disable=no-member
+    deleteboard = Board.objects.get(pk=id).delete()
     return render(request,'staff/update_activity.html')
 
 def addExam(request):
@@ -143,3 +157,17 @@ def addExam_summit(request):
     exam = Exam(titleexam=titleexam,link=link,date=date)
     exam.save()
     return render(request,'staff/addExam.html')
+
+def delete_english(request,id):
+    #     #delete
+    deleteeng = Exam.objects.get(pk=id).delete()
+    
+    return render(request,'staff/englishS.html')
+
+def delete_math(request,id):
+    deletemath = Exam.objects.get(pk=id).delete()
+    return render(request,'staff/mathS.html')
+
+def delete_others(request,id):
+    deleteothers = Exam.objects.get(pk=id).delete()
+    return render(request,'staff/otherS.html')

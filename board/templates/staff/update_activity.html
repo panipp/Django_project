@@ -2,6 +2,7 @@
 {% block header %}
   {% include 'base_header2.html' %}
 {% endblock %}
+{% load widget_tweaks %}
 
 {% block content  %}
 <div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true" uk-scrollspy="cls:uk-animation-fade">
@@ -16,17 +17,21 @@
 <div style="margin-left:20px; margin-right:20px;margin-top: 15px;" uk-scrollspy="cls:uk-animation-fade">
 
 
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" action="/update_activity/">
+            {%csrf_token%}
+        
             หัวข้อ:<br>
-                        <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="title" value="xxx"><br><br>
+                        <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="title" value="{{activity.titleboard}}"><br><br>
                         วันที่:<br>
-                        <input style="font-size: 20px; font-family: Kanit" type="date" ><br><br>
+                        <input style="font-size: 20px; font-family: Kanit" type="date" value = "{{activity.date}}"><br><br>
                         คำอธิบาย:<br>
-                        <textarea id="txtArea" rows="20" cols="100" style="resize:none;"></textarea><br><br>
+                        <textarea id="txtArea" rows="20" cols="100" style="resize:none;" value= "{{activity.detail}}"></textarea><br><br>
                         <input type="file" name="files" multiple /><br><br>
                         <a class=".uk-text-lead" href=""><button class="uk-button uk-button-danger">update</button></a>
-                            <a class=".uk-text-lead" href=""><button class="uk-button uk-button-danger">delete</button></a>
+                        <a class=".uk-text-lead" href="/delete_board/{{activity.id}}" ><button class="uk-button uk-button-danger" type="submit" name="delete_board" >delete</button></a></td>
             </form>
+            
+           
 </div>
 </div>
 
