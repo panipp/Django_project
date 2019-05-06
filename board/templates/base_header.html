@@ -2,76 +2,80 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SCITU</title>
     {% load staticfiles %}
-    
-    <link rel="stylesheet" type="text/css" href="{% static '/css/uikit.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static '/css/hamburger.css' %}" />
-     <link href="https://fonts.googleapis.com/css?family=Kanit&amp;subset=thai" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/uikit.min.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Kanit&amp;subset=thai" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="{% static '/js/uikit.min.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/js/uikit-icons.min.js"></script>
     <style>
+        html,
+        body {
+            font-family: Kanit;
+        }
     </style>
 </head>
+
 <body style="font-family: Kanit">
-  <!-- style="  font-family: Arial, sans-serif; font-size : 15px;" -->
+    <!-- style="  font-family: Arial, sans-serif; font-size : 15px;" -->
 
-    <div class="uk-position-relative" style="position: fixed;top: 0; overflow: hidden; " >
+    <div class="uk-position-relative" style="position: fixed;top: 0; overflow: hidden; ">
         <div style="position: fixed; top:0 ; z-index: 1;width: 100%;">
-        <nav class="uk-navbar-container" uk-navbar="mode: click" style="background-color:white; height: 0.5%">
+            <nav class="uk-navbar-container" uk-navbar="mode: click" style="background-color:white; height: 0.5%">
 
-            <div class="uk-navbar-left">
-                <a href="/">
-                    <img src="{% static 'images/b1.png' %}" style="width:300px; margin: 10px;" />
-                </a>
-            </div>
-            <div class="uk-navbar-right">
-                <ul class="uk-navbar-nav">
-                    <!-- <li>
-                        <a  href="#" style="color:black;font-size: 15px;font-weight: bold; font-family: Kanit"><span class="hover1">บัณฑิตศึกษา</a></span>
-                        <div class="uk-navbar-dropdown" style="color:black;font-weight: bold;">
-                            <ul class="uk-nav uk-navbar-dropdown-nav" >
-                                <li><a href="http://graduate.sci.tu.ac.th:10146/login" style="color:gray;font-size: 15px;">- สำหรับนักศึกษา</a></li>
-                                <li><a href="http://hrdb.sci.tu.ac.th:10146/login" style="color:gray;font-size: 15px;">- สำหรับเจ้าหน้าที่</a></li>
-                            </ul>
-                        </div>
-                    </li> -->
-                    <li>
-                        <a  href="/home/" style="color:black; font-size: 15px;font-weight: bold;font-family: Kanit "><span class="hover1">ข่าวสาร</span></a>
-                    </li>
-                    <li>
-                        <a  href="/activity/" style="color:black;font-size: 15px;font-weight: bold;font-family: Kanit"><span class="hover1">กิจกรรมนักศึกษา</span></a>
-                    </li>
-                    <li>
-                        <a  href="/exam/" style="color:black;font-size: 15px;font-weight: bold;font-family: Kanit"><span class="hover1">วิชาการ</span></a>
-                    </li>
-                    {% if request.user.is_authenticated %}
-                    
-                  {% endif %}
-                </ul>
-                <div class="dropdown">
-                    <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#" style="color:white; background-color: #c00832"></a>
-                    <div class="dropdown-content">
-                      <a href="/home/">ข่าวสาร</a>
-                      <a href="/activity/">กิจกรรมนักศึกษา</a>
-                      <a href="/exam/">วิชาการ</a>
-                      {% if request.user.is_authenticated %}
-                      
-                      
-                    {% endif %}
-
-
-                    </div>
+                <div class="uk-navbar-left">
+                    <a href="/">
+                        <img src="{% static 'images/b1.png' %}" style="width:300px; margin: 10px;" />
+                    </a>
                 </div>
-                
-            </div>
-        </nav>
-    </div>
-    <br><br><br><br>
-    
+                <div class="uk-navbar-right" style="margin-right:20px;">
+                    <ul class="uk-navbar-nav">
+                        <li>
+                            <a href="/home/"
+                                style="color:black; font-size: 15px;font-weight: bold;font-family: Kanit "><span
+                                    class="hover1">ข่าวสาร</span></a>
+                        </li>
+                        <li>
+                            <a href="/activity/"
+                                style="color:black;font-size: 15px;font-weight: bold;font-family: Kanit"><span
+                                    class="hover1">กิจกรรมนักศึกษา</span></a>
+                        </li>
+                        <li>
+                            <a href="/exam/"
+                                style="color:black;font-size: 15px;font-weight: bold;font-family: Kanit"><span
+                                    class="hover1">วิชาการ</span></a>
+                        </li>
+                        {% if request.user.is_authenticated %}
+
+                        {% endif %}
+                    </ul>
+                    <div class="dropdown">
+                        <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#"
+                            style="color:white; background-color: #c00832"></a>
+                        <div class="dropdown-content" style="font-size:30px;">
+                            <a href="/home/">ข่าวสาร</a>
+                            <a href="/activity/">กิจกรรมนักศึกษา</a>
+                            <a href="/exam/">วิชาการ</a>
+                            {% if request.user.is_authenticated %}
+
+
+                            {% endif %}
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+        <br><br><br><br>
+
 </body>
+
 </html>

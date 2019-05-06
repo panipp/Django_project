@@ -1,72 +1,149 @@
 {% load static %}
 {% block header %}
-  {% include 'base_header2.html' %}
+{% include 'base_header2.html' %}
 {% endblock %}
 
 {% block content  %}
-<div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true" uk-scrollspy="cls:uk-animation-fade">
-    <div class="uk-position-relative uk-visible-toggle uk-light" >
-        <ul class="uk-slideshow-items" >
+<div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
+    uk-scrollspy="cls:uk-animation-fade">
+    <div class="uk-position-relative uk-visible-toggle uk-light">
+        <ul class="uk-slideshow-items">
             <li>
                 <img src="{% static 'images/header_normal.png' %}" alt="" uk-cover height="500" width="1100">
             </li>
         </ul>
     </div>
 </div>
-    <div style="margin-left:20px; margin-right:20px; margin-top: 50px;" uk-scrollspy="cls:uk-animation-fade">
-      <table class="uk-table uk-table-middle uk-table-divider">
-          <tbody >
-              <h3>
-                  <span class=".uk-text-lead" style="font-size: 20px;font-weight: bold; font-family: Kanit">คณิตศาสตร์</span>
-                  <span style="margin-left:10px;"><a class=".uk-text-lead" href=""><button class="uk-button uk-button-danger">ลบหมวดวิชา</button></a></span>
-              </h3>
-              <tr>
-                <th >วันที่</th>
-                <th>หัวข้อ</th>
-            </tr>
-              <tr>
-                <td style="width:20%;font-family: Kanit">test</td>
-                <td>
-                    <a class=".uk-text-lead"  href="" style="font-family: Kanit">test2</a>
-                </td>
-                <td><a class=".uk-text-lead" href=""><button class="uk-button" style="color:red;">ลบลิ้งค์</button></a></td>
-            </tr>
-            <tr>
-              <td style="width:20%;font-family: Kanit">test3</td>
-              <td>
-                  <a class=".uk-text-lead"  href="/news/public/{{ public.id }}/" style="font-family: Kanit">test4</a>
-              </td>
-              <td><a class=".uk-text-lead" href=""><button class="uk-button" style="color:red;">ลบลิ้งค์</button></a></td>
-          </tr>
-          <tr>
-            <td style="width:20%;font-family: Kanit">test3</td>
-            <td>
-                <a class=".uk-text-lead"  href="/news/public/{{ public.id }}/" style="font-family: Kanit">test4</a>
-            </td>
-            <td><a class=".uk-text-lead" href=""><button class="uk-button" style="color:red;">ลบลิ้งค์</button></a></td>
-        </tr>
-        <tr>
-          <td style="width:20%;font-family: Kanit">test3</td>
-          <td>
-              <a class=".uk-text-lead"  href="/news/public/{{ public.id }}/" style="font-family: Kanit">test4</a>
-          </td>
-          <td><a class=".uk-text-lead" href=""><button class="uk-button" style="color:red;">ลบลิ้งค์</button></a></td>
-      </tr>
-              
-          </tbody>
-          
-      </table>
-      <ul class="uk-pagination">
-        <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> Previous</a></li>
-        <li class="uk-margin-auto-left"><a href="#">Next <span class="uk-margin-small-left" uk-pagination-next></span></a></li>
-    </ul>
+<div style="margin-left:20px; margin-right:20px; margin-top: 50px;" uk-scrollspy="cls:uk-animation-fade">
+    <div class="uk-visible@l">
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <tbody>
+                <h3>
+                    <span class=".uk-text-lead"
+                        style="font-size: 20px;font-weight: bold; font-family: Kanit">คณิตศาสตร์</span>
+                    <span style="margin-left:10px;"><a class=".uk-text-lead" href=""><button
+                                class="uk-button uk-button-danger">ลบหมวดวิชา</button></a></span>
+                </h3>
+                <tr>
+                    <th>วันที่</th>
+                    <th>หัวข้อ</th>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test</td>
+                    <td>
+                        <a class=".uk-text-lead" href="" style="font-family: Kanit">test2</a>
+                    </td>
+                    <td><a class=".uk-text-lead" href=""><button class="uk-button"
+                                style="color:red;">ลบลิ้งค์</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test3</td>
+                    <td>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
+                    </td>
+                    <td><a class=".uk-text-lead" href=""><button class="uk-button"
+                                style="color:red;">ลบลิ้งค์</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test3</td>
+                    <td>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
+                    </td>
+                    <td><a class=".uk-text-lead" href=""><button class="uk-button"
+                                style="color:red;">ลบลิ้งค์</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test3</td>
+                    <td>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
+                    </td>
+                    <td><a class=".uk-text-lead" href=""><button class="uk-button"
+                                style="color:red;">ลบลิ้งค์</button></a>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+        <ul class="uk-pagination">
+            <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> Previous</a></li>
+            <li class="uk-margin-auto-left"><a href="#">Next <span class="uk-margin-small-left"
+                        uk-pagination-next></span></a></li>
+        </ul>
     </div>
+    <div class="uk-hidden@l" style="font-size:30px;">
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <tbody>
+                <h3>
+                    <span class=".uk-text-lead"
+                        style="font-size: 45px;font-weight: bold; font-family: Kanit">คณิตศาสตร์</span>
+                    <span style="margin-left:10px;"><a class=".uk-text-lead" href=""><button
+                                class="uk-button uk-button-danger">ลบหมวดวิชา</button></a></span>
+                </h3>
+                <tr>
+                    <th style="font-size:30px;">วันที่</th>
+                    <th style="font-size:30px;">หัวข้อ</th>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test</td>
+                    <td>
+                        <a class=".uk-text-lead" href="" style="font-family: Kanit">test2</a>
+                    </td>
+                    <td><a class=".uk-text-lead" href=""><button class="uk-button"
+                                style="color:red;">ลบลิ้งค์</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test3</td>
+                    <td>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
+                    </td>
+                    <td><a class=".uk-text-lead" href=""><button class="uk-button"
+                                style="color:red;">ลบลิ้งค์</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test3</td>
+                    <td>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
+                    </td>
+                    <td><a class=".uk-text-lead" href=""><button class="uk-button"
+                                style="color:red;">ลบลิ้งค์</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test3</td>
+                    <td>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
+                    </td>
+                    <td><a class=".uk-text-lead" href=""><button class="uk-button"
+                                style="color:red;">ลบลิ้งค์</button></a>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+        <ul class="uk-pagination" style="font-size:30px;">
+            <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> Previous</a></li>
+            <li class="uk-margin-auto-left"><a href="#">Next <span class="uk-margin-small-left"
+                        uk-pagination-next></span></a></li>
+        </ul>
+    </div>
+</div>
 {% endblock %}
 
 
 
 {% block footer %}
-  {% include 'base_footer.html' %}
+{% include 'base_footer.html' %}
 {% endblock %}
-
-  

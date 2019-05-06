@@ -1,129 +1,247 @@
 {% load static %}
 {% block header %}
-  {% include 'base_header.html' %}
+{% include 'base_header.html' %}
 {% endblock %}
 
 {% block content  %}
-<div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true" uk-scrollspy="cls:uk-animation-fade">
-        <div class="uk-position-relative uk-visible-toggle uk-light" >
-            <ul class="uk-slideshow-items" >
-                <li>
-                    <img src="{% static 'images/header_normal.png' %}" alt="" uk-cover height="500" width="1100">
-                </li>
-            </ul>
-        </div>
+<div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
+    uk-scrollspy="cls:uk-animation-fade">
+    <div class="uk-position-relative uk-visible-toggle uk-light">
+        <ul class="uk-slideshow-items">
+            <li>
+                <img src="{% static 'images/header_normal.png' %}" alt="" uk-cover height="500" width="1100">
+            </li>
+        </ul>
     </div>
-    <div style="margin-left:20px;" uk-scrollspy="cls:uk-animation-fade">
-      <table class="uk-table uk-table-middle uk-table-divider">
-          <tbody >
-              <br><br>
-              <h3>
-                  <span class=".uk-text-lead" style="font-size: 20px;font-weight: bold; font-family: Kanit">ภาษาอังกฤษ
-                      <a style="font-size:15px;font-family: Kanit" href="/english/">(ดูทั้งหมด)</a>
-                  </span>
-              </h3>
-            
-              <tr>
-                    <th >วันที่</th>
+</div>
+<div style="margin-left:20px;" uk-scrollspy="cls:uk-animation-fade">
+    <div class="uk-visible@l">
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <tbody>
+                <br><br>
+                <h3>
+                    <span class=".uk-text-lead" style="font-size: 20px;font-weight: bold; font-family: Kanit">ภาษาอังกฤษ
+                        <a style="font-size:15px;font-family: Kanit" href="/english/">(ดูทั้งหมด)</a>
+                    </span>
+                </h3>
+
+                <tr>
+                    <th>วันที่</th>
                     <th>หัวข้อ</th>
                 </tr>
-                  <tr>
+                <tr>
                     <td style="width:20%;font-family: Kanit">test</td>
                     <td>
-                        <a class=".uk-text-lead"  href="" style="font-family: Kanit">test2</a>
+                        <a class=".uk-text-lead" href="" style="font-family: Kanit">test2</a>
                     </td>
                 </tr>
                 <tr>
-                  <td style="width:20%;font-family: Kanit">test3</td>
-                  <td>
-                      <a class=".uk-text-lead"  href="/news/public/{{ public.id }}/" style="font-family: Kanit">test4</a>
-                  </td>
-              </tr>
-              <tr>
-                <td style="width:20%;font-family: Kanit">test3</td>
-                <td>
-                    <a class=".uk-text-lead"  href="/news/public/{{ public.id }}/" style="font-family: Kanit">test4</a>
-                </td>
-            </tr>
-                  
-              </tbody>
-          </tbody>
-      </table>
-      <table class="uk-table uk-table-middle uk-table-divider">
-          <tbody>
-              <h3>
-                  <span class=".uk-text-lead" style="font-size: 20px;font-weight: bold;font-family: Kanit">คณิตศาสตร์
-                      <a style="font-size:15px;font-family: Kanit" href="/math/">(ดูทั้งหมด)</a>
-                  </span>
-              </h3>
-              
-              <tr>
-                    <th >วันที่</th>
-                    <th>หัวข้อ</th>
-                </tr>
-                  <tr>
-                    <td style="width:20%;font-family: Kanit">test</td>
+                    <td style="width:20%;font-family: Kanit">test3</td>
                     <td>
-                        <a class=".uk-text-lead"  href="" style="font-family: Kanit">test2</a>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
                     </td>
                 </tr>
                 <tr>
-                  <td style="width:20%;font-family: Kanit">test3</td>
-                  <td>
-                      <a class=".uk-text-lead"  href="/news/public/{{ public.id }}/" style="font-family: Kanit">test4</a>
-                  </td>
-              </tr>
-              <tr>
-                <td style="width:20%;font-family: Kanit">test3</td>
-                <td>
-                    <a class=".uk-text-lead"  href="/news/public/{{ public.id }}/" style="font-family: Kanit">test4</a>
-                </td>
-            </tr>
-                  
-              </tbody>
-          </tbody>
-      </table>
-      <table class="uk-table uk-table-middle uk-table-divider">
-        <tbody>
-            <h3>
-                <span class=".uk-text-lead" style="font-size: 20px;font-weight: bold;font-family: Kanit">หมวดอื่นๆ
-                    <a style="font-size:15px;font-family: Kanit" href="/others/">(ดูทั้งหมด)</a>
-                </span>
-            </h3>
-            
-            <tr>
-                    <th >วันที่</th>
+                    <td style="width:20%;font-family: Kanit">test3</td>
+                    <td>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
+                    </td>
+                </tr>
+
+            </tbody>
+            </tbody>
+        </table>
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <tbody>
+                <h3>
+                    <span class=".uk-text-lead" style="font-size: 20px;font-weight: bold;font-family: Kanit">คณิตศาสตร์
+                        <a style="font-size:15px;font-family: Kanit" href="/math/">(ดูทั้งหมด)</a>
+                    </span>
+                </h3>
+
+                <tr>
+                    <th>วันที่</th>
                     <th>หัวข้อ</th>
                 </tr>
-                  <tr>
+                <tr>
                     <td style="width:20%;font-family: Kanit">test</td>
                     <td>
-                        <a class=".uk-text-lead"  href="" style="font-family: Kanit">test2</a>
+                        <a class=".uk-text-lead" href="" style="font-family: Kanit">test2</a>
                     </td>
                 </tr>
                 <tr>
-                  <td style="width:20%;font-family: Kanit">test3</td>
-                  <td>
-                      <a class=".uk-text-lead"  href="/news/public/{{ public.id }}/" style="font-family: Kanit">test4</a>
-                  </td>
-              </tr>
-              <tr>
-                <td style="width:20%;font-family: Kanit">test3</td>
-                <td>
-                    <a class=".uk-text-lead"  href="/news/public/{{ public.id }}/" style="font-family: Kanit">test4</a>
-                </td>
-            </tr>
-                  
-              </tbody>
-        </tbody>
-    </table>
+                    <td style="width:20%;font-family: Kanit">test3</td>
+                    <td>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test3</td>
+                    <td>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
+                    </td>
+                </tr>
+
+            </tbody>
+            </tbody>
+        </table>
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <tbody>
+                <h3>
+                    <span class=".uk-text-lead" style="font-size: 20px;font-weight: bold;font-family: Kanit">หมวดอื่นๆ
+                        <a style="font-size:15px;font-family: Kanit" href="/others/">(ดูทั้งหมด)</a>
+                    </span>
+                </h3>
+
+                <tr>
+                    <th>วันที่</th>
+                    <th>หัวข้อ</th>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test</td>
+                    <td>
+                        <a class=".uk-text-lead" href="" style="font-family: Kanit">test2</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test3</td>
+                    <td>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test3</td>
+                    <td>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
+                    </td>
+                </tr>
+
+            </tbody>
+            </tbody>
+        </table>
     </div>
+    <div class="uk-hidden@l" style="font-size:30px;">
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <tbody>
+                <br><br>
+                <h3>
+                    <span class=".uk-text-lead" style="font-size: 45px;font-weight: bold; font-family: Kanit">ภาษาอังกฤษ
+                        <a style="font-size:30px;font-family: Kanit" href="/english/">(ดูทั้งหมด)</a>
+                    </span>
+                </h3>
+
+                <tr>
+                    <th style="font-size:30px;">วันที่</th>
+                    <th style="font-size:30px;">หัวข้อ</th>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test</td>
+                    <td>
+                        <a class=".uk-text-lead" href="" style="font-family: Kanit">test2</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test3</td>
+                    <td>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test3</td>
+                    <td>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
+                    </td>
+                </tr>
+
+            </tbody>
+            </tbody>
+        </table>
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <tbody>
+                <h3>
+                    <span class=".uk-text-lead" style="font-size: 45px;font-weight: bold;font-family: Kanit">คณิตศาสตร์
+                        <a style="font-size:30px;font-family: Kanit" href="/math/">(ดูทั้งหมด)</a>
+                    </span>
+                </h3>
+
+                <tr>
+                    <th style="font-size:30px;">วันที่</th>
+                    <th style="font-size:30px;">หัวข้อ</th>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test</td>
+                    <td>
+                        <a class=".uk-text-lead" href="" style="font-family: Kanit">test2</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test3</td>
+                    <td>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test3</td>
+                    <td>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
+                    </td>
+                </tr>
+
+            </tbody>
+            </tbody>
+        </table>
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <tbody>
+                <h3>
+                    <span class=".uk-text-lead" style="font-size: 45px;font-weight: bold;font-family: Kanit">หมวดอื่นๆ
+                        <a style="font-size:30px;font-family: Kanit" href="/others/">(ดูทั้งหมด)</a>
+                    </span>
+                </h3>
+
+                <tr>
+                    <th style="font-size:30px;">วันที่</th>
+                    <th style="font-size:30px;">หัวข้อ</th>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test</td>
+                    <td>
+                        <a class=".uk-text-lead" href="" style="font-family: Kanit">test2</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test3</td>
+                    <td>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:20%;font-family: Kanit">test3</td>
+                    <td>
+                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
+                            style="font-family: Kanit">test4</a>
+                    </td>
+                </tr>
+
+            </tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}
 
 
 
 {% block footer %}
-  {% include 'base_footer.html' %}
+{% include 'base_footer.html' %}
 {% endblock %}
-
-  

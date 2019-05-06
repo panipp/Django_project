@@ -1,30 +1,39 @@
 {% load static %}
 {% block header %}
-  {% include 'base_header.html' %}
+{% include 'base_header.html' %}
 {% endblock %}
 
 {% block content  %}
-<div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true" uk-scrollspy="cls:uk-animation-fade">
-        <div class="uk-position-relative uk-visible-toggle uk-light" >
-            <ul class="uk-slideshow-items" >
-                <li>
-                    <img src="{% static 'images/header_normal.png' %}" alt="" uk-cover height="500" width="1100">
-                </li>
-            </ul>
-        </div>
+<div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
+    uk-scrollspy="cls:uk-animation-fade">
+    <div class="uk-position-relative uk-visible-toggle uk-light">
+        <ul class="uk-slideshow-items">
+            <li>
+                <img src="{% static 'images/header_normal.png' %}" alt="" uk-cover height="500" width="1100">
+            </li>
+        </ul>
     </div>
-    <div style="margin-top:15px;margin-left:20px; margin-right:20px;" uk-scrollspy="cls:uk-animation-fade">
-        <h3 style="margin-bottom:5px;">
-            <span class=".uk-text-lead" style="font-size: 35px;font-weight: bold; font-family: Kanit">Test2</span>
-        </h3>
-        <h6 style="font-size: 15px;margin-top: 0; font-weight: lighter; font-family: Kanit">วันที่ xx/xx/xxxx</h6>
-        <br><br><br><br><br> <br><br><br><br><br> <br><br><br><br><br>
-        <p style="font-size: 20px;margin-top: 0; font-weight: bold; font-family: Kanit">Download: <a>file</a></p>
-    </div>
+</div>
+<div class="uk-visible@l" style="margin-top:15px;margin-left:20px; margin-right:20px;"
+    uk-scrollspy="cls:uk-animation-fade">
+    <h3 style="margin-bottom:5px;">
+        <span class=".uk-text-lead" style="font-size: 35px;font-weight: bold; font-family: Kanit">Test2</span>
+    </h3>
+    <h6 style="font-size: 15px;margin-top: 0; font-weight: lighter; font-family: Kanit">วันที่ xx/xx/xxxx</h6>
+    <br><br><br><br><br> <br><br><br><br><br> <br><br><br><br><br>
+    <p style="font-size: 20px;margin-top: 0; font-weight: bold; font-family: Kanit">Download: <a>file</a></p>
+</div>
+<div class="uk-hidden@l" style="margin-top:15px;margin-left:20px; margin-right:20px;"
+    uk-scrollspy="cls:uk-animation-fade">
+    <h3 style="margin-bottom:5px;">
+        <span class=".uk-text-lead" style="font-size: 50px;font-weight: bold; font-family: Kanit">Test2</span>
+    </h3>
+    <h6 style="font-size: 25px;margin-top: 0; font-weight: lighter; font-family: Kanit">วันที่ xx/xx/xxxx</h6>
+    <br><br><br><br><br> <br><br><br><br><br> <br><br><br><br><br>
+    <p style="font-size: 40px;margin-top: 0; font-weight: bold; font-family: Kanit">Download: <a>file</a></p>
+</div>
 {% endblock %}
 
 {% block footer %}
-  {% include 'base_footer.html' %}
+{% include 'base_footer.html' %}
 {% endblock %}
-
-  
