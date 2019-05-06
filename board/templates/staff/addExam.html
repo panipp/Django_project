@@ -16,15 +16,15 @@
     </div>
 </div>
 <div style="margin-left:20px; margin-right:20px;margin-top: 15px;" uk-scrollspy="cls:uk-animation-fade">
-<<<<<<< HEAD
     <div class="uk-visible@l">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" action = "/addExam_summit/">
+            {%csrf_token%}
             <span>หัวข้อ : </span><br>
-            <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="title"><br><br>
+            <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="titleexam"><br><br>
             <span>วันที่ : </span><br>
-            <input style="font-size: 20px; font-family: Kanit" type="date"><br><br>
+            <input style="font-size: 20px; font-family: Kanit" type="date" name="date"><br><br>
             <span>Link : </span><br>
-            <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="title"><br><br>
+            <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="link"><br><br>
             <span>หมวดวิชา : </span><br>
             <input type="radio" name="category" value="english" checked> ภาษาอังกฤษ<br>
             <input type="radio" name="category" value="math"> คณิตศาสตร์<br>
@@ -35,15 +35,16 @@
         </form>
     </div>
     <div class="uk-hidden@l" style="font-size:40px;margin-top: 50px;">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data"  action = "/addExam_summit/">
+            {%csrf_token%}
             <span>หัวข้อ : </span><br>
             <input style="font-size: 40px;font-weight: bold; font-family: Kanit;width: 85%;" type="text"
-                name="title"><br><br>
+                name="titleexam"><br><br>
             <span>วันที่ : </span><br>
-            <input style="font-size: 40px; font-family: Kanit;width: 85%;" type="date"><br><br>
+            <input style="font-size: 40px; font-family: Kanit;width: 85%;" type="date" name="date"><br><br>
             <span>Link : </span><br>
             <input style="font-size: 40px;font-weight: bold; font-family: Kanit;width: 85%;" type="text"
-                name="title"><br><br>
+                name="link"><br><br>
             <span>หมวดวิชา : </span><br>
             <input type="radio" name="category" value="english" checked> ภาษาอังกฤษ<br>
             <input type="radio" name="category" value="math"> คณิตศาสตร์<br>
@@ -54,26 +55,6 @@
                 class="uk-button uk-button-primary uk-button-large">บันทึก</button>
         </form>
     </div>
-=======
-
-    <form method="post" enctype="multipart/form-data" action = "/addExam_summit/">
-        
-        หัวข้อ:<br>
-        {%csrf_token%}
-        <input id = "titleexam" style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="titleexam" "/><br><br>
-            Link:<br>
-                <input id="link"style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="link" placeholder = "www.xxxx.com"><br><br>
-                <!-- หมวดวิชา:<br>
-                <input type="radio" name="category" value="ENG" checked> ภาษาอังกฤษ<br>
-                <input type="radio" name="category" value="MATH"> คณิตศาสตร์<br>
-                <input type="radio" name="category" value="OTHERS"> หมวดอื่นๆ<br>
-                <input type="radio" name="category" value="add"> 
-                <input type="text" name="title"><br><br> -->
-                วันที่:<br>
-                <input style="font-size: 20px; font-family: Kanit" type="date" name= "date" ><br><br>
-    <button style="text-align: right" type="submit" class="uk-button uk-button-primary" >Submit</button>
-    </form>
->>>>>>> aba6a7d772d5142ed48b4f79830c068c6e9e972e
 </div>
 </div>
 

@@ -14,7 +14,7 @@
         </ul>
     </div>
 </div>
-<<<<<<< HEAD
+
 <div style="margin-left:20px; margin-right:20px; margin-top: 50px;" uk-scrollspy="cls:uk-animation-fade">
     <div class="uk-visible@l">
         <table class="uk-table uk-table-middle uk-table-divider">
@@ -27,49 +27,7 @@
                     <th>วันที่</th>
                     <th>หัวข้อ</th>
                 </tr>
-                <tr>
-                    <td style="width:20%;font-family: Kanit">test</td>
-                    <td>
-                        <a class=".uk-text-lead" href="/activity2/" style="font-family: Kanit">test2</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:20%;font-family: Kanit">test3</td>
-                    <td>
-                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
-                            style="font-family: Kanit">test4</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:20%;font-family: Kanit">test3</td>
-                    <td>
-                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
-                            style="font-family: Kanit">test4</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:20%;font-family: Kanit">test3</td>
-                    <td>
-                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
-                            style="font-family: Kanit">test4</a>
-                    </td>
-                </tr>
-
-            </tbody>
-
-        </table>
-=======
-    <div style="margin-left:20px; margin-right:20px; margin-top: 50px;" uk-scrollspy="cls:uk-animation-fade">
-      <table class="uk-table uk-table-middle uk-table-divider">
-          <tbody >
-              <h3>
-                  <span class=".uk-text-lead" style="font-size: 20px;font-weight: bold; font-family: Kanit">กิจกรรมนักศึกษา</span>
-              </h3>
-              <tr>
-                <th >วันที่</th>
-                <th>หัวข้อ</th>
-            </tr>
-            {% for i in board %}
+                {% for i in board %}
               <tr>
                 <td style="width:20%;font-family: Kanit">{{i.date}}</td>
                 <td>
@@ -77,30 +35,11 @@
                 </td>
             </tr>
             {% endfor %}
-            <!-- <tr>
-              <td style="width:20%;font-family: Kanit">test3</td>
-              <td>
-                  <a class=".uk-text-lead"  href="/news/public/{{ public.id }}/" style="font-family: Kanit">test4</a>
-              </td>
-          </tr>
-          <tr>
-            <td style="width:20%;font-family: Kanit">test3</td>
-            <td>
-                <a class=".uk-text-lead"  href="/news/public/{{ public.id }}/" style="font-family: Kanit">test4</a>
-            </td>
-        </tr>
-        <tr>
-          <td style="width:20%;font-family: Kanit">test3</td>
-          <td>
-              <a class=".uk-text-lead"  href="/news/public/{{ public.id }}/" style="font-family: Kanit">test4</a>
-          </td>
-      </tr> -->
-              
-          </tbody>
-          
-      </table>
->>>>>>> aba6a7d772d5142ed48b4f79830c068c6e9e972e
-    </div>
+                
+            </tbody>
+
+        </table>
+
     <div class="uk-hidden@l" style="font-size:30px;">
 
         <table class="uk-table uk-table-middle uk-table-divider">
@@ -114,33 +53,11 @@
                     <th style="font-size:30px;">หัวข้อ</th>
                 </tr>
                 <tr>
-                    <td style="width:20%;font-family: Kanit">test</td>
+                    <td style="width:20%;font-family: Kanit">{{activity2.date}}</td>
                     <td>
-                        <a class=".uk-text-lead" href="/activity2/" style="font-family: Kanit">test2</a>
+                        <a class=".uk-text-lead" href="/activity2/{{i.id}}" style="font-family: Kanit">{{activity2.titleboard}}</a>
                     </td>
                 </tr>
-                <tr>
-                    <td style="width:20%;font-family: Kanit">test3</td>
-                    <td>
-                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
-                            style="font-family: Kanit">test4</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:20%;font-family: Kanit">test3</td>
-                    <td>
-                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
-                            style="font-family: Kanit">test4</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:20%;font-family: Kanit">test3</td>
-                    <td>
-                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
-                            style="font-family: Kanit">test4</a>
-                    </td>
-                </tr>
-
             </tbody>
 
         </table>

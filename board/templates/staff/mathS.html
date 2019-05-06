@@ -14,7 +14,6 @@
         </ul>
     </div>
 </div>
-<<<<<<< HEAD
 <div style="margin-left:20px; margin-right:20px; margin-top: 50px;" uk-scrollspy="cls:uk-animation-fade">
     <div class="uk-visible@l">
         <table class="uk-table uk-table-middle uk-table-divider">
@@ -29,45 +28,19 @@
                     <th>วันที่</th>
                     <th>หัวข้อ</th>
                 </tr>
+                {%for i in exam%}
+                {%if i.category == 'MATH'%}
                 <tr>
-                    <td style="width:20%;font-family: Kanit">test</td>
+                    <td style="width:20%;font-family: Kanit">{{i.date}}</td>
                     <td>
-                        <a class=".uk-text-lead" href="" style="font-family: Kanit">test2</a>
+                        <a class=".uk-text-lead" href="http://{{i.link}}" style="font-family: Kanit">{{i.titleexam}}</a>
                     </td>
-                    <td><a class=".uk-text-lead" href=""><button class="uk-button"
+                    <td><a class=".uk-text-lead" href="/delete_math/{{i.id}}"><button class="uk-button"
                                 style="color:red;">ลบลิ้งค์</button></a>
                     </td>
                 </tr>
-                <tr>
-                    <td style="width:20%;font-family: Kanit">test3</td>
-                    <td>
-                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
-                            style="font-family: Kanit">test4</a>
-                    </td>
-                    <td><a class=".uk-text-lead" href=""><button class="uk-button"
-                                style="color:red;">ลบลิ้งค์</button></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:20%;font-family: Kanit">test3</td>
-                    <td>
-                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
-                            style="font-family: Kanit">test4</a>
-                    </td>
-                    <td><a class=".uk-text-lead" href=""><button class="uk-button"
-                                style="color:red;">ลบลิ้งค์</button></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:20%;font-family: Kanit">test3</td>
-                    <td>
-                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
-                            style="font-family: Kanit">test4</a>
-                    </td>
-                    <td><a class=".uk-text-lead" href=""><button class="uk-button"
-                                style="color:red;">ลบลิ้งค์</button></a>
-                    </td>
-                </tr>
+                {%endif%}
+                {%endfor%}
 
             </tbody>
 
@@ -91,45 +64,19 @@
                     <th style="font-size:30px;">วันที่</th>
                     <th style="font-size:30px;">หัวข้อ</th>
                 </tr>
+                {%for i in exam%}
+                {%if i.category == 'MATH'%}
                 <tr>
-                    <td style="width:20%;font-family: Kanit">test</td>
+                    <td style="width:20%;font-family: Kanit">{{i.date}}</td>
                     <td>
-                        <a class=".uk-text-lead" href="" style="font-family: Kanit">test2</a>
+                        <a class=".uk-text-lead" href="http://{{i.link}}" style="font-family: Kanit">{{i.titleexam}}</a>
                     </td>
-                    <td><a class=".uk-text-lead" href=""><button class="uk-button"
+                    <td><a class=".uk-text-lead" href="/delete_math/{{i.id}}"><button class="uk-button"
                                 style="color:red;">ลบลิ้งค์</button></a>
                     </td>
                 </tr>
-                <tr>
-                    <td style="width:20%;font-family: Kanit">test3</td>
-                    <td>
-                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
-                            style="font-family: Kanit">test4</a>
-                    </td>
-                    <td><a class=".uk-text-lead" href=""><button class="uk-button"
-                                style="color:red;">ลบลิ้งค์</button></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:20%;font-family: Kanit">test3</td>
-                    <td>
-                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
-                            style="font-family: Kanit">test4</a>
-                    </td>
-                    <td><a class=".uk-text-lead" href=""><button class="uk-button"
-                                style="color:red;">ลบลิ้งค์</button></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:20%;font-family: Kanit">test3</td>
-                    <td>
-                        <a class=".uk-text-lead" href="/news/public/{{ public.id }}/"
-                            style="font-family: Kanit">test4</a>
-                    </td>
-                    <td><a class=".uk-text-lead" href=""><button class="uk-button"
-                                style="color:red;">ลบลิ้งค์</button></a>
-                    </td>
-                </tr>
+                {%endif%}
+                {%endfor%} 
 
             </tbody>
 
@@ -139,39 +86,6 @@
             <li class="uk-margin-auto-left"><a href="#">Next <span class="uk-margin-small-left"
                         uk-pagination-next></span></a></li>
         </ul>
-=======
-    <div style="margin-left:20px; margin-right:20px; margin-top: 50px;" uk-scrollspy="cls:uk-animation-fade">
-      <table class="uk-table uk-table-middle uk-table-divider">
-          <tbody >
-              <h3>
-                  <span class=".uk-text-lead" style="font-size: 20px;font-weight: bold; font-family: Kanit">คณิตศาสตร์</span>
-                  <span style="margin-left:10px;"><a class=".uk-text-lead" href=""><button class="uk-button uk-button-danger">ลบหมวดวิชา</button></a></span>
-              </h3>
-              <tr>
-                <th >วันที่</th>
-                <th>หัวข้อ</th>
-            </tr>
-            {%for i in exam%}
-            {%if i.category == 'MATH'%}
-              <tr>
-                <td style="width:20%;font-family: Kanit">{{i.date}}</td>
-                <td>
-                    <a class=".uk-text-lead"  href="http://{{i.link}}" style="font-family: Kanit">{{i.titleexam}}</a>
-                </td>
-                <td><a class=".uk-text-lead" href="/delete_math/{{i.id}}"><button class="uk-button" style="color:red;" name="delete">ลบลิ้งค์</button></a></td>
-            </tr>
-            {%endif%}
-            {%endfor%}
-      
-              
-          </tbody>
-          
-      </table>
-      <ul class="uk-pagination">
-        <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> Previous</a></li>
-        <li class="uk-margin-auto-left"><a href="#">Next <span class="uk-margin-small-left" uk-pagination-next></span></a></li>
-    </ul>
->>>>>>> aba6a7d772d5142ed48b4f79830c068c6e9e972e
     </div>
 </div>
 {% endblock %}

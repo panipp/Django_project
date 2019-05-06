@@ -29,9 +29,8 @@
         <div style="position: fixed; top:0 ; z-index: 1;width: 100%;">
             <nav class="uk-navbar-container" uk-navbar="mode: click" style="background-color:white; height: 0.5%">
 
-<<<<<<< HEAD
                 <div class="uk-navbar-left">
-                    <a href="/">
+                    <a href="/home">
                         <img src="{% static 'images/b1.png' %}" style="width:300px; margin: 10px;" />
                     </a>
                 </div>
@@ -64,47 +63,6 @@
                             <a href="/activity/">กิจกรรมนักศึกษา</a>
                             <a href="/exam/">วิชาการ</a>
                             {% if request.user.is_authenticated %}
-=======
-            <div class="uk-navbar-left">
-                <a href="/home">
-                    <img src="{% static 'images/b1.png' %}" style="width:300px; margin: 10px;" />
-                </a>
-            </div>
-            <div class="uk-navbar-right">
-                <ul class="uk-navbar-nav">
-                    <!-- <li>
-                        <a  href="#" style="color:black;font-size: 15px;font-weight: bold; font-family: Kanit"><span class="hover1">บัณฑิตศึกษา</a></span>
-                        <div class="uk-navbar-dropdown" style="color:black;font-weight: bold;">
-                            <ul class="uk-nav uk-navbar-dropdown-nav" >
-                                <li><a href="http://graduate.sci.tu.ac.th:10146/login" style="color:gray;font-size: 15px;">- สำหรับนักศึกษา</a></li>
-                                <li><a href="http://hrdb.sci.tu.ac.th:10146/login" style="color:gray;font-size: 15px;">- สำหรับเจ้าหน้าที่</a></li>
-                            </ul>
-                        </div>
-                    </li> -->
-                    <li>
-                        <a  href="/home/" style="color:black; font-size: 15px;font-weight: bold;font-family: Kanit "><span class="hover1">ข่าวสาร</span></a>
-                    </li>
-                    <li>
-                        <a  href="/activity/" style="color:black;font-size: 15px;font-weight: bold;font-family: Kanit"><span class="hover1">กิจกรรมนักศึกษา</span></a>
-                    </li>
-                    <li>
-                        <a  href="/exam/" style="color:black;font-size: 15px;font-weight: bold;font-family: Kanit"><span class="hover1">วิชาการ</span></a>
-                    </li>
-                    {% if request.user.is_authenticated %}
-                    
-                  {% endif %}
-                </ul>
-                <div class="dropdown">
-                    <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#" style="color:white; background-color: #c00832"></a>
-                    <div class="dropdown-content">
-                      <a href="/home/">ข่าวสาร</a>
-                      <a href="/activity/">กิจกรรมนักศึกษา</a>
-                      <a href="/exam/">วิชาการ</a>
-                      {% if request.user.is_authenticated %}
-                      
-                      
-                    {% endif %}
->>>>>>> aba6a7d772d5142ed48b4f79830c068c6e9e972e
 
 
                             {% endif %}
