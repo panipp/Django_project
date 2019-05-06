@@ -2,6 +2,7 @@
 {% block header %}
 {% include 'base_header2.html' %}
 {% endblock %}
+{% load widget_tweaks %}
 
 {% block content  %}
 <div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
@@ -15,6 +16,7 @@
     </div>
 </div>
 <div style="margin-left:20px; margin-right:20px;margin-top: 15px;" uk-scrollspy="cls:uk-animation-fade">
+<<<<<<< HEAD
     <div class="uk-visible@l">
         <form method="post" enctype="multipart/form-data">
             <span>หัวข้อ : </span><br>
@@ -52,6 +54,26 @@
                 class="uk-button uk-button-primary uk-button-large">บันทึก</button>
         </form>
     </div>
+=======
+
+    <form method="post" enctype="multipart/form-data" action = "/addExam_summit/">
+        
+        หัวข้อ:<br>
+        {%csrf_token%}
+        <input id = "titleexam" style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="titleexam" "/><br><br>
+            Link:<br>
+                <input id="link"style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="link"><br><br>
+                <!-- หมวดวิชา:<br>
+                <input type="radio" name="category" value="ENG" checked> ภาษาอังกฤษ<br>
+                <input type="radio" name="category" value="MATH"> คณิตศาสตร์<br>
+                <input type="radio" name="category" value="OTHERS"> หมวดอื่นๆ<br>
+                <input type="radio" name="category" value="add"> 
+                <input type="text" name="title"><br><br> -->
+                วันที่:<br>
+                <input style="font-size: 20px; font-family: Kanit" type="date" name= "date" ><br><br>
+    <button style="text-align: right" type="submit" class="uk-button uk-button-primary" >Submit</button>
+    </form>
+>>>>>>> aba6a7d772d5142ed48b4f79830c068c6e9e972e
 </div>
 </div>
 

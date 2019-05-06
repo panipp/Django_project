@@ -2,6 +2,7 @@
 {% block header %}
 {% include 'base_header2.html' %}
 {% endblock %}
+{% load widget_tweaks %}
 
 <div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
   uk-scrollspy="cls:uk-animation-fade">
@@ -14,6 +15,7 @@
   </div>
 </div>
 
+<<<<<<< HEAD
 <div style="margin-left:20px; margin-top:20px;">
   <div class="uk-visible@l">
     <form method="post" enctype="multipart/form-data">
@@ -37,6 +39,26 @@
     </form>
   </div>
 </div>
+=======
+    <div style="margin-left:20px; margin-top:20px;">
+        <div class="uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid  style="font-family: Kanit">
+           
+            <!-- <input type="button" value="upload file"> -->
+              <form method="post" enctype="multipart/form-data" action = "/addNews_summit/">
+                หัวข้อ:<br>
+                {%csrf_token%}
+                <input id = "title" style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="title" "/><br><br>
+                วันที่:<br>
+                <input style="font-size: 20px; font-family: Kanit" type="date" name= "date" ><br><br>
+                <input style="font-family: Kanit" type="file" name="file"><br><br><br>
+                
+                <button style="text-align: right" type="submit" class="uk-button uk-button-primary" >Submit</button>
+          
+              </form>
+        
+        </div>
+    </div>
+>>>>>>> aba6a7d772d5142ed48b4f79830c068c6e9e972e
 
 {% block footer %}
 {% include 'base_footer.html' %}
