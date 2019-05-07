@@ -20,9 +20,9 @@ def activity(request):
 
 def exam(request):
     # pylint: disable=no-member
-    exam = Exam.objects.all()
+    exams = Exam.objects.all()
 
-    return render(request,'exam.html',{'exam':exam})
+    return render(request,'exam.html',{'exams':exams})
 
 def news(request,**kwargs):
      # pylint: disable=no-member
@@ -36,16 +36,16 @@ def activity2(request,**kwargs):
     return render(request,'activity2.html',{'activity2' : activity2})
 
 def english(request,):
-    english = Exam.objects.all().order_by('-date')
-    return render(request,'english.html',{'english':english})
+    englishs = Exam.objects.all().order_by('-date')
+    return render(request,'english.html',{'englishs':englishs})
 
 def math(request):
-    math = Exam.objects.all().order_by('-date')
-    return render(request,'math.html',{'math' : math})
+    maths = Exam.objects.all().order_by('-date')
+    return render(request,'math.html',{'maths' : maths})
 
 def others(request):
-    others = Exam.objects.all().order_by('-date')
-    return render(request,'others.html',{'others' : others})
+    otherss = Exam.objects.all().order_by('-date')
+    return render(request,'others.html',{'otherss' : otherss})
 
 def homeS(request):
     news = News.objects.all().order_by('-date')
@@ -56,20 +56,20 @@ def activityS(request):
     return render(request,'staff/activityS.html',{'activity' : activity})
 
 def examS(request):
-    exam = Exam.objects.all()
-    return render(request,'staff/examS.html',{'exam':exam})
+    exams = Exam.objects.all()
+    return render(request,'staff/examS.html',{'exams':exams})
 
 def englishS(request):
-    exam = Exam.objects.all()
-    return render(request,'staff/englishS.html',{'exam':exam})
+    exams = Exam.objects.all()
+    return render(request,'staff/englishS.html',{'exams':exams})
 
 def mathS(request):
-    exam = Exam.objects.all()
-    return render(request,'staff/mathS.html',{'exam':exam})
+    exams = Exam.objects.all()
+    return render(request,'staff/mathS.html',{'exams':exams})
 
 def othersS(request):
-    exam =Exam.objects.all()
-    return render(request,'staff/othersS.html',{'exam':exam})
+    exams =Exam.objects.all()
+    return render(request,'staff/othersS.html',{'exams':exams})
 
 def addNews(request):
     if request.method == 'POST':
