@@ -5,12 +5,6 @@ class AddNewsForm(forms.ModelForm):
     class Meta:
         model = News
         fields = ['title','date','file']
-        # model = News
-        # fields= '__all__'
-        # labels = {
-        #     "title" : _("title"),
-        #     "file" : _("document"),
-        # }
 
 class AddBoard(forms.ModelForm):
     class Meta:
