@@ -34,15 +34,15 @@
             {%csrf_token%}
             <span>หัวข้อ : </span><br>
             <input style="font-size: 40px;font-weight: bold; font-family: Kanit;width: 85%;" type="text"
-                name="title"><br><br>
-            <span>วันที่ : </span><br>
+                name="title" value="{{news.title}}"><br><br>
+            <span>วันที่ : {{news.date}}</span><br>
             <input style="font-size: 40px; font-family: Kanit;width: 85%;" type="date"><br><br>
             <input style="font-family: Kanit" type="file"><br><br><br>
             </form>
             <a class=".uk-text-lead" href=""><button style="text-align: right;font-size: 35px;"
                     class="uk-button uk-button-danger uk-button-large">อัพเดท</button></a>
-            <a class=".uk-text-lead" href=""><button style="text-align: right;font-size: 35px;"
-                    class="uk-button uk-button-danger uk-button-large">ลบ</button></a>
+            <a class=".uk-text-lead" href="/delete_news/{{news.id}}"><button style="text-align: right;font-size: 35px;"
+                    class="uk-button uk-button-danger uk-button-large" name="delete">ลบ</button></a>
                
     </div>
 </div>
