@@ -73,7 +73,7 @@ def othersS(request):
 
 def addNews(request):
     if request.method == 'POST':
-        form = AddNewsForm(request.POST,request.FILES)
+        form = AddNewsForm(request.POST,request.FILES,request.DATE)
         if form.is_valid():
             form.save()
             #save to db
@@ -86,7 +86,7 @@ def addNews(request):
 def addNews_summit(request):
     title = request.POST["title"]
     # file = request.FILES["file"]
-    # date = request.POST["date"]
+    date = request.POST["date"]
     news = News(title=title)
     news.save()
     return redirect('homeS')
