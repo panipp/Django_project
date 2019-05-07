@@ -4,7 +4,7 @@ from .models import    User,Exam,News,Board
 
 
 class NewsAdmin(admin.ModelAdmin):
-    list_news = ('title','date','detail','file',)
+    list_news = ('title','date','file',)
 
 class UserAdmin(admin.ModelAdmin):
     list_user = ('firstname','lastname','role',)

@@ -27,8 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*','192.168.43.186','192.168.1.39','192.168.0.4',]
 
-LOGIN_URL = '/oauth/login/tu/'
-LOGIN_REDIRECT_URL = '/home'
 
 # Application definition
 
@@ -154,3 +152,5 @@ MEDIA_URL = '/media/'
 
 SOCIAL_AUTH_TU_KEY = os.environ.get('TU_AUTH_KEY', None)
 SOCIAL_AUTH_TU_SECRET = os.environ.get('TU_AUTH_SECRET', None)
+LOGIN_URL = '/oauth/login/tu/'
+LOGIN_REDIRECT_URL = '/homes'

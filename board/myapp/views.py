@@ -5,8 +5,10 @@ from django.template import loader
 from django.views import generic
 from django.urls import reverse
 from .forms import AddNewsForm,AddExamForm,AddBoard
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def home(request):
     # pylint: disable=no-member
     news = News.objects.all().order_by('-date')
@@ -47,6 +49,7 @@ def others(request):
     otherss = Exam.objects.all().order_by('-date')
     return render(request,'others.html',{'otherss' : otherss})
 
+@login_required
 def homeS(request):
     news = News.objects.all().order_by('-date')
     return render(request,'staff/homeS.html',{'news':news})

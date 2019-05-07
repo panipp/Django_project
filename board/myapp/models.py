@@ -14,12 +14,10 @@ class News(models.Model):
     title = models.CharField(max_length=500)
     date = models.DateField()
     file = models.FileField(blank = True)
-    # detail = models.TextField(max_length = 300 , blank = True, null = True)
-
 
 class Board(models.Model):
     titleboard = models.CharField(max_length = 500,blank=True)
-    detail = models.TextField(max_length = 5000, null=True,blank=True) 
+    detail = models.TextField(max_length = 500, null=True,blank=True) 
     image = models.ImageField() 
     date = models.DateField(null=True)
 
