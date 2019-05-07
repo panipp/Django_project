@@ -41,7 +41,16 @@ INSTALLED_APPS = [
     'django_extensions',
     'crispy_forms',
     'widget_tweaks',
+    'social_django',
+    'tuauth',
 ]
+
+AUTHENTICATION_BACKENDS = (
+    
+    'django.contrib.auth.backends.ModelBackend',
+    'tuauth.backend.TUOAuth2',
+    
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -120,6 +129,18 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+SOCIAL_AUTH_PIPELINE = [ 
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.user.get_username',
+    'social_core.pipeline.user.create_user',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+    'social_core.pipeline.social_auth.associate_by_email',
+]
+
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
@@ -128,3 +149,6 @@ STATICFILES_DIRS = [
 STATIC_ROOT = './var/www/board/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = '/media/'
+
+SOCIAL_AUTH_TU_KEY = os.environ.get('TU_AUTH_KEY', None)
+SOCIAL_AUTH_TU_SECRET = os.environ.get('TU_AUTH_SECRET', None)
