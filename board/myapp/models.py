@@ -14,12 +14,12 @@ class News(models.Model):
     title = models.CharField(max_length=100)
     date = models.DateField(null = True)
     file = models.FileField(blank = True)
-    # detail = models.TextField(max_length = 100 , blank = True, null = True)
+    # detail = models.TextField(max_length = 300 , blank = True, null = True)
 
 
 class Board(models.Model):
     titleboard = models.CharField(max_length = 50,blank=True)
-    detail = models.TextField(max_length = 100) 
+    detail = models.TextField(max_length = 300) 
     image = models.ImageField() 
     date = models.DateField(null=True)
 
@@ -27,8 +27,8 @@ class Exam(models.Model):
     titleexam = models.CharField(max_length = 50,null=True)
     CATEGORY_CHOICES = (('ENG','English'),('MATH','Math'),('OTHERS','Others'))
     date = models.DateField()
-    category = models.CharField(max_length=10,choices=CATEGORY_CHOICES,default='ENG')
-    link = models.CharField(max_length = 100,null=True)
+    category = models.CharField(max_length=10,choices=CATEGORY_CHOICES,default='OTHERS')
+    link = models.CharField(max_length = 200,null=False)
 
 # class category(models.Model):
 #     choic = models.ForeignKey(Exam,on_delete=models.CASCADE)

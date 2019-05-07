@@ -36,7 +36,7 @@
                         <a class=".uk-text-lead" href="http://{{i.link}}" style="font-family: Kanit">{{i.titleexam}}</a>
                     </td>
                     <td><a class=".uk-text-lead" href="/delete_math/{{i.id}}"><button class="uk-button"
-                                style="color:red;">ลบลิ้งค์</button></a>
+                                style="color:red;" name="delete">ลบลิ้งค์</button></a>
                     </td>
                 </tr>
                 {%endif%}
@@ -71,8 +71,8 @@
                     <td>
                         <a class=".uk-text-lead" href="http://{{i.link}}" style="font-family: Kanit">{{i.titleexam}}</a>
                     </td>
-                    <td><a class=".uk-text-lead" href="/delete_math/{{i.id}}"><button class="uk-button"
-                                style="color:red;">ลบลิ้งค์</button></a>
+                    <td><a class=".uk-text-lead" href=""><button class="uk-button"
+                                style="color:red;" name="delete">ลบลิ้งค์</button></a>
                     </td>
                 </tr>
                 {%endif%}

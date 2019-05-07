@@ -25,27 +25,25 @@
       <input style="font-size: 20px; font-family: Kanit" type="date"><br><br>
       <span>File : </span><br>
       <input style="font-family: Kanit" type="file"><br><br><br>
-    </form>
-    <button style="text-align: right" type="submit" class="uk-button uk-button-primary">บันทึก</button>
-  </div>
+    
+    <button style="text-align: right" type="submit" class="uk-button uk-button-primary" >บันทึก</button>
+  </form>
+</div>
   <div class="uk-hidden@l" style="font-size:40px;margin-top: 50px;">
     <form method="post" enctype="multipart/form-data" action = "/addNews_summit/">
       {%csrf_token%}
-     
-      <tr>
-        <th>{{form.label_tag}}</th>
-        <td>{% render_field f class="uk-input" placeholder=form.label %} </td>
-      </tr>
       <span>หัวข้อ : </span><br>
       <input style="font-size: 40px;font-weight: bold; font-family: Kanit;width: 85%;" type="text" name="title"><br><br>
       <span>วันที่ : </span><br>
       <input style="font-size: 40px; font-family: Kanit;width: 85%;" type="date"><br><br>
       <span>File : </span><br>
       <input style="font-family: Kanit" type="file"><br><br><br>
-    </form>
+    
     <button style="text-align: right;font-size: 35px;" type="submit"
-      class="uk-button uk-button-primary uk-button-large">บันทึก</button>
-  </div>
+      class="uk-button uk-button-primary uk-button-large" >บันทึก</button>
+  </form>
+</div>
+
 </div>
 
 {% block footer %}

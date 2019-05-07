@@ -149,7 +149,7 @@ def addExam(request):
         form = AddExamForm(request.POST,request.FILES,request.CHOICE)
         if form.is_valid():
             #save to db
-            return redirect('addExam')
+            return redirect('examS')
     else:
         form = AddExamForm()
     return render(request,'staff/addExam.html',{'form':form})
@@ -161,18 +161,18 @@ def addExam_summit(request):
     # category = request.POST["category"]
     exam = Exam(titleexam=titleexam,link=link,date=date)
     exam.save()
-    return render(request,'staff/addExam.html')
+    return redirect('examS')
 
 def delete_english(request,id):
     #     #delete
     deleteeng = Exam.objects.get(pk=id).delete()
     
-    return render(request,'staff/englishS.html')
+    return redirect('englishS')
 
 def delete_math(request,id):
     deletemath = Exam.objects.get(pk=id).delete()
-    return render(request,'staff/mathS.html')
+    return redirect('mathS')
 
 def delete_others(request,id):
     deleteothers = Exam.objects.get(pk=id).delete()
-    return render(request,'staff/otherS.html')
+    return redirect('othersS')
