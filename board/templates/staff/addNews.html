@@ -17,16 +17,24 @@
 
 <div style="margin-left:20px; margin-top:20px;">
   <div class="uk-visible@l">
-    <form method="post" enctype="multipart/form-data" action = "/addNews_summit/">
+    <form method="post" enctype="multipart/form-data" action = "/addNews/">
       {%csrf_token%}
-      <span>หัวข้อ : </span><br>
-      <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="title"><br><br>
-      <span>วันที่ : </span><br>
    
-      <input style="font-size: 20px; font-family: Kanit" type="date" name="date" ><br><br>
-      <span>File : </span><br>
-      <input style="font-family: Kanit" type="file"><br><br><br>
-    
+      <!-- <span>หัวข้อ : </span><br> -->
+      {%for f in form%} 
+      {{f.label_tag}}
+      <br>{% render_field f class="input" style="font-size: 20px;font-weight: bold; font-family: Kanit" %}<br><br>
+      {%endfor%}
+      <!-- <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="title"><br><br> -->
+      <!-- <span>วันที่ : </span><br> -->
+      <!-- {% render_field from.date class="uk-input"%} -->
+     
+      <!-- <input style="font-size: 20px; font-family: Kanit" type="date" name="date" ><br><br> -->
+      
+      <!-- <span>File : </span><br>
+      {%render_field form.file%} -->
+      <!-- <input style="font-family: Kanit" type="file"><br><br><br> -->
+   
     <button style="text-align: right" type="submit" class="uk-button uk-button-primary" >บันทึก</button>
   </form>
 </div>

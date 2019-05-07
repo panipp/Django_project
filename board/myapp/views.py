@@ -73,7 +73,7 @@ def othersS(request):
 
 def addNews(request):
     if request.method == 'POST':
-        form = AddNewsForm(request.POST,request.FILES,request.DATE)
+        form = AddNewsForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             #save to db
@@ -84,11 +84,11 @@ def addNews(request):
     return render(request,'staff/addNews.html',{'form' : form})
 
 def addNews_summit(request):
-    title = request.POST["title"]
-    # file = request.FILES["file"]
-    date = request.POST["date"]
-    news = News(title=title)
-    news.save()
+    # title = request.POST["title"]
+    # # file = request.FILES["file"]
+    # date = request.POST["date"]
+    # news = News(title=title)
+    # news.save()
     return redirect('homeS')
 
 def delete_news(request,**kwargs):
@@ -110,6 +110,23 @@ def updateNews(request,**kwargs):
     pk = kwargs['pk']
     news = News.objects.get(pk=pk)
     return render(request,'staff/update_news.html',{'news':news})
+
+def updateNews2(request,**kwargs):
+    pk = kwargs['pk']
+    u = News.objects.get(pk=pk)
+    if not u:
+        print("error")
+    if request.method == 'POST':
+        form = AddNewsForm(request.POST,request.FILES,isinstance=u)
+        if form.is_valid():
+            form.save()
+            return redirect('homeS')
+    else:
+        form = AddNewsForm(instance=u)
+    return render(request,'staff/update_news.html',{'form' : form})
+
+def succes(request):
+    return redirect('homeS')
 
 def addActivity(request):
     # pylint: disable=no-member

@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*','192.168.43.186','192.168.1.39','192.168.0.4',]
 
+LOGIN_URL = '/oauth/login/tu/'
+LOGIN_REDIRECT_URL = '/home'
 
 # Application definition
 

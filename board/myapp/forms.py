@@ -7,12 +7,21 @@ class DateInput(forms.DateInput):
     input_type = 'date'
 
 class AddNewsForm(forms.ModelForm):
+    title = News('title')
+    date = News ('date')
     class Meta:
         model = News
-        fields = '__all__'
+        
         widget = {
-            'date' : DateInput()
+            'date' : DateInput(),
+            
         }
+        labels = {
+            "title" : _("หัวข้อ  "),
+            "date" : _("วันที่  "),
+            "file" : _("เอกสารแนบ"),
+        }
+        fields = ['title','date','file']
         
 class AddBoard(forms.ModelForm):
     class Meta:
