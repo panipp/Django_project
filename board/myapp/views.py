@@ -92,7 +92,7 @@ def addNews_summit(request):
 def delete_news(request,**kwargs):
     pk = kwargs['pk']
     delete_news = News.objects.get(pk=pk).delete()
-    return render(request,'staff/homesS.html')
+    return render(request,'homesS.html')
 
 # def get_title(request):
 #     if request.method == 'POST':
@@ -130,9 +130,8 @@ def addActivity_summit(request):
     board.save()
     return render(request,'staff/addActivity.html')    
 
-def updateActivity(request,**kwargs):
+def update_activity(request,**kwargs):
     pk = kwargs['pk']
-    # pylint: disable=no-member
     activity = Board.objects.filter(pk=pk)
     return render(request,'staff/update_activity.html',{'activity':activity})
 
