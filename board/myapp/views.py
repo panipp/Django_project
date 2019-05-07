@@ -89,9 +89,10 @@ def addNews_summit(request):
     news.save()
     return render(request,'staff/addNews.html')
 
-def delete_news(request,id):
-    deletenews = News.objects.get(pk=id).delete()
-    return render(request,'staff/update_news.html')
+def delete_news(request,**kwargs):
+    pk = kwargs['pk']
+    delete_news = News.objects.get(pk=pk).delete()
+    return render(request,'staff/homesS.html')
 
 # def get_title(request):
 #     if request.method == 'POST':
@@ -103,9 +104,10 @@ def delete_news(request,id):
 #         form = AddNewsForm()
 #     return render(request,'staff/addNews.html',{'form' : form})
 
-def updateNews(request):
-
-    return render(request,'staff/update_news.html')
+def updateNews(request,**kwargs):
+    pk = kwargs['pk']
+    news = News.objects.get(pk=pk)
+    return render(request,'staff/update_news.html',{'news':news})
 
 def addActivity(request):
     # pylint: disable=no-member

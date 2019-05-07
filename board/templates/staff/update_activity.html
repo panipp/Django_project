@@ -31,7 +31,7 @@
         </form>
     </div>
     <div class="uk-hidden@l" style="font-size:40px;margin-top: 50px;">
-        <form method="post" enctype="multipart/form-data" action="/update_activity/">
+        <form method="post" enctype="multipart/form-data" action="/updateActivity/">
             {%csrf_token%}
             <span>หัวข้อ : </span><br>
             <input style="font-size: 40px;font-weight: bold; width: 85%;" type="text" name="titleboard"><br><br>
@@ -43,9 +43,11 @@
             <input type="file" name="files" multiple /><br><br>
             <a class=".uk-text-lead" href=""><button style="text-align: right;font-size: 35px;"
                     class="uk-button uk-button-danger uk-button-large">อัพเดท</button></a>
+            </form>
+
             <a class=".uk-text-lead" href="/delete_board/{{activity.id}"><button style="text-align: right;font-size: 35px;"
-                    class="uk-button uk-button-danger uk-button-large">ลบ</button></a>
-        </form>
+                    class="uk-button uk-button-danger uk-button-large" type="submit" name="delete">ลบ</button></a>
+        
     </div>
 </div>
 </div>

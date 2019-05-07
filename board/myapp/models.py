@@ -12,7 +12,7 @@ class User(models.Model):
 
 class News(models.Model):
     title = models.CharField(max_length=100)
-    date = models.DateField()
+    date = models.DateField(null = True)
     file = models.FileField(blank = True)
     # detail = models.TextField(max_length = 100 , blank = True, null = True)
 
