@@ -24,7 +24,7 @@ class Board(models.Model):
     date = models.DateField(null=True)
 
 class Exam(models.Model):
-    titleexam = models.CharField(max_length = 50,null=True)
+    titleexam = models.CharField(max_length = 50,default=" ")
     CATEGORY_CHOICES = (('ENG','English'),('MATH','Math'),('OTHERS','Others'))
     date = models.DateField()
     category = models.CharField(max_length=10,choices=CATEGORY_CHOICES,default='OTHERS')
