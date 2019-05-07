@@ -20,8 +20,8 @@
             {%csrf_token%}
             <span>หัวข้อ : </span><br>
             <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="title" value="{{news.title}}"><br><br>
-            <span>วันที่ : </span><br>
-            <input style="font-size: 20px; font-family: Kanit" type="date" id="date" value ="{{ news.date|date:'%Y-%m-%d' }}"><br><br>
+            <span>วันที่ : {{news.date}} </span><br>
+            <input style="font-size: 20px; font-family: Kanit" type="date" id="date" ><br><br>
             <input style="font-family: Kanit" type="file"><br><br><br>
             <!-- edit  -->
         </form>

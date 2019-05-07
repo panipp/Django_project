@@ -48,7 +48,7 @@ urlpatterns = [
     path('addActivity/',views.addActivity,name='addActivity'),
     path('addActivity_summit/',views.addActivity_summit,name='addActivity_summit'),
     path('update_activity/<int:pk>',views.update_activity,name='update_activity'),
-    path('delete_board/<int:id>',views.delete_board,name="delete_board"),
+    path('delete_board/<int:pk>',views.delete_board,name="delete_board"),
     path('addExam/',views.addExam,name='addExam'),
     path('addExam_summit/',views.addExam_summit,name="addExam_summit"),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

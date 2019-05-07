@@ -135,12 +135,13 @@ def addActivity_summit(request):
 def update_activity(request,**kwargs):
     # pylint: disable=no-member
     pk = kwargs['pk']
-    activity = Board.objects.filter(pk=pk)
+    activity = Board.objects.get(pk=pk)
     return render(request,'staff/update_activity.html',{'activity':activity})
 
-def delete_board(request,id):
+def delete_board(request,**kwargs):
+    pk = kwargs['pk']
     # pylint: disable=no-member
-    deleteboard = Board.objects.get(pk=id).delete()
+    deleteboard = Board.objects.get(pk=pk).delete()
     return redirect('activityS')
 
 def addExam(request):
