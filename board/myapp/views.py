@@ -96,18 +96,8 @@ def addNews_summit(request):
 
 def delete_news(request,**kwargs):
     pk = kwargs['pk']
-    delete_news = News.objects.get(pk=pk).delete()
+    delete_news = News.objects.filter(pk=pk).delete()
     return redirect('homeS')
-
-# def get_title(request):
-#     if request.method == 'POST':
-#         form = AddNewsForm(request.POST)
-#         if form.is_valid():
-#             return HttpResponseRedirect('/thanks/')
-
-#     else:
-#         form = AddNewsForm()
-#     return render(request,'staff/addNews.html',{'form' : form})
 
 def updateNews(request,**kwargs):
     pk = kwargs['pk']
@@ -116,11 +106,12 @@ def updateNews(request,**kwargs):
 
 def updateNews2(request,**kwargs):
     pk = kwargs['pk']
+    # pylint: disable=no-member
     u = News.objects.get(pk=pk)
     if not u:
-        print("error")
+        return redirect('homeS')
     if request.method == 'POST':
-        form = AddNewsForm(request.POST,request.FILES,isinstance=u)
+        form = AddNewsForm(request.POST,request.FILES,instance=u)
         if form.is_valid():
             form.save()
             return redirect('homeS')
@@ -128,34 +119,42 @@ def updateNews2(request,**kwargs):
         form = AddNewsForm(instance=u)
     return render(request,'staff/update_news.html',{'form' : form})
 
-def succes(request):
-    return redirect('homeS')
 
 def addActivity(request):
     # pylint: disable=no-member
-    activity = Board.objects.all()
+    # activity = Board.objects.all()
     if request.method == 'POST':
         form = AddBoard(request.POST,request.FILES)
         if form.is_valid():
+            form.save()
             #save to db
-            return redirect('addActivity')
+            return redirect('activityS')
     else:
         form = AddBoard()
     return render(request,'staff/addActivity.html',{'form':form})
 
 def addActivity_summit(request):
-    titleboard = request.POST["titleboard"]
-    # date = request.POST['date']
-    detail = request.POST["detail"]
-    # image = request.POST["image"]
-    board = Board(titleboard=titleboard,detail=detail)
-    board.save()
+    # titleboard = request.POST["titleboard"]
+    # # date = request.POST['date']
+    # detail = request.POST["detail"]
+    # # image = request.POST["image"]
+    # board = Board(titleboard=titleboard,detail=detail)
+    # board.save()
     return render(request,'staff/addActivity.html')    
 
 def update_activity(request,**kwargs):
     # pylint: disable=no-member
     pk = kwargs['pk']
-    activity = Board.objects.get(pk=pk)
+    u = Board.objects.get(pk=pk)
+    if not u:
+        return redirect('activityS')
+    if request.method == 'POST':
+        form = AddBoard(request.POST,request.FILES,instance=u)
+        if form.is_valid():
+            form.save()
+            return redirect('activityS')
+    else:
+        form = AddBoard(instance=u)
     return render(request,'staff/update_activity.html',{'activity':activity})
 
 def delete_board(request,**kwargs):
@@ -168,6 +167,7 @@ def addExam(request):
     if request.method == 'POST':
         form = AddExamForm(request.POST,request.FILES,request.CHOICE)
         if form.is_valid():
+            form.save()
             #save to db
             return redirect('examS')
     else:
@@ -175,12 +175,12 @@ def addExam(request):
     return render(request,'staff/addExam.html',{'form':form})
 
 def addExam_summit(request):
-    titleexam = request.POST["titleexam"]
-    link = request.POST["link"]
-    date = request.POST["date"]
-    # category = request.POST["category"]
-    exam = Exam(titleexam=titleexam,link=link,date=date)
-    exam.save()
+    # titleexam = request.POST["titleexam"]
+    # link = request.POST["link"]
+    # date = request.POST["date"]
+    # # category = request.POST["category"]
+    # exam = Exam(titleexam=titleexam,link=link,date=date)
+    # exam.save()
     return redirect('examS')
 
 def delete_english(request,id):
@@ -196,3 +196,12 @@ def delete_math(request,id):
 def delete_others(request,id):
     deleteothers = Exam.objects.get(pk=id).delete()
     return redirect('othersS')
+
+def pdf_view(request,**kwargs):
+    pk=kwargs['pk']
+    pdf = News.objects.get(pk=pk)
+    with open('/path/to/my/file.pdf', 'r') as pdf:
+        response = HttpResponse(pdf.read(), mimetype='application/pdf')
+        response['Content-Disposition'] = 'inline;filename=some_file.pdf'
+        return response
+    pdf.closed

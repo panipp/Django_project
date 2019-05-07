@@ -45,14 +45,14 @@ urlpatterns = [
     path('delete_others/<int:id>',views.delete_others,name='delete_others'),
     path('addNews/',views.addNews,name='addNews'),
     path('updateNews/<int:pk>/',views.updateNews,name='updateNews'),
-    path('updateNews2/<int:pk/',views.updateNews2,name='updateNews2'),
-    path('success',views.succes,name='success'),
+    path('updateNews2/<int:pk>/',views.updateNews2,name='updateNews2'),
     path('delete_news/<int:pk>/',views.delete_news,name='delete_news'),
     path('addActivity/',views.addActivity,name='addActivity'),
     path('addActivity_summit/',views.addActivity_summit,name='addActivity_summit'),
-    path('update_activity/<int:pk>',views.update_activity,name='update_activity'),
+    path('update_activity/<int:pk>/',views.update_activity,name='update_activity'),
     path('delete_board/<int:pk>',views.delete_board,name="delete_board"),
     path('addExam/',views.addExam,name='addExam'),
     path('addExam_summit/',views.addExam_summit,name="addExam_summit"),
+    path('pdf_view/<int:id>/',views.pdf_view,name="pdf_view"),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

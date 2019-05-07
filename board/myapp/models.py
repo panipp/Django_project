@@ -13,7 +13,7 @@ class User(models.Model):
 class News(models.Model):
     title = models.CharField(max_length=500)
     date = models.DateField()
-    file = models.FileField(blank = True)
+    file = models.FileField(upload_to='files/',blank = True)
 
 class Board(models.Model):
     titleboard = models.CharField(max_length = 500,blank=True)
@@ -28,7 +28,7 @@ class Exam(models.Model):
     category = models.CharField(max_length=10,choices=CATEGORY_CHOICES,default='OTHERS')
     link = models.CharField(max_length = 200,null=False)
 
-# class category(models.Model):
-#     choic = models.ForeignKey(Exam,on_delete=models.CASCADE)
-#     catalog = models.CharField(max_length=10,null=True)
+# class subject(models.Model):
+#     subject = models.ForeignKey('Exam',on_delete=models.CASCADE)
+#     eng = models.CharField()
 

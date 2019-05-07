@@ -2,7 +2,7 @@
 {% block header %}
 {% include 'base_header2.html' %}
 {% endblock %}
-
+{% load widget_tweaks %}
 <div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
     uk-scrollspy="cls:uk-animation-fade">
     <div class="uk-position-relative uk-visible-toggle uk-light">
@@ -16,18 +16,24 @@
 
 <div style="margin-left:20px; margin-top:20px;">
     <div class="uk-visible@l">
-        <form method="post" enctype="multipart/form-data" action="/updateNews2/">
+        <form method="post" enctype="multipart/form-data"  >
             {%csrf_token%}
-            <span>หัวข้อ : </span><br>
-            <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="title" value="{{news.title}}"><br><br>
-            <span>วันที่ : {{news.date}} </span><br>
-            <input style="font-size: 20px; font-family: Kanit" type="date" id="date" ><br><br>
-            <input style="font-family: Kanit" type="file"><br><br><br>
+            <!-- <span>หัวข้อ : {{news.title}} </span><br> -->
+            <!-- <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="title" value="{{news.title}}"><br><br> -->
+            <!-- <span>วันที่ : {{news.date}} </span><br> -->
+            <!-- <input style="font-size: 20px; font-family: Kanit" type="date" id="date" ><br><br>
+            <span>เอกสารแนบ : {{news.file}} </span><br>
+            <input style="font-family: Kanit" type="file" ><br><br><br> -->
             <!-- edit  --> 
-            <a class=".uk-text-lead" href="/updateNews2/{{news.id}}"><button class="uk-button uk-button-danger">อัพเดท</button></a>
+            {%for f in form%} 
+            {{f.label_tag}}
+      <br>  {% render_field f class="input" style="font-size: 20px;font-weight: bold; font-family: Kanit" %}<br><br>
+            {%endfor%}
+            <a class=".uk-text-lead" href=""><button class="uk-button uk-button-danger">อัพเดท</button></a>
+           
         </form>
        
-        <a class=".uk-text-lead" href="/delete_news/{{news.id}}"><button class="uk-button uk-button-danger" name="delete">ลบ</button></a>
+        <!-- <a class=".uk-text-lead" href="/delete_news/{{news.id}}"><button class="uk-button uk-button-danger" name="delete">ลบ</button></a> -->
         
     </div>
     <div class="uk-hidden@l" style="font-size:40px;margin-top: 50px;">
@@ -40,10 +46,10 @@
             <input style="font-size: 40px; font-family: Kanit;width: 85%;" type="date"><br><br>
             <input style="font-family: Kanit" type="file"><br><br><br>
             </form>
-            <a class=".uk-text-lead" href="/updateNews2/{{news.id}}"><button style="text-align: right;font-size: 35px;"
+            <a class=".uk-text-lead" href=""><button style="text-align: right;font-size: 35px;"
                     class="uk-button uk-button-danger uk-button-large">อัพเดท</button></a>
-            <a class=".uk-text-lead" href="/delete_news/{{news.id}}"><button style="text-align: right;font-size: 35px;"
-                    class="uk-button uk-button-danger uk-button-large" name="delete">ลบ</button></a>
+            <!-- <a class=".uk-text-lead" href="/delete_news/{{news.id}}"><button style="text-align: right;font-size: 35px;"
+                    class="uk-button uk-button-danger uk-button-large" name="delete">ลบ</button></a> -->
                
     </div>
 </div>

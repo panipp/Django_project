@@ -17,9 +17,9 @@
 </div>
 <div style="margin-left:20px; margin-right:20px;margin-top: 15px;" uk-scrollspy="cls:uk-animation-fade">
     <div class="uk-visible@l">
-        <form method="post" enctype="multipart/form-data" action="/addActivity_summit/">
+        <form method="post" enctype="multipart/form-data" action="/addActivity/">
             {%csrf_token%}
-            <span>หัวข้อ : </span><br>
+            <!-- <span>หัวข้อ : </span><br>
             <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="titleboard"><br><br>
             <span>วันที่ : </span><br>
             <input style="font-size: 20px; font-family: Kanit" type="date"><br><br>
@@ -27,7 +27,11 @@
             <textarea id="txtArea" rows="15" cols="100" style="resize:none;font-size: 20px; "
                 name="detail"></textarea><br><br>
             <span>รูปภาพ : </span><br>
-            <input type="file" name="files" multiple /><br><br>
+            <input type="file" name="files" multiple /><br><br> -->
+            {%for f in form%} 
+            {{f.label_tag}}
+            <br>{% render_field f class="input" style="font-size: 20px;font-weight: bold; font-family: Kanit" %}<br><br>
+            {%endfor%}
         
         <button style="text-align: right" type="submit" class="uk-button uk-button-primary">บันทึก</button>
     </form>

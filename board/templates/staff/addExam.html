@@ -17,9 +17,9 @@
 </div>
 <div style="margin-left:20px; margin-right:20px;margin-top: 15px;" uk-scrollspy="cls:uk-animation-fade">
     <div class="uk-visible@l">
-        <form method="post" enctype="multipart/form-data" action = "/addExam_summit/">
+        <form method="post" enctype="multipart/form-data" action = "/addExam/">
             {%csrf_token%}
-            <span>หัวข้อ : </span><br>
+            <!-- <span>หัวข้อ : </span><br>
             <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="titleexam"><br><br>
             <span>วันที่ : </span><br>
             <input style="font-size: 20px; font-family: Kanit" type="date" name="date"><br><br>
@@ -30,7 +30,11 @@
             <input type="radio" name="category" value="math"> คณิตศาสตร์<br>
             <input type="radio" name="category" value="others"> หมวดอื่นๆ<br>
             <input type="radio" name="category" value="add">
-            <input type="text" name="title" style="width:46%;"><br><br>
+            <input type="text" name="title" style="width:46%;"><br><br> -->
+            {%for f in form%} 
+            {{f.label_tag}}
+            <br>{% render_field f class="input" style="font-size: 20px;font-weight: bold; font-family: Kanit" %}<br><br>
+            {%endfor%}
        
         <button style="text-align: right" type="submit" class="uk-button uk-button-primary">บันทึก</button>
      </form>

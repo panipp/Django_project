@@ -6,6 +6,9 @@ from django.forms import DateTimeField
 class DateInput(forms.DateInput):
     input_type = 'date'
 
+class ChoiceInput(forms.ChoiceField):
+    choice_type = 'category'
+
 class AddNewsForm(forms.ModelForm):
     title = News('title')
     date = News ('date')
@@ -24,13 +27,37 @@ class AddNewsForm(forms.ModelForm):
         fields = ['title','date','file']
         
 class AddBoard(forms.ModelForm):
+    titleboard = Board('titleboard')
+
     class Meta:
         model = Board
+        widget = {
+            'date' : DateInput(),
+            
+        }
+        labels = {
+            "titleboard" : _("หัวข้อ  "),
+            "date" : _("วันที่  "),
+            "detail" : _("คำอธิบาย "),
+            "image" : _("รูปภาพ "),
+        }
         fields = ['titleboard','detail','image','date']
 
 class AddExamForm(forms.ModelForm):
-    subject = forms.ChoiceField(choices=Exam.CATEGORY_CHOICES)
+    # subject = forms.ChoiceField(choices=Exam.CATEGORY_CHOICES)
     
     class Meta:
         model = Exam
-        fields = ['titleexam','link','date']
+        widget = {
+            'date' : DateInput(),
+            
+        }
+        
+        labels = {
+            "titleexam" : _("หัวข้อ  "),
+            "link" : _("link "),
+            "date" : _("วันที่  "),
+            "category" : _("หมวดวิชา  "),
+        }
+        
+        fields = ['titleexam','link','date',]
