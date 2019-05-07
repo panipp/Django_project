@@ -23,10 +23,11 @@
             <span>วันที่ : </span><br>
             <input style="font-size: 20px; font-family: Kanit" type="date" id="date" value ="{{ news.date|date:"yyyy-mm-dd" }}"><br><br>
             <input style="font-family: Kanit" type="file"><br><br><br>
-            <a class=".uk-text-lead" href=""><button class="uk-button uk-button-danger">อัพเดท</button></a>
-            </form>
-            <a class=".uk-text-lead" href="/delete_news/{{news.id}}"><button class="uk-button uk-button-danger" type="submit" name="delete">ลบ</button></a>
             <!-- edit  -->
+        </form>
+
+        <a class=".uk-text-lead" href=""><button class="uk-button uk-button-danger">อัพเดท</button></a>
+        <a class=".uk-text-lead" href="/delete_news/{{news.id}}"><button class="uk-button uk-button-danger" name="delete">ลบ</button></a>
         
     </div>
     <div class="uk-hidden@l" style="font-size:40px;margin-top: 50px;">
@@ -38,12 +39,12 @@
             <span>วันที่ : </span><br>
             <input style="font-size: 40px; font-family: Kanit;width: 85%;" type="date"><br><br>
             <input style="font-family: Kanit" type="file"><br><br><br>
-            <a class=".uk-text-lead" href=""><button style="text-align: right;font-size: 35px; display: inline-block;"
+            <a class=".uk-text-lead" href=""><button style="text-align: right;font-size: 35px;"
                     class="uk-button uk-button-danger uk-button-large">อัพเดท</button></a>
             </form>
             <a class=".uk-text-lead" href=""><button style="text-align: right;font-size: 35px;"
                     class="uk-button uk-button-danger uk-button-large">ลบ</button></a>
-        
+               
     </div>
 </div>
 

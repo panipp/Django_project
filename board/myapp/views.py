@@ -92,7 +92,7 @@ def addNews_summit(request):
 def delete_news(request,**kwargs):
     pk = kwargs['pk']
     delete_news = News.objects.get(pk=pk).delete()
-    return render(request,'homesS.html')
+    return redirect('homeS')
 
 # def get_title(request):
 #     if request.method == 'POST':
