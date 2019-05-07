@@ -75,24 +75,26 @@ def addNews(request):
     if request.method == 'POST':
         form = AddNewsForm(request.POST,request.FILES)
         if form.is_valid():
+            form.save()
             #save to db
-            return redirect('addNews')
+            return redirect('homeS')
     else:
         form = AddNewsForm()
+
     return render(request,'staff/addNews.html',{'form' : form})
 
 def addNews_summit(request):
     title = request.POST["title"]
-    # file = request.POST["file"]
-    date = request.POST["date"]
-    news = News(title=title,date=date)
+    # file = request.FILES["file"]
+    # date = request.POST["date"]
+    news = News(title=title)
     news.save()
-    return render(request,'staff/addNews.html')
+    return redirect('homeS')
 
 def delete_news(request,**kwargs):
     pk = kwargs['pk']
     delete_news = News.objects.get(pk=pk).delete()
-    return render(request,'homesS.html')
+    return redirect('homeS')
 
 # def get_title(request):
 #     if request.method == 'POST':
@@ -131,6 +133,7 @@ def addActivity_summit(request):
     return render(request,'staff/addActivity.html')    
 
 def update_activity(request,**kwargs):
+    # pylint: disable=no-member
     pk = kwargs['pk']
     activity = Board.objects.filter(pk=pk)
     return render(request,'staff/update_activity.html',{'activity':activity})
@@ -138,7 +141,7 @@ def update_activity(request,**kwargs):
 def delete_board(request,id):
     # pylint: disable=no-member
     deleteboard = Board.objects.get(pk=id).delete()
-    return render(request,'staff/update_activity.html')
+    return redirect('activityS')
 
 def addExam(request):
     if request.method == 'POST':

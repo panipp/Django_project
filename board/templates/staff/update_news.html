@@ -21,7 +21,7 @@
             <span>หัวข้อ : </span><br>
             <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="title" value="{{news.title}}"><br><br>
             <span>วันที่ : </span><br>
-            <input style="font-size: 20px; font-family: Kanit" type="date" id="date" value ="{{ news.date|date:"yyyy-mm-dd" }}"><br><br>
+            <input style="font-size: 20px; font-family: Kanit" type="date" id="date" value ="{{ news.date|date:'%Y-%m-%d' }}"><br><br>
             <input style="font-family: Kanit" type="file"><br><br><br>
             <a class=".uk-text-lead" href=""><button class="uk-button uk-button-danger">อัพเดท</button></a>
             </form>

@@ -29,3 +29,8 @@ class Exam(models.Model):
     date = models.DateField()
     category = models.CharField(max_length=10,choices=CATEGORY_CHOICES,default='ENG')
     link = models.CharField(max_length = 100,null=True)
+
+# class category(models.Model):
+#     choic = models.ForeignKey(Exam,on_delete=models.CASCADE)
+#     catalog = models.CharField(max_length=10,null=True)
+

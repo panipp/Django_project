@@ -30,6 +30,11 @@
   <div class="uk-hidden@l" style="font-size:40px;margin-top: 50px;">
     <form method="post" enctype="multipart/form-data" action = "/addNews_summit/">
       {%csrf_token%}
+     
+      <tr>
+        <th>{{form.label_tag}}</th>
+        <td>{% render_field f class="uk-input" placeholder=form.label %} </td>
+      </tr>
       <span>หัวข้อ : </span><br>
       <input style="font-size: 40px;font-weight: bold; font-family: Kanit;width: 85%;" type="text" name="title"><br><br>
       <span>วันที่ : </span><br>
