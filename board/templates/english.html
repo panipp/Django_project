@@ -24,7 +24,7 @@
                 </h3>
                 <tr>
                     <th>วันที่</th>
-                    <th>หัวข้อ</th>
+                    <th class="uk-table-expand">หัวข้อ</th>
                 </tr>
                 {%for i in english%}
                 {%if i.category == 'ENG'%}
@@ -42,8 +42,8 @@
 
         </table>
         <ul class="uk-pagination">
-            <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> Previous</a></li>
-            <li class="uk-margin-auto-left"><a href="#">Next <span class="uk-margin-small-left"
+            <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> ก่อนหน้า</a></li>
+            <li class="uk-margin-auto-left"><a href="#">ถัดไป <span class="uk-margin-small-left"
                         uk-pagination-next></span></a></li>
         </ul>
     </div>
@@ -56,7 +56,7 @@
                 </h3>
                 <tr>
                     <th style="font-size: 30px;">วันที่</th>
-                    <th style="font-size: 30px;">หัวข้อ</th>
+                    <th class="uk-table-expand" style="font-size: 30px;">หัวข้อ</th>
                 </tr>
                 {%for i in english%}
                 {%if i.category == 'ENG'%} 
@@ -72,8 +72,8 @@
 
         </table>
         <ul class="uk-pagination" style="font-size:30px;">
-            <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> Previous</a></li>
-            <li class="uk-margin-auto-left"><a href="#">Next <span class="uk-margin-small-left"
+            <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> ก่อนหน้า</a></li>
+            <li class="uk-margin-auto-left"><a href="#">ถัดไป <span class="uk-margin-small-left"
                         uk-pagination-next></span></a></li>
         </ul>
     </div>
