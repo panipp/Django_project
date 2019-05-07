@@ -24,7 +24,8 @@
             <span>วันที่ : </span><br>
             <input style="font-size: 20px; font-family: Kanit" type="date" name="date" value = "{{activity.date|date:"mm-dd-yyyy"}}"><br><br>
             <span>คำอธิบาย : </span><br>
-            <textarea id="txtArea" rows="20" cols="100" style="resize:none;" name="detail" value="detail"></textarea><br><br>
+            <textarea id="txtArea" rows="15" cols="100" style="resize:none;font-size: 20px;" name="detail" value="detail"></textarea><br><br>
+            <span>รูปภาพ : </span><br>
             <input type="file" name="files" multiple /><br><br>
             </form>
             <a class=".uk-text-lead" href=""><button class="uk-button uk-button-danger">อัพเดท</button></a>
@@ -37,10 +38,11 @@
             <span>หัวข้อ : </span><br>
             <input style="font-size: 40px;font-weight: bold; width: 85%;" type="text" name="titleboard"><br><br>
             <span>วันที่ : </span><br>
-            <input style="font-size: 40px; font-family: Kanit; width: 85%;" type="date" name="date" value = "{{activity.date}}><br><br>
+            <input style="font-size: 40px; font-family: Kanit; width: 85%;" type="date" name="date" value = "{{activity.date}}"><br><br>
             <span>คำอธิบาย : </span><br>
             <textarea id="txtArea" rows="15" cols="100"
                 style="resize:none; width: 85%;font-size: 40px;" name="detail" value="detail"></textarea><br><br>
+                <span>รูปภาพ : </span><br>
             <input type="file" name="files" multiple /><br><br>
             </form>
             <a class=".uk-text-lead" href=""><button style="text-align: right;font-size: 35px;"
