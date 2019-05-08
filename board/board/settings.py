@@ -150,7 +150,9 @@ STATIC_ROOT = './var/www/board/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = '/media/'
 
-SOCIAL_AUTH_TU_KEY = os.environ.get('TU_AUTH_KEY', None)
-SOCIAL_AUTH_TU_SECRET = os.environ.get('TU_AUTH_SECRET', None)
+# SOCIAL_AUTH_TU_KEY = os.environ.get('TU_AUTH_KEY', None)
+# SOCIAL_AUTH_TU_SECRET = os.environ.get('TU_AUTH_SECRET', None)
+SOCIAL_AUTH_TU_KEY = 'Dn4D1FElNls9j5LwqzTbpnmBVo78gfaf6RE1N5rG'
+SOCIAL_AUTH_TU_SECRET = 'UwQs6x98scWkJ4zaf0dTfIdWTTMKisLOkrgSvVJEtqXkLoMt12TNa3FQEWFTVBvXDdj6kiyaUr5fKoW2VXPMoFPRhCNwkkpePcfzuTUWQKShG0v9bC7aWLHMDoS449uk'
 LOGIN_URL = '/oauth/login/tu/'
 LOGIN_REDIRECT_URL = '/homes'
