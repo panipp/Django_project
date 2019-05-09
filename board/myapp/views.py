@@ -22,7 +22,7 @@ def activity(request):
 
 def exam(request):
     # pylint: disable=no-member
-    exams = Exam.objects.all()
+    exams = Exam.objects.all()[:2]
 
     return render(request,'exam.html',{'exams':exams})
 

@@ -19,7 +19,7 @@
     <div class="uk-visible@l">
         <form method="post" enctype="multipart/form-data " action="update_activity" >
             {%csrf_token%}
-            {%for f in form%} 
+            {%for f in board %} 
             {{f.label_tag}}
             <br>{% render_field f class="input" style="font-size: 20px;font-weight: bold; font-family: Kanit" %}<br><br>
             {%endfor%}

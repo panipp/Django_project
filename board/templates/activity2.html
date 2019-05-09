@@ -20,13 +20,14 @@
         <span class=".uk-text-lead" style="font-size: 35px;font-weight: bold; font-family: Kanit">{{activity2.titleboard}}</span>
     </h3>
     <h6 style="font-size: 15px;margin-top: 0; font-weight: lighter; font-family: Kanit">วันที่ {{activity2.date}}</h6>
-    <br><br><br><br><br> <br><br><br><br><br> <br><br><br><br><br>
+    <span class=".uk-text-lead" style="font-size: 20px;font-family: Kanit">{{activity2.detail}}</span>
+    <br><br> <br><br><br><br><br>
     <div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
         uk-scrollspy="cls:uk-animation-fade">
         <div class="uk-position-relative uk-visible-toggle uk-light">
             <ul class="uk-slideshow-items">
                 <li>
-                    <img src="{% static 'images/1.jpg' %}" alt="" uk-cover height="500" width="1100">
+                    <img src="{{activity2.image.url}}"  alt="" uk-cover height="500" width="1100">
                 </li>
 
             </ul>
@@ -50,13 +51,15 @@
         <span class=".uk-text-lead" style="font-size: 50px;font-weight: bold; font-family: Kanit">{{activity2.titleboard}}</span>
     </h3>
     <h6 style="font-size: 25px;margin-top: 0; font-weight: lighter; font-family: Kanit">วันที่ {{activity2.date}}</h6>
-    <br><br><br><br><br> <br><br><br><br><br> <br><br><br><br><br>
+    <br><br><br><br><br> <br><br><br>
+    <span class=".uk-text-lead" style="font-size: 50px;font-weight: bold; font-family: Kanit">{{activity2.detail}}</span>
+    <br><br> <br><br><br><br><br>
     <div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
         uk-scrollspy="cls:uk-animation-fade">
         <div class="uk-position-relative uk-visible-toggle uk-light">
             <ul class="uk-slideshow-items">
                 <li>
-                    <img src="{% static 'images/1.jpg' %}" alt="" uk-cover height="500" width="1100">
+                    <img src="{% static '{{activity2.image.url}}' %}" alt="" uk-cover height="500" width="1100">
                 </li>
 
             </ul>
