@@ -15,16 +15,16 @@
         </ul>
     </div>
 </div>
-<div style="margin-left:20px; margin-right:20px;margin-top: 15px;" uk-scrollspy="cls:uk-animation-fade">
+<div class="container" uk-scrollspy="cls:uk-animation-fade">
     <div class="uk-visible@l">
         <form method="post" enctype="multipart/form-data" action = "/addExam/">
             {%csrf_token%}
             <!-- <span>หัวข้อ : </span><br>
-            <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="titleexam"><br><br>
+            <input style="font-size: 20px;font-weight: bold;" type="text" name="titleexam"><br><br>
             <span>วันที่ : </span><br>
-            <input style="font-size: 20px; font-family: Kanit" type="date" name="date"><br><br>
+            <input style="font-size: 20px;" type="date" name="date"><br><br>
             <span>Link : </span><br>
-            <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="link"><br><br>
+            <input style="font-size: 20px;font-weight: bold;" type="text" name="link"><br><br>
             <span>หมวดวิชา : </span><br>
             <input type="radio" name="category" value="english" checked> ภาษาอังกฤษ<br>
             <input type="radio" name="category" value="math"> คณิตศาสตร์<br>
@@ -33,7 +33,7 @@
             <input type="text" name="title" style="width:46%;"><br><br> -->
             {%for f in form%} 
             {{f.label_tag}}
-            <br>{% render_field f class="input" style="font-size: 20px;font-weight: bold; font-family: Kanit" %}<br><br>
+            <br>{% render_field f class="input" style="font-size: 20px;font-weight: bold;" %}<br><br>
             {%endfor%}
        
         <button style="text-align: right" type="submit" class="uk-button uk-button-primary">บันทึก</button>
@@ -43,12 +43,12 @@
         <form method="post" enctype="multipart/form-data"  action = "/addExam_summit/">
             {%csrf_token%}
             <!-- <span>หัวข้อ : </span><br>
-            <input style="font-size: 40px;font-weight: bold; font-family: Kanit;width: 85%;" type="text"
+            <input style="font-size: 40px;font-weight: bold;width: 85%;" type="text"
                 name="titleexam"><br><br>
             <span>วันที่ : </span><br>
-            <input style="font-size: 40px; font-family: Kanit;width: 85%;" type="date" name="date"><br><br>
+            <input style="font-size: 40px; width: 85%;" type="date" name="date"><br><br>
             <span>Link : </span><br>
-            <input style="font-size: 40px;font-weight: bold; font-family: Kanit;width: 85%;" type="text"
+            <input style="font-size: 40px;font-weight: bold; width: 85%;" type="text"
                 name="link"><br><br>
             <span>หมวดวิชา : </span><br>
             <input type="radio" name="category" value="english" checked> ภาษาอังกฤษ<br>
@@ -59,7 +59,7 @@
          -->
          {%for f in form%} 
          {{f.label_tag}}
-         <br>{% render_field f class="input" style="font-size: 35px;font-weight: bold; font-family: Kanit" %}<br><br>
+         <br>{% render_field f class="input" style="font-size: 35px;font-weight: bold;" %}<br><br>
          {%endfor%}
         <button style="text-align: right;font-size: 35px;" type="submit"
             class="uk-button uk-button-primary uk-button-large">บันทึก</button>

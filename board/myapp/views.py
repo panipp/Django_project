@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def home(request):
     # pylint: disable=no-member
-    news = News.objects.all().order_by('-date')
+    news = News.objects.all().order_by('-date')[:5]
     return render(request,'home.html',{'news' : news})
 
 def activity(request):
@@ -22,7 +22,7 @@ def activity(request):
 
 def exam(request):
     # pylint: disable=no-member
-    exams = Exam.objects.all()[:2]
+    exams = Exam.objects.all()[:5]
 
     return render(request,'exam.html',{'exams':exams})
 
@@ -155,7 +155,7 @@ def update_activity(request,**kwargs):
             return redirect('activityS')
     else:
         form = AddBoard(instance=u)
-    return render(request,'staff/update_activity.html',{'activity':activity})
+    return render(request,'staff/update_activity.html',{'form':form})
 
 def delete_board(request,**kwargs):
     pk = kwargs['pk']

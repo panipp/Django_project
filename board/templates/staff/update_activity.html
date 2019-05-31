@@ -4,7 +4,6 @@
 {% endblock %}
 {% load widget_tweaks %}
 
-{% block content  %}
 <div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
     uk-scrollspy="cls:uk-animation-fade">
     <div class="uk-position-relative uk-visible-toggle uk-light">
@@ -19,24 +18,10 @@
     <div class="uk-visible@l">
         <form method="post" enctype="multipart/form-data " action="update_activity" >
             {%csrf_token%}
-            {%for f in board %} 
-            {{f.label_tag}}
-            <br>{% render_field f class="input" style="font-size: 20px;font-weight: bold; font-family: Kanit" %}<br><br>
+            {%for f in form%} 
+                {{f.label_tag}}
+      <br>  {% render_field f class="input" style="font-size: 20px;font-weight: bold;" %}<br><br>
             {%endfor%}
-            <span>หัวข้อ : </span><br>
-            <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="titleboard" value="{{activity.titleboard}}"><br><br>
-            <span>วันที่ : {{activity.date}}</span><br>
-            <input style="font-size: 20px; font-family: Kanit" type="date"  ><br><br>
-            <span>คำอธิบาย : </span><br>
-            <textarea id="txtArea" rows="15" cols="100" style="resize:none;font-size: 20px;" name="detail" value="detail" placeholder="{{activity.detail}}"></textarea><br><br>
-            <span>รูปภาพ : </span><br>
-            <ul class="uk-slideshow-items">
-                <li>
-                    <img src="{% static 'media/{{activity.image}}' %}" alt="" uk-cover height="500" width="1100">
-                </li>
-
-            </ul>
-            <input type="file" name="files" multiple /><br><br>
             <a class=".uk-text-lead" href=""><button class="uk-button uk-button-danger" type="submit">อัพเดท</button></a>
 
             </form>
@@ -50,7 +35,7 @@
             <span>หัวข้อ : </span><br>
             <input style="font-size: 40px;font-weight: bold; width: 85%;" type="text" name="titleboard" value="{{activity.titleboard}}"><br><br>
             <span>วันที่ : {{activity.date}}</span><br>
-            <input style="font-size: 40px; font-family: Kanit; width: 85%;" type="date" name="date"><br><br>
+            <input style="font-size: 40px; width: 85%;" type="date" name="date"><br><br>
             <span>คำอธิบาย : </span><br>
             <textarea id="txtArea" rows="15" cols="100"
                 style="resize:none; width: 85%;font-size: 40px;" name="detail" value="detail"></textarea><br><br>
@@ -64,9 +49,6 @@
     </div>
 </div>
 </div>
-
-
-{% endblock %}
 
 
 

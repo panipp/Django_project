@@ -15,22 +15,13 @@
         </ul>
     </div>
 </div>
-<div style="margin-left:20px; margin-right:20px;margin-top: 15px;" uk-scrollspy="cls:uk-animation-fade">
+<div class="container" uk-scrollspy="cls:uk-animation-fade">
     <div class="uk-visible@l">
         <form method="post" enctype="multipart/form-data" action="/addActivity/">
             {%csrf_token%}
-            <!-- <span>หัวข้อ : </span><br>
-            <input style="font-size: 20px;font-weight: bold; font-family: Kanit" type="text" name="titleboard"><br><br>
-            <span>วันที่ : </span><br>
-            <input style="font-size: 20px; font-family: Kanit" type="date"><br><br>
-            <span>คำอธิบาย : </span><br>
-            <textarea id="txtArea" rows="15" cols="100" style="resize:none;font-size: 20px; "
-                name="detail"></textarea><br><br>
-            <span>รูปภาพ : </span><br>
-            <input type="file" name="files" multiple /><br><br> -->
             {%for f in form%} 
             {{f.label_tag}}
-            <br>{% render_field f class="input" style="font-size: 20px;font-weight: bold; font-family: Kanit" %}<br><br>
+            <br>{% render_field f class="input" style="font-size: 20px;font-weight: bold;" %}<br><br>
             {%endfor%}
         
         <button style="text-align: right" type="submit" class="uk-button uk-button-primary">บันทึก</button>
@@ -42,14 +33,14 @@
             <span>หัวข้อ : </span><br>
             <input style="font-size: 40px;font-weight: bold; width: 85%;" type="text" name="titleboard"><br><br>
             <span>วันที่ : </span><br>
-            <input style="font-size: 40px; font-family: Kanit; width: 85%;" type="date"><br><br>
+            <input style="font-size: 40px; width: 85%;" type="date"><br><br>
             <span>คำอธิบาย : </span><br>
             <textarea id="txtArea" rows="15" cols="100" style="resize:none; width: 85%;font-size: 40px;"
                 name="detail"></textarea><br><br>
             <span>รูปภาพ : </span><br>
             <input type="file" name="files" multiple /><br><br>
         
-        <button style="text-align: right;font-size: 35px;font-family: Kanit;" type="submit"
+        <button style="text-align: right;font-size: 35px;" type="submit"
             class="uk-button uk-button-primary uk-button-large">บันทึก</button>
     </form>
 </div>

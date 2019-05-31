@@ -10,15 +10,16 @@
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static '/css/hamburger.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static '/css/uikit.min.css' %}" />
-    <link href="https://fonts.googleapis.com/css?family=Kanit&amp;subset=thai" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="{% static '/js/uikit.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/js/uikit-icons.min.js"></script>
     <style>
-        html,
-        body {
-            font-family: Kanit;
-        }
         input,textarea {
             width: 50%;
             border: 1px solid #ccc;
@@ -39,9 +40,7 @@
     </style>
 </head>
 
-<body style="font-family: Kanit">
-    <!-- style="  font-family: Arial, sans-serif; font-size : 15px;" -->
-
+<body>
     <div class="uk-position-relative" style="position: fixed;top: 0; overflow: hidden; ">
         <div style="position: fixed; top:0 ; z-index: 1;width: 100%;">
             <nav class="uk-navbar-container" uk-navbar="mode: click" style="background-color:white; height: 0.5%">
@@ -55,17 +54,17 @@
                     <ul class="uk-navbar-nav">
                         <li>
                             <a href="/homeS/"
-                                style="color:black; font-size: 15px;font-weight: bold;font-family: Kanit "><span
+                                style="color:black; font-size: 15px;font-weight: bold;"><span
                                     class="hover1">ข่าวสาร</span></a>
                         </li>
                         <li>
                             <a href="/activityS/"
-                                style="color:black;font-size: 15px;font-weight: bold;font-family: Kanit"><span
+                                style="color:black;font-size: 15px;font-weight: bold;"><span
                                     class="hover1">กิจกรรมนักศึกษา</span></a>
                         </li>
                         <li>
                             <a href="/examS/"
-                                style="color:black;font-size: 15px;font-weight: bold;font-family: Kanit"><span
+                                style="color:black;font-size: 15px;font-weight: bold;"><span
                                     class="hover1">วิชาการ</span></a>
                         </li>
                         {% if request.user.is_authenticated %}
@@ -91,8 +90,15 @@
                 </div>
             </nav>
         </div>
-        <br><br><br><br>
-
+    <script>
+        $(function(){
+                $("#id_date").datepicker({
+                    dateFormat: "yy-mm-dd",
+                    flat: true,
+                });
+        })
+    </script>
 </body>
+
 
 </html>

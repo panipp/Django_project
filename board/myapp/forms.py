@@ -11,7 +11,7 @@ class ChoiceInput(forms.ChoiceField):
 
 class AddNewsForm(forms.ModelForm):
     title = News('title')
-    date = News ('date')
+    date = forms.DateField(widget=forms.widgets.DateInput(attrs={'autocomplete':'off'}),input_formats=['%Y-%m-%d'])
     class Meta:
         model = News
         
@@ -28,7 +28,7 @@ class AddNewsForm(forms.ModelForm):
         
 class AddBoard(forms.ModelForm):
     titleboard = Board('titleboard')
-
+    date = forms.DateField(widget=forms.widgets.DateInput(attrs={'autocomplete':'off'}),input_formats=['%Y-%m-%d'])
     class Meta:
         model = Board
         widget = {
@@ -45,7 +45,7 @@ class AddBoard(forms.ModelForm):
 
 class AddExamForm(forms.ModelForm):
     # subject = forms.ChoiceField(choices=Exam.CATEGORY_CHOICES)
-    
+    date = forms.DateField(widget=forms.widgets.DateInput(attrs={'autocomplete':'off'}),input_formats=['%Y-%m-%d'])
     class Meta:
         model = Exam
         widget = {

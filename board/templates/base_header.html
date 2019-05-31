@@ -10,19 +10,15 @@
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static '/css/hamburger.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static '/css/uikit.min.css' %}" />
-    <link href="https://fonts.googleapis.com/css?family=Kanit&amp;subset=thai" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/datepicker.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="{% static '/js/uikit.min.js' %}"></script>
+    <script src="{% static '/js/bootstrap-datepicker.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/js/uikit-icons.min.js"></script>
-    <style>
-        html,
-        body {
-            font-family: Kanit;
-        }
-    </style>
 </head>
 
-<body style="font-family: Kanit">
+<body style="font-family: TUFont">
     <!-- style="  font-family: Arial, sans-serif; font-size : 15px;" -->
 
     <div class="uk-position-relative" style="position: fixed;top: 0; overflow: hidden; ">
@@ -38,17 +34,17 @@
                     <ul class="uk-navbar-nav">
                         <li>
                             <a href="/home/"
-                                style="color:black; font-size: 15px;font-weight: bold;font-family: Kanit "><span
+                                style="color:black; font-size: 15px;font-weight: bold;"><span
                                     class="hover1">ข่าวสาร</span></a>
                         </li>
                         <li>
                             <a href="/activity/"
-                                style="color:black;font-size: 15px;font-weight: bold;font-family: Kanit"><span
+                                style="color:black;font-size: 15px;font-weight: bold;"><span
                                     class="hover1">กิจกรรมนักศึกษา</span></a>
                         </li>
                         <li>
                             <a href="/exam/"
-                                style="color:black;font-size: 15px;font-weight: bold;font-family: Kanit"><span
+                                style="color:black;font-size: 15px;font-weight: bold;"><span
                                     class="hover1">วิชาการ</span></a>
                         </li>
                         {% if request.user.is_authenticated %}
