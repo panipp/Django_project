@@ -19,25 +19,6 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/js/uikit-icons.min.js"></script>
-    <style>
-        input,textarea {
-            width: 50%;
-            border: 1px solid #ccc;
-            display: inline-block;
-            padding: 4px 6px;
-            cursor: pointer;
-        }
-        input[type="file"] {
-            border: none;
-            display: inline-block;
-            cursor: pointer;
-        }
-        input[type="radio"] {
-            width: 3%;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
 </head>
 
 <body>
@@ -54,17 +35,17 @@
                     <ul class="uk-navbar-nav">
                         <li>
                             <a href="/homeS/"
-                                style="color:black; font-size: 15px;font-weight: bold;"><span
+                                style="color:black;font-weight: bold;"><span
                                     class="hover1">ข่าวสาร</span></a>
                         </li>
                         <li>
                             <a href="/activityS/"
-                                style="color:black;font-size: 15px;font-weight: bold;"><span
+                                style="color:black;font-weight: bold;"><span
                                     class="hover1">กิจกรรมนักศึกษา</span></a>
                         </li>
                         <li>
                             <a href="/examS/"
-                                style="color:black;font-size: 15px;font-weight: bold;"><span
+                                style="color:black;font-weight: bold;"><span
                                     class="hover1">วิชาการ</span></a>
                         </li>
                         {% if request.user.is_authenticated %}

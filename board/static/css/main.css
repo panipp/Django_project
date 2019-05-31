@@ -8,7 +8,9 @@
 
 *:not(i){
   font-family: TUFont;
+  font-size: 16px;
 }
+
 
 .container{
   margin-left:20px;
@@ -18,11 +20,33 @@
 
 .uk-table th{
   color:#333;
+  font-size: 16px;
 }
 
 .uk-button{
   color:#c3002f;
+  font-size: 16px;
 }
 .uk-button-primary,.uk-button-danger{
   color: #fff;
+}
+
+input,textarea {
+  resize: none;
+  width: 50%;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 4px 6px;
+  cursor: pointer;
+}
+input[type="file"] {
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 13px;
+}
+input[type="radio"] {
+  width: 3%;
+  border: none;
+  cursor: pointer;
 }

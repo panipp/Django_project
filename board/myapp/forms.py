@@ -21,8 +21,8 @@ class AddNewsForm(forms.ModelForm):
         }
         labels = {
             "title" : _("หัวข้อ  "),
-            "date" : _("วันที่  "),
-            "file" : _("เอกสารแนบ"),
+            "date" : _("วันที่ "),
+            "file" : _("เอกสารแนบ "),
         }
         fields = ['title','date','file']
         
@@ -41,7 +41,7 @@ class AddBoard(forms.ModelForm):
             "detail" : _("คำอธิบาย "),
             "image" : _("รูปภาพ "),
         }
-        fields = ['titleboard','detail','image','date']
+        fields = ['titleboard','date','detail','image']
 
 class AddExamForm(forms.ModelForm):
     # subject = forms.ChoiceField(choices=Exam.CATEGORY_CHOICES)
@@ -55,9 +55,9 @@ class AddExamForm(forms.ModelForm):
         
         labels = {
             "titleexam" : _("หัวข้อ  "),
-            "link" : _("link "),
-            "date" : _("วันที่  "),
+            "link" : _("ลิ้งค์ "),
+            "date" : _("วันที่ "),
             "category" : _("หมวดวิชา  "),
         }
         
-        fields = ['titleexam','link','date',]
+        fields = ['titleexam','date','link',]
