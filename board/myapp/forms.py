@@ -1,7 +1,7 @@
 from django import forms
 from .models import News,Board,Exam
 from django.utils.translation import gettext_lazy as _
-from django.forms import DateTimeField
+from django.forms import DateTimeField,FileInput
 
 class DateInput(forms.DateInput):
     input_type = 'date'
@@ -17,7 +17,6 @@ class AddNewsForm(forms.ModelForm):
         
         widget = {
             'date' : DateInput(),
-            
         }
         labels = {
             "title" : _("หัวข้อ  "),
@@ -60,4 +59,4 @@ class AddExamForm(forms.ModelForm):
             "category" : _("หมวดวิชา  "),
         }
         
-        fields = ['titleexam','date','link',]
+        fields = ['titleexam','date','link','category']

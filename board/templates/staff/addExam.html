@@ -5,7 +5,7 @@
 {% load widget_tweaks %}
 
 {% block content  %}
-<div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
+<div style="position: relative;margin-top:5%" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
     uk-scrollspy="cls:uk-animation-fade">
     <div class="uk-position-relative uk-visible-toggle uk-light">
         <ul class="uk-slideshow-items">
@@ -17,15 +17,20 @@
 </div>
 <div class="container" uk-scrollspy="cls:uk-animation-fade">
     <div class="uk-visible@l">
-        <form method="post" enctype="multipart/form-data" action = "/addExam/">
-            {%csrf_token%}
-            {%for f in form%} 
-            {{f.label_tag}}
-            <br>{% render_field f class="input" style="font-size: 16px;font-weight: bold;" %}<br><br>
-            {%endfor%}
-       
-        <button style="text-align: right" type="submit" class="uk-button uk-button-primary">บันทึก</button>
-     </form>
+    <div style="text-align: center">
+        <div class="centerform">
+            <form method="post" enctype="multipart/form-data" action = "/addExam/">
+                {%csrf_token%}
+                {%for f in form%} 
+                {{f.label_tag}}
+                <br>{% render_field f class="input" style="font-size: 16px;font-weight: bold;" %}<br><br>
+                {%endfor%}
+                <div style="text-align:center">
+                <button style="text-align: right" type="submit" class="uk-button uk-button-primary">บันทึก</button>
+                </div>
+            </form>
+        </div>
+        </div>
     </div>
     <div class="uk-hidden@l" style="font-size:40px;margin-top: 50px;">
         <form method="post" enctype="multipart/form-data"  action = "/addExam_summit/">

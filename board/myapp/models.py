@@ -31,4 +31,3 @@ class Exam(models.Model):
 # class subject(models.Model):
 #     subject = models.ForeignKey('Exam',on_delete=models.CASCADE)
 #     eng = models.CharField()
-

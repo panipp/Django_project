@@ -11,11 +11,21 @@
   font-size: 16px;
 }
 
-
 .container{
   margin-left:20px;
   margin-right:20px; 
   margin-top: 50px;
+}
+
+.centerform{
+  margin-right: 0px;
+  margin-bottom: 50px;
+  display: inline-block;
+  border: solid 1px #c3002f;
+  padding: 60px 150px;
+  width: 70%;
+  text-align:left;
+  font-weight: bold;
 }
 
 .uk-table th{
@@ -25,28 +35,40 @@
 
 .uk-button{
   color:#c3002f;
+  background: transparent;
   font-size: 16px;
 }
 .uk-button-primary,.uk-button-danger{
   color: #fff;
+  background: #c3002f;
 }
 
-input,textarea {
+input,textarea{
   resize: none;
-  width: 50%;
+  width: 98%;
   border: 1px solid #ccc;
   display: inline-block;
   padding: 4px 6px;
   cursor: pointer;
+  margin-top: 8px;
 }
 input[type="file"] {
-  border: none;
+  border: 0.5 solid #ccc;
   display: inline-block;
   cursor: pointer;
   font-size: 13px;
 }
 input[type="radio"] {
-  width: 3%;
+  width: 5%;
   border: none;
   cursor: pointer;
+}
+
+select{
+  width: 99%;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 4px 6px;
+  cursor: pointer;
+  margin-top: 8px;
 }
