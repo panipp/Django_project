@@ -29,8 +29,8 @@
                     <th class="uk-table-expand">หัวข้อ</th>
                 </tr>
 
-                {% for i in exams %}
-                {%if i.category == 'ENG'%}
+                {% for i in eng %}
+                <!-- {%if i.category == 'ENG'%} -->
                 <tr>
                     <td style="width:20%;">{{i.date}}</td>
                     <td>
@@ -38,7 +38,7 @@
                     </td>
                 </tr>
 
-                {%endif%}
+                <!-- {%endif%} -->
                 {%endfor%}
             </tbody>
             </tbody>
@@ -55,8 +55,8 @@
                     <th>วันที่</th>
                     <th class="uk-table-expand">หัวข้อ</th>
                 </tr>
-                {%for i in exams%}
-                {%if i.category == 'MATH'%}
+                {%for i in math%}
+                <!-- {%if i.category == 'MATH'%} -->
                 <tr>
                     <td style="width:20%;">{{i.date}}</td>
                     <td>
@@ -64,7 +64,7 @@
 
                     </td>
                 </tr>
-                {%endif%}
+                <!-- {%endif%} -->
                 {%endfor%}
 
 
@@ -82,15 +82,15 @@
                     <th>วันที่</th>
                     <th class="uk-table-expand">หัวข้อ</th>
                 </tr>
-                {%for i in exams %}
-                {%if i.category == 'OTHERS'%}
+                {%for i in others %}
+                <!-- {%if i.category == 'OTHERS'%} -->
                 <tr>
                     <td style="width:20%;">{{i.date}}</td>
                     <td>
                         <a class=".uk-text-lead" href="http://{{i.link}}">{{i.titleexam}}</a>
                     </td>
                 </tr>
-                {%endif%}
+                <!-- {%endif%} -->
                 {%endfor%}
 
             </tbody>
@@ -111,15 +111,15 @@
                     <th style="font-size:30px;">วันที่</th>
                     <th class="uk-table-expand" style="font-size:30px;">หัวข้อ</th>
                 </tr>
-                {%for i in exams %}
-                {%if i.category == 'ENG'%}
+                {%for i in eng %}
+                <!-- {%if i.category == 'ENG'%} -->
                 <tr>
                     <td style="width:20%;">{{i.date}}</td>
                     <td>
                         <a class=".uk-text-lead" href="http://{{i.link}}">{{i.titleexam}}</a>
                     </td>
                 </tr>
-                {%endif%}
+                <!-- {%endif%} -->
                 {%endfor%}
 
             </tbody>
@@ -137,15 +137,15 @@
                     <th style="font-size:30px;">วันที่</th>
                     <th class="uk-table-expand" style="font-size:30px;">หัวข้อ</th>
                 </tr>
-                {%for i in exams %}
-                {%if i.category == 'MATH'%}
+                {%for i in math %}
+                <!-- {%if i.category == 'MATH'%} -->
                 <tr>
                     <td style="width:20%;">{{i.date}}</td>
                     <td>
                         <a class=".uk-text-lead" href="http://{{i.link}}">{{i.titleexam}}</a>
                     </td>
                 </tr>
-                {%endif%}
+                <!-- {%endif%} -->
                 {%endfor%}
 
             </tbody>
@@ -163,15 +163,15 @@
                     <th style="font-size:30px;">วันที่</th>
                     <th class="uk-table-expand" style="font-size:30px;">หัวข้อ</th>
                 </tr>
-                {%for i in exams %}
-                {%if i.category == 'OTHERS'%}
+                {%for i in others %}
+                <!-- {%if i.category == 'OTHERS'%} -->
                 <tr>
                     <td style="width:20%;">{{i.date}}</td>
                     <td>
                         <a class=".uk-text-lead" href="http://{{i.link}}">{{i.titleexam}}</a>
                     </td>
                 </tr>
-                {%endif%}
+                <!-- {%endif%} -->
                 {%endfor%}
 
 

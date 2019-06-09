@@ -22,9 +22,13 @@ def activity(request):
 
 def exam(request):
     # pylint: disable=no-member
-    exams = Exam.objects.all()[:5]
+    exams = Exam.objects.all()[:10]
+    eng = Exam.objects.filter(category='ENG')[:5]
+    math = Exam.objects.filter(category = 'MATH')[:5]
+    others = Exam.objects.filter(category = 'OTHERS')[:5]
+    return render(request,'exam.html',{'exams':exams , 'eng':eng , 'math':math,'others':others})
 
-    return render(request,'exam.html',{'exams':exams})
+
 
 def news(request,**kwargs):
      # pylint: disable=no-member
@@ -38,7 +42,7 @@ def activity2(request,**kwargs):
     return render(request,'activity2.html',{'activity2' : activity2})
 
 def english(request,):
-    englishs = Exam.objects.all().order_by('-date')
+    englishs = Exam.objects.all().order_by('-date')[:10]
     return render(request,'english.html',{'englishs':englishs})
 
 def math(request):
@@ -60,7 +64,12 @@ def activityS(request):
 
 def examS(request):
     exams = Exam.objects.all()
-    return render(request,'staff/examS.html',{'exams':exams})
+    eng = Exam.objects.filter(category='ENG')[:5]
+    math = Exam.objects.filter(category = 'MATH')[:5]
+    others = Exam.objects.filter(category = 'OTHERS')[:5]
+   
+
+    return render(request,'staff/examS.html',{'exams':exams, 'eng':eng , 'math':math,'others':others})
 
 def englishS(request):
     exams = Exam.objects.all()

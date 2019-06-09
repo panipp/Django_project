@@ -26,6 +26,7 @@ urlpatterns = [
     path('home/',views.home,name='home'),
     path('activity/',views.activity,name='activity'),
     path('exam/',views.exam,name='exam'),
+
     # url(r'news/(?P<id>\d+)/',viws.news,name='news'),
     path('news/<int:pk>/',views.news,name='news'),
     path('addNews_summit/',views.addNews_summit,name='addNews_summit'),
