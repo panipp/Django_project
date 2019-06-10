@@ -14,29 +14,30 @@
         </ul>
     </div>
 </div>
+<div class="container">
 <div class="uk-visible@l" style="margin-top:15px;margin-left:20px; margin-right:20px;"
     uk-scrollspy="cls:uk-animation-fade">
     <h3 style="margin-bottom:5px;">
-        <span class=".uk-text-lead" style="font-size: 35px;font-weight: bold;">{{news.title}}</span>
+        <span class=".uk-text-lead" style="font-size: 20px;font-weight: bold;">{{news.title}}</span>
     </h3>
     <h6 style="font-size: 13px;margin-top: 0; font-weight: lighter;">วันที่ {{news.date}}</h6>
-    <p style="font-size: 20px;margin-top: 40px; font-weight: bold;">Download: <a href="/{{ news.file }}" download>{{news.file}}</a></p>
+    <p style="margin-top: 40px; font-weight: bold;margin-bottom:50px;">Download: <a href="/{{ news.file }}" download>{{news.file}}</a></p>
 </div>
 <div class="uk-hidden@l" style="margin-top:15px;margin-left:20px; margin-right:20px;"
     uk-scrollspy="cls:uk-animation-fade">
     <h3 style="margin-bottom:5px;">
-        <span class=".uk-text-lead" style="font-size: 50px;font-weight: bold;">{{news.title}}</span>
+        <span class=".uk-text-lead" style="font-size: 30px;font-weight: bold;">{{news.title}}</span>
     </h3>
-    <h6 style="font-size: 25px;margin-top: 0; font-weight: lighter;">วันที่ {{news.date}}</h6>
-    <br><br><br><br><br> <br><br><br><br><br> <br><br><br><br><br>
+    <h6 style="font-size: 15px;margin-top: 0; font-weight: lighter;">วันที่ {{news.date}}</h6>
+    <br><br><br>
     <embed src="media/{{news.file}}" type="application/pdf" width="100%" height="600px" />
     {% if news.file %}
-    <td style="font-size: 40px;margin-top: 0; font-weight: bold;">Download: <a href="/{{ news.file }}" download> {{ news.file }} </a></td>
+    <td style="font-size: 20px;margin-top: 0; font-weight: bold;">Download: <a href="/{{ news.file }}" download> {{ news.file }} </a></td>
     {%endif%} 
         <!-- <td style="width:20%;">Download : <a href="/pdf_view/{{news.id}}"> {{ news.file }} </a></td> -->
 
     </div>
-
+</div>
     
 {% endblock %}
 

@@ -14,16 +14,17 @@
         </ul>
     </div>
 </div>
+<div class="container">
 <div class="uk-visible@l" style="margin-left:20px; margin-right:20px;margin-top: 15px;"
     uk-scrollspy="cls:uk-animation-fade">
     <h3 style="margin-bottom:5px;">
-        <span class=".uk-text-lead" style="font-size: 35px;font-weight: bold;">{{activity2.titleboard}}</span>
+        <span class=".uk-text-lead" style="font-family: TUFont;font-size: 20px;font-weight: bolder;">{{activity2.titleboard}}</span>
     </h3>
     <h6 style="font-size: 13px;margin-top: 0; font-weight: lighter;">วันที่ {{activity2.date}}</h6>
     <span class=".uk-text-lead" >{{activity2.detail}}</span>
     <div style="position: relative; margin-top: 40px;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
         uk-scrollspy="cls:uk-animation-fade">
-        <div class="uk-position-relative uk-visible-toggle uk-light">
+        <div class="uk-position-relative uk-visible-toggle uk-light" style="margin-bottom:50px;">
             <ul class="uk-slideshow-items">
                 <li>
                     <img src="{{activity2.image.url}}"  alt="" uk-cover height="500" width="1100">
@@ -47,11 +48,11 @@
 <div class="uk-hidden@l" style="margin-left:20px; margin-right:20px;margin-top: 15px;"
     uk-scrollspy="cls:uk-animation-fade">
     <h3 style="margin-bottom:5px;">
-        <span class=".uk-text-lead" style="font-size: 50px;font-weight: bold;">{{activity2.titleboard}}</span>
+        <span class=".uk-text-lead" style="font-size: 30px;font-weight: bold;">{{activity2.titleboard}}</span>
     </h3>
-    <h6 style="font-size: 25px;margin-top: 0; font-weight: lighter;">วันที่ {{activity2.date}}</h6>
+    <h6 style="font-size: 15px;margin-top: 0; font-weight: lighter;">วันที่ {{activity2.date}}</h6>
     <br><br><br><br><br> <br><br><br>
-    <span class=".uk-text-lead" style="font-size: 50px;font-weight: bold;">{{activity2.detail}}</span>
+    <span class=".uk-text-lead" style="font-size: 20px;font-weight: bold;">{{activity2.detail}}</span>
     <br><br> <br><br><br><br><br>
     <div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
         uk-scrollspy="cls:uk-animation-fade">
@@ -74,6 +75,7 @@
         <div class="fb-comments" data-href="http://127.0.0.1:8000/activity2/{{activity2.id}}" data-width=""
             data-numposts="5"></div>
     </div>
+</div>
 </div>
 {% endblock %}
 {% block footer %}

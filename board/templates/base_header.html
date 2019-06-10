@@ -27,14 +27,14 @@
             <nav class="uk-navbar-container" uk-navbar="mode: click" style="background-color:white; height: 0.5%">
 
                 <div class="uk-navbar-left">
-                    <a href="/home">
+                    <a href="/">
                         <img src="{% static 'images/b1.png' %}" style="width:300px; margin: 10px;" />
                     </a>
                 </div>
                 <div class="uk-navbar-right" style="margin-right:20px;">
                     <ul class="uk-navbar-nav">
                         <li>
-                            <a href="/home/"
+                            <a href="/"
                                 style="color:black;font-weight: bolder;"><span
                                     class="hover1">ข่าวสาร</span></a>
                         </li>
@@ -55,10 +55,10 @@
                     <div class="dropdown">
                         <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#"
                             style="color:white; background-color: #c00832"></a>
-                        <div class="dropdown-content" style="font-size:30px;">
-                            <a href="/home/">ข่าวสาร</a>
-                            <a href="/activity/">กิจกรรมนักศึกษา</a>
-                            <a href="/exam/">วิชาการ</a>
+                        <div class="dropdown-content" >
+                            <a href="/" style="font-size:20px;">ข่าวสาร</a>
+                            <a href="/activity/" style="font-size:20px;">กิจกรรมนักศึกษา</a>
+                            <a href="/exam/" style="font-size:20px;">วิชาการ</a>
                             {% if request.user.is_authenticated %}
 
 

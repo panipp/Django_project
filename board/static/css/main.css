@@ -15,6 +15,8 @@
   margin-left:20px;
   margin-right:20px; 
   margin-top: 50px;
+  height: auto;
+  min-height:calc(100vh - 800px);
 }
 
 .centerform{
@@ -24,6 +26,16 @@
   border: solid 1px #c3002f;
   padding: 60px 150px;
   width: 70%;
+  text-align:left;
+  font-weight: bold;
+}
+.centerform2{
+  margin-right: 0px;
+  margin-bottom: 50px;
+  display: inline-block;
+  border: solid 1px #c3002f;
+  padding: 60px 100px;
+  width: 66%;
   text-align:left;
   font-weight: bold;
 }

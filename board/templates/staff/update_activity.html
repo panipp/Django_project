@@ -16,8 +16,8 @@
 </div>
 <div style="margin-left:17px; margin-top:50px;" uk-scrollspy="cls:uk-animation-fade">
 <div style="text-align: center">
-      <div class="centerform">
     <div class="uk-visible@l">
+    <div class="centerform">
         <form method="post" enctype="multipart/form-data " action="update_activity" >
             {%csrf_token%}
             {%for f in form%} 
@@ -30,25 +30,29 @@
             </form>
             
             <!-- <a class=".uk-text-lead" href="/delete_board/{{activity.id}}"><button class="uk-button uk-button-danger" name="delete">ลบ</button></a> -->
-        </div></div>
+        </div>
     </div>
-    <div class="uk-hidden@l" style="font-size:40px;margin-top: 50px;">
+    <div class="uk-hidden@l" style="margin-top: 50px;">
+    <div class="centerform2">
         <form method="post" enctype="multipart/form-data" action="/update_activity/">
+        
             {%csrf_token%}
             <span>หัวข้อ : </span><br>
-            <input style="font-size: 40px;font-weight: bold; width: 85%;" type="text" name="titleboard" value="{{activity.titleboard}}"><br><br>
+            <input style="font-size: 20px;font-weight: bold;" type="text" name="titleboard" value="{{activity.titleboard}}"><br><br>
             <span>วันที่ : {{activity.date}}</span><br>
-            <input style="font-size: 40px; width: 85%;" type="date" name="date"><br><br>
+            <input style="font-size: 20px;" type="date" name="date"><br><br>
             <span>คำอธิบาย : </span><br>
             <textarea id="txtArea" rows="15" cols="100"
-                style="resize:none; width: 85%;font-size: 40px;" name="detail" value="detail"></textarea><br><br>
+                style="resize:none;font-size: 20px;" name="detail" value="detail"></textarea><br><br>
                 <span>รูปภาพ : </span><br>
             <input type="file" name="files" multiple /><br><br>
-            </form>
-            <a class=".uk-text-lead" href=""><button style="text-align: right;font-size: 35px;"
+            <div style="text-align:center;">
+            <a class=".uk-text-lead" href=""><button style="text-align: right;font-size:20px;"
                     class="uk-button uk-button-danger uk-button-large">อัพเดท</button></a>
-            <a class=".uk-text-lead" href="/delete_board/{{activity.id}"><button style="text-align: right;font-size: 35px;"
-                    class="uk-button uk-button-danger uk-button-large" type="submit" name="delete">ลบ</button></a>
+                    </div>
+            </form>
+            
+            </div>
     </div>
 </div>
 </div>

@@ -100,23 +100,22 @@
     <div class="uk-hidden@l" style="font-size:30px;">
         <table class="uk-table uk-table-middle uk-table-divider">
             <tbody>
-                <br><br>
                 <h3>
-                    <span class=".uk-text-lead" style="font-size: 45px;font-weight: bold;">ภาษาอังกฤษ
-                        <a style="font-size:30px;" href="/english/">(ดูทั้งหมด)</a>
+                    <span class=".uk-text-lead" style="font-size: 30px;font-weight: bold;">ภาษาอังกฤษ
+                        <a style="font-size:20px;" href="/english/">(ดูทั้งหมด)</a>
                     </span>
                 </h3>
 
                 <tr>
-                    <th style="font-size:30px;">วันที่</th>
-                    <th class="uk-table-expand" style="font-size:30px;">หัวข้อ</th>
+                    <th style="font-size:20px;">วันที่</th>
+                    <th class="uk-table-expand" style="font-size:20px;">หัวข้อ</th>
                 </tr>
                 {%for i in eng %}
                 <!-- {%if i.category == 'ENG'%} -->
                 <tr>
-                    <td style="width:20%;">{{i.date}}</td>
+                    <td style="width:20%;font-size:20px;">{{i.date}}</td>
                     <td>
-                        <a class=".uk-text-lead" href="http://{{i.link}}">{{i.titleexam}}</a>
+                        <a class=".uk-text-lead" href="http://{{i.link}}" style="font-size: 20px;">{{i.titleexam}}</a>
                     </td>
                 </tr>
                 <!-- {%endif%} -->
@@ -128,21 +127,21 @@
         <table class="uk-table uk-table-middle uk-table-divider">
             <tbody>
                 <h3>
-                    <span class=".uk-text-lead" style="font-size: 45px;font-weight: bold;">คณิตศาสตร์
-                        <a style="font-size:30px;" href="/math/">(ดูทั้งหมด)</a>
+                    <span class=".uk-text-lead" style="font-size: 30px;font-weight: bold;">คณิตศาสตร์
+                        <a style="font-size:20px;" href="/math/">(ดูทั้งหมด)</a>
                     </span>
                 </h3>
 
                 <tr>
-                    <th style="font-size:30px;">วันที่</th>
-                    <th class="uk-table-expand" style="font-size:30px;">หัวข้อ</th>
+                    <th style="font-size:20px;">วันที่</th>
+                    <th class="uk-table-expand" style="font-size:20px;">หัวข้อ</th>
                 </tr>
                 {%for i in math %}
                 <!-- {%if i.category == 'MATH'%} -->
                 <tr>
-                    <td style="width:20%;">{{i.date}}</td>
+                    <td style="width:20%;font-size:20px;">{{i.date}}</td>
                     <td>
-                        <a class=".uk-text-lead" href="http://{{i.link}}">{{i.titleexam}}</a>
+                        <a class=".uk-text-lead" href="http://{{i.link}}" style="font-size:20px;">{{i.titleexam}}</a>
                     </td>
                 </tr>
                 <!-- {%endif%} -->
@@ -154,21 +153,21 @@
         <table class="uk-table uk-table-middle uk-table-divider">
             <tbody>
                 <h3>
-                    <span class=".uk-text-lead" style="font-size: 45px;font-weight: bold;">หมวดอื่นๆ
-                        <a style="font-size:30px;" href="/others/">(ดูทั้งหมด)</a>
+                    <span class=".uk-text-lead" style="font-size: 30px;font-weight: bold;">หมวดอื่นๆ
+                        <a style="font-size:20px;" href="/others/">(ดูทั้งหมด)</a>
                     </span>
                 </h3>
 
                 <tr>
-                    <th style="font-size:30px;">วันที่</th>
-                    <th class="uk-table-expand" style="font-size:30px;">หัวข้อ</th>
+                    <th style="font-size:20px;">วันที่</th>
+                    <th class="uk-table-expand" style="font-size:20px;">หัวข้อ</th>
                 </tr>
                 {%for i in others %}
                 <!-- {%if i.category == 'OTHERS'%} -->
                 <tr>
-                    <td style="width:20%;">{{i.date}}</td>
+                    <td style="width:20%;font-size:20px;">{{i.date}}</td>
                     <td>
-                        <a class=".uk-text-lead" href="http://{{i.link}}">{{i.titleexam}}</a>
+                        <a class=".uk-text-lead" href="http://{{i.link}}" style="font-size:20px;">{{i.titleexam}}</a>
                     </td>
                 </tr>
                 <!-- {%endif%} -->

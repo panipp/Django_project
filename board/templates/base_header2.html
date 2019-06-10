@@ -28,7 +28,7 @@
             <nav class="uk-navbar-container" uk-navbar="mode: click" style="background-color:white; height: 0.5%">
 
                 <div class="uk-navbar-left">
-                    <a href="/homeS">
+                    <a href="/homeS/">
                         <img src="{% static 'images/b1.png' %}" style="width:300px; margin: 10px;" />
                     </a>
                 </div>
@@ -56,10 +56,10 @@
                     <div class="dropdown">
                         <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#"
                             style="color:white; background-color: #c00832"></a>
-                        <div class="dropdown-content" style="font-size:30px;">
-                            <a href="/homeS/">ข่าวสาร</a>
-                            <a href="/activityS/">กิจกรรมนักศึกษา</a>
-                            <a href="/examS/">วิชาการ</a>
+                        <div class="dropdown-content">
+                            <a href="/homeS/" style="font-size:20px;">ข่าวสาร</a>
+                            <a href="/activityS/" style="font-size:20px;">กิจกรรมนักศึกษา</a>
+                            <a href="/examS/" style="font-size:20px;">วิชาการ</a>
                             {% if request.user.is_authenticated %}
 
 

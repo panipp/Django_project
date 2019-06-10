@@ -30,21 +30,23 @@
         </form>
         </div></div>
     </div>
-    <div class="uk-hidden@l" style="font-size:40px;margin-top: 50px;">
+    <div class="uk-hidden@l" style="margin-top: 50px;">
+    <div class="centerform2">
         <form method="post" enctype="multipart/form-data">
             {%csrf_token%}
             <span>หัวข้อ : </span><br>
-            <input style="font-size: 40px;font-weight: bold;width: 85%;" type="text"
+            <input style="font-size: 20px;font-weight: bold;width: 85%;" type="text"
                 name="title" value="{{news.title}}"><br><br>
             <span>วันที่ : {{news.date}}</span><br>
-            <input style="font-size: 40px; width: 85%;" type="date"><br><br>
-            <input type="file"><br><br><br>
-            </form>
-            <a class=".uk-text-lead" href=""><button style="text-align: right;font-size: 35px;"
+            <input style="font-size: 20px; width: 85%;" type="date"><br><br>
+            <input type="file">
+            <div style="text-align:center;">
+            <a class=".uk-text-lead" href=""><button style="text-align: right;font-size: 20px;"
                     class="uk-button uk-button-danger uk-button-large">อัพเดท</button></a>
-            <!-- <a class=".uk-text-lead" href="/delete_news/{{news.id}}"><button style="text-align: right;font-size: 35px;"
-                    class="uk-button uk-button-danger uk-button-large" name="delete">ลบ</button></a> -->
-               
+            </div>    
+            </form>
+            
+        </div>       
     </div>
 </div>
 
