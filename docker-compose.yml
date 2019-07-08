@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+    fund_db:
+        image: postgres:11.1-alpine
+        restart: always
+        env_file:
+            - environment/.env.development
+
+    fund_web:
+        build: ./board
+        command: sh /board/runserver.sh
+        volumes:
+            - ./board:/board
+            - /var/www/board/static/:/var/www/board/static/
+            - /var/www/board/media/:/var/www/board/media/
+        depends_on:
+            - fund_db
+        env_file:
+            - environment/.env.development
+
+    fund_gateway:
+        container_name: fund_gateway
+        image: nginx:alpine
+        ports:
+            - "80:80"
+        volumes:
+            - ./nginx/:/etc/nginx/conf.d
+            - ./board:/board
+            - /var/www/board/static/:/var/www/board/static/
+            - /var/www/board/media/:/var/www/board/media/
+        depends_on:
+            - fund_web
