@@ -86,13 +86,23 @@ WSGI_APPLICATION = 'board.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ['POSTGRES_DB'],
+        'USER': os.environ['POSTGRES_USER'],
+        'PASSWORD': os.environ['POSTGRES_PASSWORD'],
+        'HOST': os.environ['DB_HOST'],
+        'PORT': os.environ['DB_PORT']
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -142,20 +152,19 @@ SOCIAL_AUTH_PIPELINE = [
 ]
 
 
+STATIC_ROOT = '/var/www/board/static/'
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = '/var/www/board/static/media/'
+MEDIA_URL = '/media/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-STATIC_ROOT = './var/www/board/static/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = '/media/'
 
 NEDIA_DIR=[os.path.join(BASE_DIR,'files',"files")]
 
-SOCIAL_AUTH_TU_KEY = 'Dn4D1FElNls9j5LwqzTbpnmBVo78gfaf6RE1N5rG'
-SOCIAL_AUTH_TU_SECRET = 'UwQs6x98scWkJ4zaf0dTfIdWTTMKisLOkrgSvVJEtqXkLoMt12TNa3FQEWFTVBvXDdj6kiyaUr5fKoW2VXPMoFPRhCNwkkpePcfzuTUWQKShG0v9bC7aWLHMDoS449uk'
-# SOCIAL_AUTH_TU_KEY = os.environ.get('TU_AUTH_KEY', None)
-# SOCIAL_AUTH_TU_SECRET = os.environ.get('TU_AUTH_SECRET', None)
+SOCIAL_AUTH_TU_KEY = os.environ.get('TU_AUTH_KEY', None)
+SOCIAL_AUTH_TU_SECRET = os.environ.get('TU_AUTH_SECRET', None)
 LOGIN_URL = '/oauth/login/tu/'
 LOGIN_REDIRECT_URL = '/homes'
-
