@@ -8,7 +8,7 @@ from django.core.exceptions import ValidationError
 class User(models.Model):
     firstname = models.CharField(max_length = 50)
     lastname = models.CharField(max_length = 50)
-    role = models.CharField(max_length = 1)
+    role = models.CharField(max_length = 1) 
 
 class News(models.Model):
     title = models.CharField(max_length=500)
@@ -18,7 +18,7 @@ class News(models.Model):
 class Board(models.Model):
     titleboard = models.CharField(max_length = 500,blank=True)
     detail = models.TextField(max_length = 500, null=True,blank=True) 
-    image = models.ImageField() 
+    image = models.ImageField()
     date = models.DateField(null=True)
 
 class Exam(models.Model):
