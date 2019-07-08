@@ -21,7 +21,7 @@
         <span class=".uk-text-lead" style="font-size: 20px;font-weight: bold;">{{news.title}}</span>
     </h3>
     <h6 style="font-size: 13px;margin-top: 0; font-weight: lighter;">วันที่ {{news.date}}</h6>
-    <embed class="uk-width-1-1" src="/media/{{ news.file }}" type="application/pdf" height="600px">
+    <embed class="uk-width-1-1" src="{{ news.file.url }}" type="application/pdf" height="600px">
     <p style="margin-top: 40px; font-weight: bold;margin-bottom:50px;">Download: <a href="/media/{{ news.file }}" download>{{news.file}}</a></p>
 </div>
 <div class="uk-hidden@l" style="margin-top:15px;margin-left:20px; margin-right:20px;"

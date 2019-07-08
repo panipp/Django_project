@@ -155,7 +155,7 @@ SOCIAL_AUTH_PIPELINE = [
 STATIC_ROOT = '/var/www/board/static/'
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = '/var/www/board/static/media/'
+MEDIA_ROOT = '/var/www/board/media/'
 MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [
