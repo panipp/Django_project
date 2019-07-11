@@ -11,6 +11,7 @@ class ChoiceInput(forms.ChoiceField):
 
 class AddNewsForm(forms.ModelForm):
     title = News('title')
+    
     date = forms.DateField(widget=forms.widgets.DateInput(attrs={'autocomplete':'off'}),input_formats=['%Y-%m-%d'])
     class Meta:
         model = News

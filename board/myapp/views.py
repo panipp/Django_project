@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,HttpResponseForbidden
 from .models import User,Exam,News,Board
 from django.template import loader
 from django.views import generic
@@ -55,8 +55,11 @@ def others(request):
 
 @login_required
 def homeS(request):
-    news = News.objects.all().order_by('-date')
-    return render(request,'staff/homeS.html',{'news':news})
+    if request.user.is_staff:
+        news = News.objects.all().order_by('-date')
+        return render(request,'staff/homeS.html',{'news':news})
+    else:
+        return HttpResponseForbidden()
 
 def activityS(request):
     activity = Board.objects.all().order_by('-date')
