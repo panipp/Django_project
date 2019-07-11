@@ -107,5 +107,5 @@ venv.bak/
 # K-security
 /environment
 # K
-board/myapp/migrations/
 models\.py
+migrations/
