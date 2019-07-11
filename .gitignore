@@ -103,4 +103,9 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# KingOnHuy
+# K-security
 /environment
+# K
+board/myapp/migrations/
+models\.py

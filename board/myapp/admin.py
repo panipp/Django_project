@@ -1,22 +1,21 @@
 from django.contrib import admin
-from .models import    User,Exam,News,Board
+from .models import    Profiles,Exam,News,Board
 # Register your models here.
 
 
 class NewsAdmin(admin.ModelAdmin):
-    list_news = ('title','date','file',)
+    list_display = [f.name for f in News._meta.fields]
 
-class UserAdmin(admin.ModelAdmin):
-    list_user = ('firstname','lastname','role',)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = [f.name for f in Profiles._meta.fields]
 
 class BoardAdmin(admin.ModelAdmin):
-    list_board = ('titleboard','detail','image' , 'date',)
+    list_display = [f.name for f in Board._meta.fields]
 
 class ExamAdmin(admin.ModelAdmin):
-    list_exam = ('titleexam','date','category','link',)
+    list_display = [f.name for f in Exam._meta.fields]
 
 admin.site.register(News,NewsAdmin)
 admin.site.register(Board,BoardAdmin)
-admin.site.register(User,UserAdmin)
+admin.site.register(Profiles,ProfileAdmin)
 admin.site.register(Exam,ExamAdmin)
-
