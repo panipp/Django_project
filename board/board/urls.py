@@ -15,45 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from myapp import views
+from scinews import views
 from django.conf import settings
 from django.conf.urls.static import static
-
 
 urlpatterns = [
     path('oauth/', include('social_django.urls', namespace='social')), # in django2
     path('admin/', admin.site.urls),
     path('',views.home,name='home'),
-    path('activity/',views.activity,name='activity'),
-    path('exam/',views.exam,name='exam'),
-
-    # url(r'news/(?P<id>\d+)/',viws.news,name='news'),
-    path('news/<int:pk>/',views.news,name='news'),
-    path('addNews_summit/',views.addNews_summit,name='addNews_summit'),
-    path('activity2/<int:pk>/',views.activity2,name='activity2'),
-    path('english/',views.english,name='english'),
-    path('math/',views.math,name='math'),
-    path('others/',views.others,name='others'),
-
-    path('homeS/',views.homeS,name='homeS'),
-    path('activityS/',views.activityS,name='activityS'),
-    path('examS/',views.examS,name='examS'),
-    path('englishS/',views.englishS,name='englishS'),
-    path('delete_english/<int:id>',views.delete_english,name="delete_english"),
-    path('mathS/',views.mathS,name='mathS'),
-    path('delete_math/<int:id>',views.delete_math,name="delete_math"),
-    path('othersS/',views.othersS,name='othersS'),
-    path('delete_others/<int:id>',views.delete_others,name='delete_others'),
-    path('addNews/',views.addNews,name='addNews'),
-    path('updateNews/<int:pk>/',views.updateNews,name='updateNews'),
-    path('updateNews2/<int:pk>/',views.updateNews2,name='updateNews2'),
-    path('delete_news/<int:pk>/',views.delete_news,name='delete_news'),
-    path('addActivity/',views.addActivity,name='addActivity'),
-    path('addActivity_summit/',views.addActivity_summit,name='addActivity_summit'),
-    path('update_activity/<int:pk>/',views.update_activity,name='update_activity'),
-    path('delete_board/<int:pk>',views.delete_board,name="delete_board"),
-    path('addExam/',views.addExam,name='addExam'),
-    path('addExam_summit/',views.addExam_summit,name="addExam_summit"),
-    path('pdf_view/<int:id>/',views.pdf_view,name="pdf_view"),
+    path('',include('scinews.urls')),
+    
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
