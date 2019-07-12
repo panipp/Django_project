@@ -7,26 +7,20 @@ from django.urls import reverse
 from .forms import AddNewsForm,AddExamForm,AddBoard
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-@login_required
 def home(request):
-    # pylint: disable=no-member
     news = News.objects.all().order_by('-date')[:5]
     return render(request,'home.html',{'news' : news})
 
 def activity(request):
-    # pylint: disable=no-member
     board = Board.objects.all().order_by('-date')
     return render(request,'activity.html',{'board' : board})
 
 
 def exam(request):
-    # pylint: disable=no-member
+    context = dict()
     exams = Exam.objects.all()[:10]
-    eng = Exam.objects.filter(category='ENG')[:5]
-    math = Exam.objects.filter(category = 'MATH')[:5]
-    others = Exam.objects.filter(category = 'OTHERS')[:5]
-    return render(request,'exam.html',{'exams':exams , 'eng':eng , 'math':math,'others':others})
+    context['all'] = exams
+    return render(request,'exam.html',context)
 
 
 

@@ -9,12 +9,12 @@ from django.core.exceptions import ValidationError
 
 
 # Create your models here.
-class Profiles(models.Model):
+class Profile(models.Model):
     account = models.OneToOneField(User, on_delete = models.PROTECT)
-    company = models.CharField(max_length=128,null=True)
-    department = models.CharField(max_length=128,null=True)
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
+    company = models.CharField(max_length=128,null=True)
+    department = models.CharField(max_length=128,null=True)
     email = models.EmailField(null=True, help_text="เช่น somename@example.com")
 
     is_staff = models.BooleanField(default = False)
@@ -36,11 +36,17 @@ class Board(models.Model):
     def __str__(self):
         return self.titleboard
 
+class CategoryExam(models.Model):
+    als = models.CharField(max_length=50)
+    name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.als + " : " + self.name
+
 class Exam(models.Model):
     titleexam = models.CharField(max_length = 500,null=True)
-    CATEGORY_CHOICES = (('ENG','English'),('MATH','Math'),('OTHERS','Others'))
+    # CATEGORY_CHOICES = (('ENG','English'),('MATH','Math'),('OTHERS','Others'))
     date = models.DateField()
-    category = models.CharField(max_length=10,choices=CATEGORY_CHOICES,default='OTHERS')
+    category = models.ForeignKey(CategoryExam, on_delete=models.PROTECT)
     link = models.CharField(max_length = 200,null=False)
     def __str__(self):
         return self.titleexam
@@ -62,10 +68,10 @@ def logged_in_handle(sender, user, request, **kwargs):
         api  = requests.get('https://api.tu.ac.th/api/me/', headers=headers).json()
 
         index   = User.objects.all().filter(username = api['username'])[0]
-        profile = Profiles.objects.filter(account = index)
+        profile = Profile.objects.filter(account = index)
         
         if not profile.exists():
-            Profiles.objects.create(
+            Profile.objects.create(
                 account = index,
                 company = api['company'],
                 department = api['department'],
