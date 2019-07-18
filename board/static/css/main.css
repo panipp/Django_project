@@ -8,7 +8,15 @@
 
 *:not(i){
   font-family: TUFont;
-  font-size: 16px;
+}
+
+html {
+  font-family: TUFont;
+  font-size: 62.5%; /* เพื่อให้ 1rem มีค่าประมาณ 10px */
+}
+body {
+  font-family: TUFont;
+  font-size: 1.6em; /* มีค่าประมาณ 16px */
 }
 
 .container{
@@ -16,7 +24,7 @@
   margin-right:20px; 
   margin-top: 50px;
   height: auto;
-  min-height:calc(100vh - 800px);
+  min-height:calc(100vh - 760px);
 }
 
 .centerform{
@@ -40,15 +48,19 @@
   font-weight: bold;
 }
 
+.uk-text-lead{
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
 .uk-table th{
+  font-size: 1.3em;
   color:#333;
-  font-size: 16px;
 }
 
 .uk-button{
   color:#c3002f;
   background: transparent;
-  font-size: 16px;
 }
 .uk-button-primary,.uk-button-danger{
   color: #fff;
