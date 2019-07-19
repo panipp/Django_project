@@ -15,15 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from scinews import views
+from authentication import views
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('oauth/', include('social_django.urls', namespace='social')), # in django2
+    path('oauth/', include('social_django.urls', namespace='social')), # login django2
     path('admin/', admin.site.urls),
-    path('',views.home,name='home'),
     path('',include('scinews.urls')),
-    
+    path('logout/', views.logout, name='logout'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

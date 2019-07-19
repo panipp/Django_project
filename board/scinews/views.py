@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from django.http import HttpResponseRedirect,HttpResponseForbidden
+from django.http import HttpResponseRedirect,HttpResponseForbidden,HttpResponseNotFound
 from .models import User,Exam,News,Board
 from django.template import loader
 from django.views import generic
@@ -8,6 +8,7 @@ from .forms import AddNewsForm,AddExamForm,AddBoard
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 
+# ------------------Student-------------------
 def home(request,**kwargs):
     context = dict()
     news = News.objects.all().order_by('-date')
@@ -19,13 +20,26 @@ def home(request,**kwargs):
     context['page'] = p.count
     return render(request,'home.html',context)
 
-def activity(request):
+def activity(request,**kwargs):
+    context = dict()
     board = Board.objects.all().order_by('-date')
-    return render(request,'activity.html',{'board' : board})
+    p = Paginator(board, 5)
+    if 'p' in kwargs:
+        if kwargs['p'] < p.count:
+            context['board'] = p.page(kwargs['p'])
+        else:
+            return HttpResponseNotFound()
+    elif 'id' in kwargs:
+        context['board'] = Board.objects.filter(id=kwargs['id'])[0]
+        return render(request,'activity2.html',context)
+    else:
+        context['board'] = p.page(1)
+    context['page'] = p.count
+    return render(request,'activity.html',context)
 
 def exam(request):
     context = dict()
-    exams = Exam.objects.all()[:10]
+    exams = Exam.objects.all()
     context['all'] = exams
     return render(request,'exam.html',context)
 
@@ -34,6 +48,8 @@ def news(request,**kwargs):
     pk = kwargs['pk']
     news = News.objects.get(pk=pk)
     return render(request,'news.html',{'news': news })
+
+# ------------------Student-------------------
 
 def activity2(request,**kwargs):
     pk = kwargs['pk']
@@ -52,9 +68,10 @@ def others(request):
     otherss = Exam.objects.all().order_by('-date')
     return render(request,'others.html',{'otherss' : otherss})
 
+# ------------------Staff-------------------
 @login_required
 def homeS(request):
-    if request.user.is_staff:
+    if request.user.profile.is_staff:
         news = News.objects.all().order_by('-date')
         return render(request,'staff/homeS.html',{'news':news})
     else:
@@ -216,3 +233,4 @@ def pdf_view(request,**kwargs):
         response['Content-Disposition'] = 'inline;filename=some_file.pdf'
         return response
     pdf.closed
+# ------------------Staff-------------------

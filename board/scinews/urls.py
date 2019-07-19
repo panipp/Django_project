@@ -7,13 +7,20 @@ addActivity_summit,update_activity,delete_board,addExam,addExam_summit,pdf_view,
 app_name = 'studentloan'
 
 urlpatterns = [
-    path('home/<int:p>',home,name='home'),
+    path('',home,name='home'),
+    path('home/<int:p>/',home,name='home'),
+
     path('activity/',activity,name='activity'),
+    path('activity/<int:p>/',activity,name='activity'),
+    path('activity/id/<int:id>/',activity,name='activity'),
+
     path('exam/',exam,name='exam'),
 
     path('news/<int:pk>/',news,name='news'),
+
+    
     path('addNews_summit/',addNews_summit,name='addNews_summit'),
-    path('activity2/<int:pk>/',activity2,name='activity2'),
+    # path('activity2/<int:pk>/',activity2,name='activity2'),
     path('english/',english,name='english'),
     path('math/',math,name='math'),
     path('others/',others,name='others'),

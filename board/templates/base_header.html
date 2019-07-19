@@ -43,6 +43,15 @@
                         <a href="/exam/" style="color:black;font-weight: bold;"><span
                                     class="hover1">วิชาการ</span></a>
                     </li>
+                    {% if user.is_anonymous %}
+                    <li>
+                        <a class='uk-button uk-button-danger' href={% url 'social:begin' 'tu' %}>login</a>
+                    </li>
+                    {% else %}
+                     <li>
+                        <a class='uk-button uk-button-danger' href={% url 'logout' %}>logout</a>
+                    </li>
+                    {% endif %}
                 </ul>
                 <div class="dropdown">
                     <a class="uk-navbar-toggle" href="#" style="color:white; background-color: #c00832">

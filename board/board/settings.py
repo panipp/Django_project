@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'social_django',
     'tuauth',
+    'authentication',
 ]
 
 AUTHENTICATION_BACKENDS = (
