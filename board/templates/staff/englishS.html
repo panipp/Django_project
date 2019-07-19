@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block content  %}
-<div style="position: relative;margin-top:5%" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
+<div uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
     uk-scrollspy="cls:uk-animation-fade">
     <div class="uk-position-relative uk-visible-toggle uk-light">
         <ul class="uk-slideshow-items">
@@ -15,27 +15,23 @@
     </div>
 </div>
 <div class="container" uk-scrollspy="cls:uk-animation-fade">
-    <div class="uk-visible@l">
         <table class="uk-table uk-table-middle uk-table-divider">
             <tbody>
                 <h3>
-                    <span class=".uk-text-lead"
-                        style="font-size: 20px;font-weight: bold;">ภาษาอังกฤษ</span>
-                    <!-- <span style="margin-left:10px;"><a class=".uk-text-lead" href=""><button
-                                class="uk-button uk-button-danger">ลบหมวดวิชา</button></a></span> -->
+                    <span class="uk-text-lead">ภาษาอังกฤษ</span>
                 </h3>
                 <tr>
-                    <th>วันที่</th>
-                    <th class="uk-table-expand">หัวข้อ</th>
+                    <th class="uk-width-1-4@m uk-width-1-5@l">วันที่</th>
+                    <th class="uk-table-expand uk-width-3-4@m uk-width-4-5@l">หัวข้อ</th>
                 </tr>
                 {%for i in exams%}
                 {%if i.category == 'ENG'%}
                 <tr>
-                    <td style="width:20%;">{{i.date}}</td>
+                    <td>{{i.date}}</td>
                     <td>
-                        <a class=".uk-text-lead" href="http://{{i.link}}">{{i.titleexam}}</a>
+                        <a class="uk-text-lead" href="http://{{i.link}}">{{i.titleexam}}</a>
                     </td>
-                    <td><a class=".uk-text-lead" href="/delete_english/{{i.id}}"><button class="uk-button" type="submit" name="delete">ลบลิ้งค์</button></a>
+                    <td><a class="uk-text-lead" href="/delete_english/{{i.id}}"><button class="uk-button" type="submit" name="delete">ลบลิ้งค์</button></a>
                     </td>
                 </tr>
                 {%endif%}
@@ -44,48 +40,6 @@
             </tbody>
 
         </table>
-        {% comment %} <ul class="uk-pagination">
-            <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> ก่อนหน้า</a></li>
-            <li class="uk-margin-auto-left"><a href="#">ถัดไป <span class="uk-margin-small-left"
-                        uk-pagination-next></span></a></li>
-        </ul> {% endcomment %}
-    </div>
-    <div class="uk-hidden@l" style="font-size:30px;">
-        <table class="uk-table uk-table-middle uk-table-divider">
-            <tbody>
-                <h3>
-                    <span class=".uk-text-lead"
-                        style="font-size: 30px;font-weight: bold;">ภาษาอังกฤษ</span>
-                    <!-- <span style="margin-left:10px;"><a class=".uk-text-lead" href="/delete_english/{{i.id}}"><button
-                                class="uk-button uk-button-danger">ลบหมวดวิชา</button></a></span> -->
-                </h3>
-                <tr>
-                    <th style="font-size:20px;">วันที่</th>
-                    <th class="uk-table-expand" style="font-size:20px;">หัวข้อ</th>
-                </tr>
-                {%for i in exams%}
-                {%if i.category == 'ENG'%}
-                <tr>
-                    <td style="width:20%;font-size:20px;">{{i.date}}</td>
-                    <td>
-                        <a class=".uk-text-lead" href="http://{{i.link}}" style="font-size:20px;">{{i.titleexam}}</a>
-                    </td>
-                    <td><a class=".uk-text-lead" href="/delete_english/{{i.id}}" style="font-size:20px;"><button class="uk-button" style="font-size:20px;" type="submit" name="delete">ลบลิ้งค์</button></a>
-                    </td>
-                </tr>
-                {%endif%}
-                {%endfor%}
-        
-
-            </tbody>
-
-        </table>
-        {% comment %} <ul class="uk-pagination" style="font-size:30px;">
-            <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> ก่อนหน้า</a></li>
-            <li class="uk-margin-auto-left"><a href="#">ถัดไป <span class="uk-margin-small-left"
-                        uk-pagination-next></span></a></li>
-        </ul> {% endcomment %}
-    </div>
 </div>
 {% endblock %}
 

@@ -13,27 +13,27 @@
 html {
   font-family: TUFont;
   font-size: 62.5%; /* เพื่อให้ 1rem มีค่าประมาณ 10px */
+  height: 100%;
 }
 body {
   font-family: TUFont;
   font-size: 1.6em; /* มีค่าประมาณ 16px */
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .container{
   margin-left:20px;
   margin-right:20px; 
   margin-top: 50px;
-  height: auto;
-  min-height:calc(100vh - 760px);
+  min-height: calc(100vh - 945px);
 }
 
 .centerform{
-  margin-right: 0px;
-  margin-bottom: 50px;
   display: inline-block;
   border: solid 1px #c3002f;
-  padding: 60px 150px;
-  width: 70%;
+  margin-bottom: 50px;
   text-align:left;
   font-weight: bold;
 }

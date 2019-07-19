@@ -4,7 +4,7 @@
 {% endblock %}
 {% load widget_tweaks %}
 
-<div style="position: relative;margin-top:5%" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
+<div uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
   uk-scrollspy="cls:uk-animation-fade">
   <div class="uk-position-relative uk-visible-toggle uk-light">
     <ul class="uk-slideshow-items">
@@ -16,9 +16,9 @@
 </div>
 
 <div class="container">
-  <div class="uk-visible@l">
     <div style="text-align: center">
-      <div class="centerform">
+      <div class="centerform uk-width-1-1 uk-padding-large uk-child-width-4-5">
+        <h3><span class="uk-text-lead">เพิ่มประกาศใหม่</span></h3>
         <form method="post" enctype="multipart/form-data" action = "/addNews/">
           {%csrf_token%}
           {%for f in form%} 
@@ -31,23 +31,6 @@
         </form>
     </div>
   </div>
-</div>
-  <div class="uk-hidden@l" style="font-size:40px;margin-top: 50px;text-align:center;">
-   <div class="centerform2">
-    <form method="post" enctype="multipart/form-data" action = "/addNews/">
-      {%csrf_token%}
-      {%for f in form%} 
-      {{f.label_tag}}
-      <br>{% render_field f class="input" style="font-size: 20px;font-weight: bold;" %}<br><br>
-      {%endfor%}
-      <div style="text-align:center;">
-    <button style="text-align: right;font-size: 20px;" type="submit"
-      class="uk-button uk-button-primary uk-button-large" >บันทึก</button>
-    </div>
-  </form>
-  </div>
-</div>
-
 </div>
 
 {% block footer %}

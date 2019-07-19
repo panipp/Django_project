@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block content  %}
-<div style="position: relative;margin-top:5%" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
+<div uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
     uk-scrollspy="cls:uk-animation-fade">
     <div class="uk-position-relative uk-visible-toggle uk-light">
         <ul class="uk-slideshow-items">
@@ -15,26 +15,25 @@
     </div>
 </div>
 <div class="container">
-    <div class="uk-visible@l">
         <table class="uk-table uk-table-middle uk-table-divider">
             <tbody>
                 <span><a href="/addExam/" class="uk-button uk-button-primary">เพิ่มงานวิชาการ</a></span>
                 <h3>
-                    <span class=".uk-text-lead" style="font-size: 20px;font-weight: bold;">ภาษาอังกฤษ
+                    <span class="uk-text-lead">ภาษาอังกฤษ
                         <a style="font-size:20px;" href="/englishS/">(ดูทั้งหมด)</a>
                     </span>
                 </h3>
 
                 <tr>
-                    <th >วันที่</th>
-                    <th class="uk-table-expand">หัวข้อ</th>
+                    <th class="uk-width-1-4@m uk-width-1-5@l">วันที่</th>
+                    <th class="uk-table-expand uk-width-3-4@m uk-width-4-5@l">หัวข้อ</th>
                 </tr>
                 {%for i in eng%} 
                 
                 <tr>
-                    <td style="width:20%;">{{i.date}}</td>
+                    <td>{{i.date}}</td>
                     <td>
-                        <a class=".uk-text-lead"  href="http://{{i.link}}">{{i.titleexam}}</a>
+                        <a class="uk-text-lead"  href="http://{{i.link}}">{{i.titleexam}}</a>
                     </td>
                 </tr>
                 
@@ -46,21 +45,21 @@
         <table class="uk-table uk-table-middle uk-table-divider">
             <tbody>
                 <h3>
-                    <span class=".uk-text-lead" style="font-size: 20px;font-weight: bold;">คณิตศาสตร์
+                    <span class="uk-text-lead">คณิตศาสตร์
                         <a style="font-size:20px;" href="/mathS/">(ดูทั้งหมด)</a>
                     </span>
                 </h3>
 
                 <tr>
-                    <th>วันที่</th>
-                    <th class="uk-table-expand" >หัวข้อ</th>
+                    <th class="uk-width-1-4@m uk-width-1-5@l">วันที่</th>
+                    <th class="uk-table-expand uk-width-3-4@m uk-width-4-5@l">หัวข้อ</th>
                 </tr>
                 {%for i in math%} 
                 
                 <tr>
-                    <td style="width:20%;">{{i.date}}</td>
+                    <td>{{i.date}}</td>
                     <td>
-                        <a class=".uk-text-lead"  href="http://{{i.link}}">{{i.titleexam}}</a>
+                        <a class="uk-text-lead"  href="http://{{i.link}}">{{i.titleexam}}</a>
                     </td>
                 </tr>
                 
@@ -72,21 +71,21 @@
         <table class="uk-table uk-table-middle uk-table-divider">
             <tbody>
                 <h3>
-                    <span class=".uk-text-lead" style="font-size: 20px;font-weight: bold;">หมวดอื่นๆ
+                    <span class="uk-text-lead">หมวดอื่นๆ
                         <a style="font-size:20px;" href="/othersS/">(ดูทั้งหมด)</a>
                     </span>
                 </h3>
 
                 <tr>
-                    <th>วันที่</th>
-                    <th class="uk-table-expand">หัวข้อ</th>
+                    <th class="uk-width-1-4@m uk-width-1-5@l">วันที่</th>
+                    <th class="uk-table-expand uk-width-3-4@m uk-width-4-5@l">หัวข้อ</th>
                 </tr>
                 {%for i in others%} 
               
                 <tr>
-                    <td style="width:20%;">{{i.date}}</td>
+                    <td>{{i.date}}</td>
                     <td>
-                        <a class=".uk-text-lead"  href="http://{{i.link}}">{{i.titleexam}}</a>
+                        <a class="uk-text-lead"  href="http://{{i.link}}">{{i.titleexam}}</a>
                     </td>
                 </tr>
                
@@ -95,89 +94,6 @@
             </tbody>
             </tbody>
         </table>
-    </div>
-    <div class="uk-hidden@l" style="font-size:20px;">
-        <table class="uk-table uk-table-middle uk-table-divider">
-            <tbody>
-                <span><a href="/addExam/" class="uk-button uk-button-primary uk-button-large" style="font-size:20px;">เพิ่มงานวิชาการ</a></button></span>
-                <h3>
-                    <span class=".uk-text-lead" style="font-size:30px;font-weight: bold;">ภาษาอังกฤษ
-                        <a style="font-size:20px;" href="/englishS/">(ดูทั้งหมด)</a>
-                    </span>
-                </h3>
-
-                <tr>
-                    <th style="font-size:20px;">วันที่</th>
-                    <th class="uk-table-expand" style="font-size:20px;">หัวข้อ</th>
-                </tr>
-                {%for i in eng%} 
-                
-                <tr>
-                    <td style="width:20%;font-size:20px;">{{i.date}}</td>
-                    <td>
-                        <a class=".uk-text-lead"  href="http://{{i.link}}" style="font-size:20px;">{{i.titleexam}}</a>
-                    </td>
-                </tr>
-                
-                {%endfor%}
-               
-
-            </tbody>
-            </tbody>
-        </table>
-        <table class="uk-table uk-table-middle uk-table-divider">
-            <tbody>
-                <h3>
-                    <span class=".uk-text-lead" style="font-size: 30px;font-weight: bold;">คณิตศาสตร์
-                        <a style="font-size:20px;" href="/mathS/">(ดูทั้งหมด)</a>
-                    </span>
-                </h3>
-
-                <tr>
-                    <th style="font-size:20px;">วันที่</th>
-                    <th class="uk-table-expand" style="font-size:20px;">หัวข้อ</th>
-                </tr>
-                {%for i in math%} 
-                
-                <tr>
-                    <td style="width:20%;font-size:20px;">{{i.date}}</td>
-                    <td>
-                        <a class=".uk-text-lead"  href="http://{{i.link}}" style="font-size:20px;">{{i.titleexam}}</a>
-                    </td>
-                </tr>
-               
-                {%endfor%}
-      
-            </tbody>
-            </tbody>
-        </table>
-        <table class="uk-table uk-table-middle uk-table-divider">
-            <tbody>
-                <h3>
-                    <span class=".uk-text-lead" style="font-size: 30px;font-weight: bold;">หมวดอื่นๆ
-                        <a style="font-size:20px;" href="/othersS/">(ดูทั้งหมด)</a>
-                    </span>
-                </h3>
-
-                <tr>
-                    <th style="font-size:20px;">วันที่</th>
-                    <th class="uk-table-expand" style="font-size:20px;">หัวข้อ</th>
-                </tr>
-                {%for i in others%} 
-                
-                <tr>
-                    <td style="width:20%;font-size:20px;">{{i.date}}</td>
-                    <td>
-                        <a class=".uk-text-lead"  href="http://{{i.link}}" style="font-size:20px;">{{i.titleexam}}</a>
-                    </td>
-                </tr>
-               
-                {%endfor%}
-                
-            </tbody>
-            </tbody>
-        </table>
-    </div>
 </div>
 {% endblock %}
 

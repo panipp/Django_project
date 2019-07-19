@@ -3,7 +3,7 @@
 {% include 'base_header2.html' %}
 {% endblock %}
 {% load widget_tweaks %}
-<div style="position: relative;margin-top:5%" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
+<div uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
     uk-scrollspy="cls:uk-animation-fade">
     <div class="uk-position-relative uk-visible-toggle uk-light">
         <ul class="uk-slideshow-items">
@@ -14,39 +14,20 @@
     </div>
 </div>
 
-<div style="margin-left:17px; margin-top:50px;">
-<div style="text-align:center">
-      <div class="centerform">
-    <div class="uk-visible@l">
-        <form method="post" enctype="multipart/form-data" >
-            {%csrf_token%}
-            {%for f in form%} 
-            {{f.label_tag}}
-      <br>  {% render_field f class="input" style="font-size: 20px;" %}<br><br>
-            {%endfor%}
-            <div style="text-align:center">
-            <a class=".uk-text-lead" href=""><button class="uk-button uk-button-danger" type="submit">อัพเดท</button></a>
-           </div>
-        </form>
-        </div></div>
-    </div>
-    <div class="uk-hidden@l" style="margin-top: 50px;">
-    <div class="centerform2">
-        <form method="post" enctype="multipart/form-data">
-            {%csrf_token%}
-            <span>หัวข้อ : </span><br>
-            <input style="font-size: 20px;font-weight: bold;width: 85%;" type="text"
-                name="title" value="{{news.title}}"><br><br>
-            <span>วันที่ : {{news.date}}</span><br>
-            <input style="font-size: 20px; width: 85%;" type="date"><br><br>
-            <input type="file">
-            <div style="text-align:center;">
-            <a class=".uk-text-lead" href=""><button style="text-align: right;font-size: 20px;"
-                    class="uk-button uk-button-danger uk-button-large">อัพเดท</button></a>
-            </div>    
+<div style="margin-left:17px; margin-top:50px;" uk-scrollspy="cls:uk-animation-fade">
+    <div style="text-align:center">
+        <div class="centerform">
+            <form method="post" enctype="multipart/form-data" >
+                {%csrf_token%}
+                {%for f in form%} 
+                {{f.label_tag}}
+        <br>  {% render_field f class="input" style="font-size: 20px;" %}<br><br>
+                {%endfor%}
+                <div style="text-align:center">
+                    <a class="uk-text-lead" href=""><button class="uk-button uk-button-danger" type="submit">อัพเดท</button></a>
+                </div>
             </form>
-            
-        </div>       
+        </div>
     </div>
 </div>
 
