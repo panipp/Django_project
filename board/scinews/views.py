@@ -13,16 +13,15 @@ def home(request,**kwargs):
     news = News.objects.all().order_by('-date')
     p = Paginator(news, 5)
     if 'p' in kwargs:
-        context = {'news' : p.page(kwargs['p'])}
+        context['news'] = p.page(kwargs['p'])
     else:
-        context = {'news' : p.page(1)}
-    context += {'page': p.count}
+        context['news'] = p.page(1)
+    context['page'] = p.count
     return render(request,'home.html',context)
 
 def activity(request):
     board = Board.objects.all().order_by('-date')
     return render(request,'activity.html',{'board' : board})
-
 
 def exam(request):
     context = dict()
