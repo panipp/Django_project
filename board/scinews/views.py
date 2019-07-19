@@ -6,10 +6,18 @@ from django.views import generic
 from django.urls import reverse
 from .forms import AddNewsForm,AddExamForm,AddBoard
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
-def home(request):
-    news = News.objects.all().order_by('-date')[:5]
-    return render(request,'home.html',{'news' : news})
+def home(request,**kwargs):
+    context = dict()
+    news = News.objects.all().order_by('-date')
+    p = Paginator(news, 5)
+    if 'p' in kwargs:
+        context = {'news' : p.page(kwargs['p'])}
+    else:
+        context = {'news' : p.page(1)}
+    context += {'page': p.count}
+    return render(request,'home.html',context)
 
 def activity(request):
     board = Board.objects.all().order_by('-date')
@@ -21,8 +29,6 @@ def exam(request):
     exams = Exam.objects.all()[:10]
     context['all'] = exams
     return render(request,'exam.html',context)
-
-
 
 def news(request,**kwargs):
      # pylint: disable=no-member

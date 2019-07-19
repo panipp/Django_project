@@ -7,6 +7,7 @@ addActivity_summit,update_activity,delete_board,addExam,addExam_summit,pdf_view,
 app_name = 'studentloan'
 
 urlpatterns = [
+    path('home/<int:p>',home,name='home'),
     path('activity/',activity,name='activity'),
     path('exam/',exam,name='exam'),
 
