@@ -25,20 +25,18 @@
     </div>
 </div>
 <div class="container" uk-scrollspy="cls:uk-animation-fade">
-    <div class="uk-visible@l">
-        <table class="uk-table uk-table-middle uk-table-divider">
+        <table class="uk-table uk-table-middle uk-table-divider uk-overflow-container">
             <tbody>
                 <h3>
-                    <span class=".uk-text-lead"
-                        style="font-size: 20px;font-weight: bold;">ข่าวประชาสัมพันธ์</span>
+                    <span class="uk-text-lead">ข่าวประชาสัมพันธ์</span>
                 </h3>
                 <tr>
-                    <th>วันที่</th>
-                    <th class="uk-table-expand">หัวข้อ</th>
+                    <th class="uk-width-1-4@m uk-width-1-5@l">วันที่</th>
+                    <th class="uk-table-expand uk-width-3-4@m uk-width-4-5@l">หัวข้อ</th>
                 </tr>
                 {% for i in news %}
                 <tr>
-                    <td style="width:20%;">{{i.date}}</td>
+                    <td>{{i.date}}</td>
                     <td>
                         <a class=".uk-text-lead" href="/news/{{i.id}}">{{i.title}}</a>
                     </td>
@@ -48,43 +46,6 @@
             </tbody>
 
         </table>
-        {% comment %} <ul class="uk-pagination" style="font-weight: bold;">
-            <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> ก่อนหน้า</a></li>
-            <li class="uk-margin-auto-left"><a href="#">ถัดไป <span class="uk-margin-small-left"
-                        uk-pagination-next></span></a>
-            </li>
-        </ul> {% endcomment %}
-    </div>
-
-    <div class="uk-hidden@l">
-
-        <table class="uk-table uk-table-middle uk-table-divider">
-            <tbody>
-                <h3>
-                    <span class=".uk-text-lead"
-                        style="font-size: 30px;font-weight: bold;">ข่าวประชาสัมพันธ์</span>
-                </h3>
-                <tr>
-                    <th style="font-size:20px">วันที่</th>
-                    <th class="uk-table-expand" style="font-size:20px">หัวข้อ</th>
-                </tr>
-                <tr>
-                    <td style="width:20%;font-size:20px;">{{news.date}}</td>
-                    <td>
-                        <a class=".uk-text-lead" href="/news/{{news.id}}" style="font-size:20px">{{news.title}}</a>
-                    </td>
-                </tr>
-            </tbody>
-
-        </table>
-{% comment %} 
-        <ul class="uk-pagination" style="font-size: 30px;font-weight: bold;">
-            <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> ก่อนหน้า</a></li>
-            <li class="uk-margin-auto-left"><a href="#">ถัดไป <span class="uk-margin-small-left"
-                        uk-pagination-next></span></a>
-            </li>
-        </ul> {% endcomment %}
-    </div>
 </div>
 
 {% endblock %}

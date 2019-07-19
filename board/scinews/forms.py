@@ -11,7 +11,7 @@ class ChoiceInput(forms.ChoiceField):
 
 class AddNewsForm(forms.ModelForm):
     title = News('title')
-    
+    file = forms.FileField(widget=forms.FileInput(attrs={'accept':'application/pdf'}))
     date = forms.DateField(widget=forms.widgets.DateInput(attrs={'autocomplete':'off'}),input_formats=['%Y-%m-%d'])
     class Meta:
         model = News

@@ -48,26 +48,16 @@
                                 style="color:black;font-weight: bolder;"><span
                                     class="hover1">วิชาการ</span></a>
                         </li>
-                        {% if request.user.is_authenticated %}
-
-                        {% endif %}
                     </ul>
-                    <div class="dropdown">
-                        <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#"
-                            style="color:white; background-color: #c00832"></a>
-                        <div class="dropdown-content" >
-                            <a href="/" style="font-size:20px;">ข่าวสาร</a>
-                            <a href="/activity/" style="font-size:20px;">กิจกรรมนักศึกษา</a>
-                            <a href="/exam/" style="font-size:20px;">วิชาการ</a>
-                            {% if request.user.is_authenticated %}
-
-
-                            {% endif %}
-
-
-                        </div>
+                        <div class="dropdown">
+                            <a class="uk-navbar-toggle" href="#" style="color:white; background-color: #c00832">
+                            <span uk-navbar-toggle-icon></span></a>
+                            <div class="dropdown-content" >
+                                <a href="/" style="font-size:20px;">ข่าวสาร</a>
+                                <a href="/activity/" style="font-size:20px;">กิจกรรมนักศึกษา</a>
+                                <a href="/exam/" style="font-size:20px;">วิชาการ</a>
+                            </div>
                     </div>
-
                 </div>
             </nav>
         </div>
