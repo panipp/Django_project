@@ -15,19 +15,19 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" uk-scrollspy="cls:uk-animation-fade">
     <div style="text-align: center">
       <div class="centerform uk-width-1-1 uk-padding-large uk-child-width-4-5">
         <h3><span class="uk-text-lead">เพิ่มประกาศใหม่</span></h3>
         <form method="post" enctype="multipart/form-data" action = "/addNews/">
-          {%csrf_token%}
-          {%for f in form%} 
-          {{f.label_tag}}
-          <br>{% render_field f class="input" style="font-size: 16px;font-weight: bold;" %}<br><br>
-          {%endfor%}
-          <div style="text-align:center">
-          <button type="submit" class="uk-button uk-button-primary" >บันทึก</button>
-          </div>
+            {%csrf_token%}
+            {%for f in form%} 
+            {{f.label_tag}}
+            {% render_field f %}
+            {%endfor%}
+            <div style="text-align:center">
+            <button type="submit" class="uk-button uk-button-primary" >บันทึก</button>
+            </div>
         </form>
     </div>
   </div>

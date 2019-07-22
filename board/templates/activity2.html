@@ -14,13 +14,12 @@
         </ul>
     </div>
 </div>
-<div class="container" style="margin-left:20px; margin-right:20px;margin-top: 15px;"
-    uk-scrollspy="cls:uk-animation-fade">
-    <h3 style="margin-bottom:5px;">
+<div class="container" uk-scrollspy="cls:uk-animation-fade">
+    <h3>
         <span class="uk-text-lead" style="font-family: TUFont;font-size: 20px;font-weight: bolder;">{{activity2.titleboard}}</span>
     </h3>
-    <h6 style="font-size: 13px;margin-top: 0; font-weight: lighter;">วันที่ {{activity2.date}}</h6>
-    <span class="uk-text-lead" >{{activity2.detail}}</span>
+    <h6>วันที่ {{activity2.date}}</h6>
+    <p>{{activity2.detail}}</p>
     <div style="position: relative; margin-top: 40px;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
         uk-scrollspy="cls:uk-animation-fade">
         <div class="uk-position-relative uk-visible-toggle uk-light" style="margin-bottom:50px;">
@@ -28,7 +27,6 @@
                 <li>
                     <img src="{{activity2.image.url}}"  alt="" uk-cover height="500" width="1100">
                 </li>
-
             </ul>
             <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
                 uk-slideshow-item="previous"></a>

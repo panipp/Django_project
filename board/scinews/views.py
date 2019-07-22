@@ -13,29 +13,17 @@ def home(request,**kwargs):
     context = dict()
     news = News.objects.all().order_by('-date')
     p = Paginator(news, 5)
-    if 'p' in kwargs:
-        context['news'] = p.page(kwargs['p'])
-    else:
-        context['news'] = p.page(1)
-    context['page'] = p.count
-    return render(request,'home.html',context)
+    page = request.GET.get('page')
+    news = p.get_page(page)
+    return render(request,'home.html',{'news': news})
 
 def activity(request,**kwargs):
     context = dict()
     board = Board.objects.all().order_by('-date')
     p = Paginator(board, 5)
-    if 'p' in kwargs:
-        if kwargs['p'] < p.count:
-            context['board'] = p.page(kwargs['p'])
-        else:
-            return HttpResponseNotFound()
-    elif 'id' in kwargs:
-        context['board'] = Board.objects.filter(id=kwargs['id'])[0]
-        return render(request,'activity2.html',context)
-    else:
-        context['board'] = p.page(1)
-    context['page'] = p.count
-    return render(request,'activity.html',context)
+    page = request.GET.get('page')
+    board = p.get_page(page)
+    return render(request,'activity.html',{'board': board})
 
 def exam(request):
     context = dict()

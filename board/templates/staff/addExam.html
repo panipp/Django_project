@@ -23,7 +23,7 @@
                 {%csrf_token%}
                 {%for f in form%} 
                 {{f.label_tag}}
-                <br>{% render_field f class="input" style="font-size: 16px;font-weight: bold;" %}<br><br>
+                {% render_field f %}
                 {%endfor%}
                 <div style="text-align:center">
                 <button style="text-align: right" type="submit" class="uk-button uk-button-primary">บันทึก</button>

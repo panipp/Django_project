@@ -14,14 +14,15 @@
         </ul>
     </div>
 </div>
-<div style="margin-left:17px; margin-top:50px;" uk-scrollspy="cls:uk-animation-fade">
+<div class="container" uk-scrollspy="cls:uk-animation-fade">
     <div style="text-align: center">
-        <div class="centerform">
+        <div class="centerform uk-width-1-1 uk-padding-large uk-child-width-4-5">
+            <h3><span class="uk-text-lead">แก้ไขกิจกรรม</span></h3>
             <form method="post" enctype="multipart/form-data " action="update_activity" >
                 {%csrf_token%}
                 {%for f in form%} 
                 {{f.label_tag}}
-        <br>  {% render_field f class="input" style="font-size: 20px;" %}<br><br>
+                {% render_field f %}
                 {%endfor%}
                 <div style="text-align:center">
                 <a class="uk-text-lead" href=""><button class="uk-button uk-button-danger" type="submit">อัพเดท</button></a>
