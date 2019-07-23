@@ -139,7 +139,7 @@ def updateNews2(request,**kwargs):
             return redirect('homeS')
     else:
         form = AddNewsForm(instance=u)
-    return render(request,'staff/update_news.html',{'form' : form})
+    return render(request,'staff/update_news.html',{'form' : form,'u' : u})
 
 
 def addActivity(request):
@@ -177,7 +177,7 @@ def update_activity(request,**kwargs):
             return redirect('activityS')
     else:
         form = AddBoard(instance=u)
-    return render(request,'staff/update_activity.html',{'form':form})
+    return render(request,'staff/update_activity.html',{'form':form,'u' : u})
 
 def delete_board(request,**kwargs):
     pk = kwargs['pk']
