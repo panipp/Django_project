@@ -11,8 +11,8 @@ class ChoiceInput(forms.ChoiceField):
 
 class AddNewsForm(forms.ModelForm):
     title = News('title')
-    file = forms.FileField(widget=forms.FileInput(attrs={'accept':'application/pdf'}))
-    date = forms.DateField(widget=forms.widgets.DateInput(attrs={'autocomplete':'off'}),input_formats=['%Y-%m-%d'])
+    file = forms.FileField(widget=forms.FileInput(attrs={'accept':'application/pdf'}),label="เอกสารแนบ ")
+    date = forms.DateField(widget=forms.widgets.DateInput(attrs={'autocomplete':'off'}),input_formats=['%Y-%m-%d'],label="วันที่ ")
     class Meta:
         model = News
         
@@ -21,14 +21,13 @@ class AddNewsForm(forms.ModelForm):
         }
         labels = {
             "title" : _("หัวข้อ  "),
-            "date" : _("วันที่ "),
-            "file" : _("เอกสารแนบ "),
         }
         fields = ['title','date','file']
         
 class AddBoard(forms.ModelForm):
     titleboard = Board('titleboard')
-    date = forms.DateField(widget=forms.widgets.DateInput(attrs={'autocomplete':'off'}),input_formats=['%Y-%m-%d'])
+    date = forms.DateField(widget=forms.widgets.DateInput(attrs={'autocomplete':'off'}),input_formats=['%Y-%m-%d'],label="วันที่ ")
+    image = forms.ImageField(widget=forms.FileInput(),label="รูปภาพ ")
     class Meta:
         model = Board
         widget = {
@@ -37,15 +36,13 @@ class AddBoard(forms.ModelForm):
         }
         labels = {
             "titleboard" : _("หัวข้อ  "),
-            "date" : _("วันที่  "),
             "detail" : _("คำอธิบาย "),
-            "image" : _("รูปภาพ "),
         }
         fields = ['titleboard','date','detail','image']
 
 class AddExamForm(forms.ModelForm):
     # subject = forms.ChoiceField(choices=Exam.CATEGORY_CHOICES)
-    date = forms.DateField(widget=forms.widgets.DateInput(attrs={'autocomplete':'off'}),input_formats=['%Y-%m-%d'])
+    date = forms.DateField(widget=forms.widgets.DateInput(attrs={'autocomplete':'off'}),input_formats=['%Y-%m-%d'],label="วันที่ ")
     class Meta:
         model = Exam
         widget = {
@@ -56,7 +53,6 @@ class AddExamForm(forms.ModelForm):
         labels = {
             "titleexam" : _("หัวข้อ  "),
             "link" : _("ลิ้งค์ "),
-            "date" : _("วันที่ "),
             "category" : _("หมวดวิชา  "),
         }
         

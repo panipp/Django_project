@@ -61,12 +61,18 @@ def others(request):
 def homeS(request):
     if request.user.profile.is_staff:
         news = News.objects.all().order_by('-date')
+        p = Paginator(news, 5)
+        page = request.GET.get('page')
+        news = p.get_page(page)
         return render(request,'staff/homeS.html',{'news':news})
     else:
         return HttpResponseForbidden()
 
 def activityS(request):
     activity = Board.objects.all().order_by('-date')
+    p = Paginator(activity, 5)
+    page = request.GET.get('page')
+    activity = p.get_page(page)
     return render(request,'staff/activityS.html',{'activity' : activity})
 
 def examS(request):
