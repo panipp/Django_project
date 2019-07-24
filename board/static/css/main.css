@@ -92,12 +92,14 @@ input[type="file"] {
 }
 
 select{
-  width: 99%;
+  width: 99.3%;
   border: 1px solid #ccc;
   display: inline-block;
   padding: 4px 6px;
   cursor: pointer;
   margin-top: 8px;
+  margin-bottom: 2%;
+  background-color: white;
 }
 
 h3,h6{
