@@ -18,7 +18,6 @@ urlpatterns = [
 
     path('news/<int:pk>/',news,name='news'),
 
-    
     path('addNews_summit/',addNews_summit,name='addNews_summit'),
     # path('activity2/<int:pk>/',activity2,name='activity2'),
     path('english/',english,name='english'),

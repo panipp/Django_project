@@ -74,7 +74,6 @@ def examS(request):
     eng = Exam.objects.filter(category='ENG')[:5]
     math = Exam.objects.filter(category = 'MATH')[:5]
     others = Exam.objects.filter(category = 'OTHERS')[:5]
-   
 
     return render(request,'staff/examS.html',{'exams':exams, 'eng':eng , 'math':math,'others':others})
 

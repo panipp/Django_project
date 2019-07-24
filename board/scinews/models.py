@@ -40,7 +40,7 @@ class CategoryExam(models.Model):
     als = models.CharField(max_length=50)
     name = models.CharField(max_length=100)
     def __str__(self):
-        return self.als + " : " + self.name
+        return self.name
 
 class Exam(models.Model):
     titleexam = models.CharField(max_length = 500,null=True)

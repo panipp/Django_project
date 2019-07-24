@@ -22,13 +22,25 @@
                         <a href="/english/">(ดูทั้งหมด)</a>
                     </span>
                 </h3>
-
+                {% regroup all by category as categorylist %}
+                {% for i in categorylist %}
+                    <p>{{i}}</p>
+                {% endfor %}
+                {% for x in categorylist %}
+                    <li>{{ x.grouper }}
+                    <ul>
+                        {% for x in x.list %}
+                        <li>{{ x.titleexam }}</li>
+                        {% endfor %}
+                    </ul>
+                    </li>
+                {% endfor %}
                 <tr>
                     <th class="uk-width-1-4@m uk-width-1-5@l">วันที่</th>
                     <th class="uk-table-expand uk-width-3-4@m uk-width-4-5@l">หัวข้อ</th>
                 </tr>
 
-                {% for i in eng %}
+                {% for i in exams %}
                 <!-- {%if i.category == 'ENG'%} -->
                 <tr>
                     <td>{{i.date}}</td>
