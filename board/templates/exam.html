@@ -22,6 +22,7 @@
                         <a href="/english/">(ดูทั้งหมด)</a>
                     </span>
                 </h3>
+                {{ category }}
                 {% regroup all by category as categorylist %}
                 {% for i in categorylist %}
                     <p>{{i}}</p>

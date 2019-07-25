@@ -27,14 +27,14 @@ def activity(request,**kwargs):
 
 def exam(request):
     context = dict()
-    
+    cate = dict()
     exams = Exam.objects.all()
     context['all'] = exams
 
     catExams = CategoryExam.objects.all()
     for cat in catExams:
-        context[str(cat.als)] = Exam.objects.filter(category=cat)[:5]
-
+        cate[str(cat.als)] = Exam.objects.filter(category=cat)[:5]
+    context['category'] = cate
     return render(request,'exam.html',context)
 
 def news(request,**kwargs):
