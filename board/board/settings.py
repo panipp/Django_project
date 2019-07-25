@@ -168,6 +168,6 @@ NEDIA_DIR=[os.path.join(BASE_DIR,'files',"files")]
 SOCIAL_AUTH_TU_KEY = os.environ.get('TU_AUTH_KEY', None)
 SOCIAL_AUTH_TU_SECRET = os.environ.get('TU_AUTH_SECRET', None)
 LOGIN_URL = '/oauth/login/tu/'
-LOGIN_REDIRECT_URL = '/home'
+LOGIN_REDIRECT_URL = '/'
 
 MAX_UPLOAD_SIZE = "5242880"
