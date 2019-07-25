@@ -11,7 +11,7 @@ urlpatterns = [
     path('home/<int:p>/',home,name='home'),
 
     path('activity/',activity,name='activity'),
-    path('activity/<int:p>/',activity,name='activity'),
+    path('activity2/<int:pk>/',activity2,name='activity2'),
     path('activity/id/<int:id>/',activity,name='activity'),
 
     path('exam/',exam,name='exam'),

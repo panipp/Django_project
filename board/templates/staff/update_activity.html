@@ -24,6 +24,7 @@
                 {{f.label_tag}}
                 {% render_field f %}
                 {%endfor%}
+                <span>รูปภาพปัจจุบัน : <br><img src="{{ u.image.url }}" style="margin-bottom:2%" height="300" width="500"></span>
                 <div style="text-align:center">
                 <a class="uk-text-lead" href=""><button class="uk-button uk-button-danger" type="submit">อัพเดท</button></a>
                 </div>

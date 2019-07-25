@@ -20,25 +20,8 @@
     </h3>
     <h6>วันที่ {{activity2.date}}</h6>
     <p>{{activity2.detail}}</p>
-    <div style="position: relative; margin-top: 40px;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
-        uk-scrollspy="cls:uk-animation-fade">
-        <div class="uk-position-relative uk-visible-toggle uk-light" style="margin-bottom:50px;">
-            <ul class="uk-slideshow-items">
-                <li>
-                    <img src="{{activity2.image.url}}"  alt="" uk-cover height="500" width="1100">
-                </li>
-            </ul>
-            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
-                uk-slideshow-item="previous"></a>
-            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
-                uk-slideshow-item="next"></a>
-        </div>
-        <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous"
-            src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v3.3"></script>
-        <div class="fb-comments" data-href="http://127.0.0.1:8000/activity2/{{activity2.id}}" data-width=""
-            data-numposts="5"></div>
+    <div class="uk-width-1-1 uk-margin-large-top">
+        <img src="{{activity2.image.url}}"  alt="" class="uk-thumbnail uk-align-center">
     </div>
 </div>
 {% endblock %}
