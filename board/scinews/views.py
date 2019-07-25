@@ -75,12 +75,18 @@ def others(request):
 def homeS(request):
     if request.user.profile.is_staff:
         news = News.objects.all().order_by('-date')
+        p = Paginator(news, 5)
+        page = request.GET.get('page')
+        news = p.get_page(page)
         return render(request,'staff/homeS.html',{'news':news})
     else:
         return HttpResponseForbidden()
 
 def activityS(request):
     activity = Board.objects.all().order_by('-date')
+    p = Paginator(activity, 5)
+    page = request.GET.get('page')
+    activity = p.get_page(page)
     return render(request,'staff/activityS.html',{'activity' : activity})
 
 def examS(request):
@@ -88,8 +94,9 @@ def examS(request):
     eng = Exam.objects.filter(category='ENG')[:5]
     math = Exam.objects.filter(category = 'MATH')[:5]
     others = Exam.objects.filter(category = 'OTHERS')[:5]
+   
 
-    return render(request,'staff/examS.html',{'exams':exams, 'eng':eng , 'math':math,'others':others})
+    return render(request,'staff/examS.html',{'exams':exams})
 
 def englishS(request):
     exams = Exam.objects.all()
@@ -146,7 +153,7 @@ def updateNews2(request,**kwargs):
             return redirect('homeS')
     else:
         form = AddNewsForm(instance=u)
-    return render(request,'staff/update_news.html',{'form' : form})
+    return render(request,'staff/update_news.html',{'form' : form,'u' : u})
 
 
 def addActivity(request):
@@ -184,7 +191,7 @@ def update_activity(request,**kwargs):
             return redirect('activityS')
     else:
         form = AddBoard(instance=u)
-    return render(request,'staff/update_activity.html',{'form':form})
+    return render(request,'staff/update_activity.html',{'form':form,'u' : u})
 
 def delete_board(request,**kwargs):
     pk = kwargs['pk']

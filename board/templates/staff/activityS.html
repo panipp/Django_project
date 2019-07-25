@@ -15,7 +15,7 @@
     </div>
 </div>
 <div class="container" uk-scrollspy="cls:uk-animation-fade">
-        <table class="uk-table uk-table-middle uk-table-divider">
+        <table class="uk-table uk-table-middle uk-table-divider uk-table-responsive">
             <tbody>
                 <h3>
                     <span class="uk-text-lead">กิจกรรมนักศึกษา</span>
@@ -23,7 +23,8 @@
                 </h3>
                 <tr>
                     <th class="uk-width-1-4@m uk-width-1-5@l">วันที่</th>
-                    <th class="uk-table-expand uk-width-3-4@m uk-width-4-5@l">หัวข้อ</th>
+                    <th class="uk-table-expand uk-width-1-2@m uk-width-3-5@l">หัวข้อ</th>
+                    <th class="uk-width-1-4@m uk-width-1-5@l uk-table-middle">ลบกิจกรรม</th>
                 </tr>
                 {%for i in activity%}
                 <tr>
@@ -31,7 +32,8 @@
                     <td>
                         <a href="/update_activity/{{i.id}}">{{i.titleboard}}</a>
                     </td>
-                    <td><a href="/delete_board/{{i.id}}"><button class="uk-button" type="submit" name="delete">ลบ</button></a>
+                    <td><a href="/delete_board/{{i.id}}"><button class="uk-button" type="submit" name="delete" uk-tooltip="title: ลบกิจกรรมนี้; pos: right;">
+                <i class="fa fa-trash fa-lg" aria-hidden="true"></i></button></a>
             </td>
                 </tr>
                 {%endfor%}
@@ -40,6 +42,33 @@
             </tbody>
 
         </table>
+        <div class="uk-pagination uk-flex-center">
+            {% if activity.has_previous %}
+                <a href="?page=1"><i class="fa fa-angle-double-left" style="color: #1e87f0;" aria-hidden="true"></i></a>
+                <a href="?page={{ activity.previous_page_number }}"><i class="fa fa-angle-left" style="color: #1e87f0;" aria-hidden="true"></i></a>
+            {% else %}
+                <a class="uk-disable"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+                <a class="uk-disable"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+            {% endif %}
+
+            {% for num in activity.paginator.page_range %}
+
+                {% if activity.number == num %}
+                <span>{{ num }}</span>
+                {% elif num > activity.number|add:'-3' and num < activity.number|add:'3' %}
+                <a href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+
+            {% endfor %}
+
+            {% if activity.has_next %}
+                <a href="?page={{ activity.next_page_number }}"><i class="fa fa-angle-right" style="color: #1e87f0;" aria-hidden="true"></i></a>
+                <a href="?page={{ activity.paginator.num_pages }}"><i class="fa fa-angle-double-right" style="color: #1e87f0;" aria-hidden="true"></i></a>
+            {% else %}
+                <a class="uk-disable"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                <a class="uk-disable"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+            {% endif %}
+        </div>
 </div>
 {% endblock %}
 
