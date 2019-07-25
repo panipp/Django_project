@@ -90,13 +90,16 @@ def activityS(request):
     return render(request,'staff/activityS.html',{'activity' : activity})
 
 def examS(request):
+    context = dict()
+    cate = dict()
     exams = Exam.objects.all()
-    eng = Exam.objects.filter(category='ENG')[:5]
-    math = Exam.objects.filter(category = 'MATH')[:5]
-    others = Exam.objects.filter(category = 'OTHERS')[:5]
-   
+    context['all'] = exams
 
-    return render(request,'staff/examS.html',{'exams':exams})
+    catExams = CategoryExam.objects.all()
+    for cat in catExams:
+        cate[str(cat)] = Exam.objects.filter(category=cat)[:5]
+    context['category'] = cate
+    return render(request,'staff/examS.html',context)
 
 def englishS(request):
     exams = Exam.objects.all()
