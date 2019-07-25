@@ -33,7 +33,7 @@ def exam(request):
 
     catExams = CategoryExam.objects.all()
     for cat in catExams:
-        cate[str(cat.als)] = Exam.objects.filter(category=cat)[:5]
+        cate[str(cat)] = Exam.objects.filter(category=cat)[:5]
     context['category'] = cate
     return render(request,'exam.html',context)
 
