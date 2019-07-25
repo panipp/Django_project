@@ -20,6 +20,9 @@
             <tbody>
                 <h3>
                     <span class="uk-text-lead">กิจกรรมนักศึกษา</span>
+                    {% if user.profile.is_staff or user.is_superuser %}
+                        <span><a href="/addActivity/" class="uk-button uk-button-primary" style="margin-left:15px;">เพิ่มกิจกรรม</a></span>
+                    {% endif %}
                 </h3>
                 <tr>
                     <th class="uk-width-1-4@m uk-width-1-5@l">วันที่</th>
@@ -29,7 +32,12 @@
                 <tr>
                     <td>{{i.date}}</td>
                     <td>
-                        <a href="/activity2/{{i.id}}">{{i.titleboard}}</a>
+                        {% if user.profile.is_staff or user.is_superuser %}
+                            <a href="/update_activity/{{i.id}}">{{i.titleboard}}</a>
+                        {% else %}
+                            <a href="/activity2/{{i.id}}">{{i.titleboard}}</a>
+                        {% endif %}
+                        
                     </td>
                 </tr>
                 {% endfor %}

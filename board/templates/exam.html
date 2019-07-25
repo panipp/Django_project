@@ -15,99 +15,59 @@
     </div>
 </div>
 <div class="container" uk-scrollspy="cls:uk-animation-fade">
-        <table class="uk-table uk-table-middle uk-table-divider">
+                {% if user.profile.is_staff or user.is_superuser %}
+                  <span><a href="/addExam/" class="uk-button uk-button-primary uk-margin-medium-bottom">เพิ่มงานวิชาการ</a></span>
+                {% endif %}
+                {% for key, value in category.items %}
+                <table class="uk-table uk-table-middle uk-table-divider">
             <tbody>
-                <h3>
-                    <span class="uk-text-lead">ภาษาอังกฤษ
+                    <h3>
+                    <span class="uk-text-lead">{{ key }}
                         <a href="/english/">(ดูทั้งหมด)</a>
                     </span>
                 </h3>
-                {{ category }}
-                {% regroup all by category as categorylist %}
+                    <tr>
+                        <th class="uk-width-1-4@m uk-width-1-5@l">วันที่</th>
+                        <th class="uk-table-expand uk-width-3-4@m uk-width-4-5@l">หัวข้อ</th>
+                    </tr>
+                    
+                    {% for i in value %}
+                    <tr>
+                        <td>{{i.date}}</td>
+                        <td>
+                            <a href="http://{{i.link}}">{{i.titleexam}}</a>
+                        </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+        </table>
+  {% endfor %}
+                {% comment %} {% regroup all by category as categorylist %}
                 {% for i in categorylist %}
                     <p>{{i}}</p>
                 {% endfor %}
                 {% for x in categorylist %}
-                    <li>{{ x.grouper }}
-                    <ul>
-                        {% for x in x.list %}
-                        <li>{{ x.titleexam }}</li>
-                        {% endfor %}
-                    </ul>
-                    </li>
-                {% endfor %}
-                <tr>
-                    <th class="uk-width-1-4@m uk-width-1-5@l">วันที่</th>
-                    <th class="uk-table-expand uk-width-3-4@m uk-width-4-5@l">หัวข้อ</th>
-                </tr>
-
-                {% for i in exams %}
-                <!-- {%if i.category == 'ENG'%} -->
-                <tr>
-                    <td>{{i.date}}</td>
-                    <td>
-                        <a class="uk-text-lead" href="http://{{i.link}}">{{i.titleexam}}</a>
-                    </td>
-                </tr>
-
-                <!-- {%endif%} -->
-                {%endfor%}
-            </tbody>
-            </tbody>
-        </table>
-        <table class="uk-table uk-table-middle uk-table-divider">
-            <tbody>
-                <h3>
-                    <span class="uk-text-lead">คณิตศาสตร์
-                        <a href="/math/">(ดูทั้งหมด)</a>
-                    </span>
-                </h3>
-
-                <tr>
-                    <th class="uk-width-1-4@m uk-width-1-5@l">วันที่</th>
-                    <th class="uk-table-expand uk-width-3-4@m uk-width-4-5@l">หัวข้อ</th>
-                </tr>
-                {%for i in math%}
-                <!-- {%if i.category == 'MATH'%} -->
-                <tr>
-                    <td>{{i.date}}</td>
-                    <td>
-                        <a class="uk-text-lead" href="http://{{i.link}}">{{i.titleexam}}</a>
-
-                    </td>
-                </tr>
-                <!-- {%endif%} -->
-                {%endfor%}
-
-
-            </tbody>
-            </tbody>
-        </table>
-        <table class="uk-table uk-table-middle uk-table-divider">
-            <tbody>
-                <h3>
-                    <span class="uk-text-lead">หมวดอื่นๆ
-                        <a href="/others/">(ดูทั้งหมด)</a>
-                    </span>
-                </h3>
-                <tr>
-                    <th class="uk-width-1-4@m uk-width-1-5@l">วันที่</th>
-                    <th class="uk-table-expand uk-width-3-4@m uk-width-4-5@l">หัวข้อ</th>
-                </tr>
-                {%for i in others %}
-                <!-- {%if i.category == 'OTHERS'%} -->
-                <tr>
-                    <td>{{i.date}}</td>
-                    <td>
-                        <a class="uk-text-lead" href="http://{{i.link}}">{{i.titleexam}}</a>
-                    </td>
-                </tr>
-                <!-- {%endif%} -->
-                {%endfor%}
-
-            </tbody>
-            </tbody>
-        </table>
+                    <h3>
+                        <span class="uk-text-lead">{{ category.name }}
+                            <a href="/english/">(ดูทั้งหมด)</a>
+                        </span>
+                    </h3>
+                    <tr>
+                        <th class="uk-width-1-4@m uk-width-1-5@l">วันที่</th>
+                        <th class="uk-table-expand uk-width-3-4@m uk-width-4-5@l">หัวข้อ</th>
+                    </tr>
+                    <tr>
+                    {% for i in x.list %}
+                        <td>{{i.date}}</td>
+                        <td>
+                            <a class="uk-text-lead" href="http://{{i.link}}">{{i.titleexam}}</a>
+                        </td>
+                    {% endfor %}
+                    
+                    </tr>
+                {% endfor %} {% endcomment %}
+            
+        
 </div>
 {% endblock %}
 

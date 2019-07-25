@@ -78,7 +78,7 @@ def homeS(request):
         p = Paginator(news, 5)
         page = request.GET.get('page')
         news = p.get_page(page)
-        return render(request,'staff/homeS.html',{'news':news})
+        return render(request,'home.html',{'news':news})
     else:
         return HttpResponseForbidden()
 
@@ -87,7 +87,7 @@ def activityS(request):
     p = Paginator(activity, 5)
     page = request.GET.get('page')
     activity = p.get_page(page)
-    return render(request,'staff/activityS.html',{'activity' : activity})
+    return render(request,'activity.html',{'activity' : activity})
 
 def examS(request):
     context = dict()
@@ -99,7 +99,7 @@ def examS(request):
     for cat in catExams:
         cate[str(cat)] = Exam.objects.filter(category=cat)[:5]
     context['category'] = cate
-    return render(request,'staff/examS.html',context)
+    return render(request,'exam.html',context)
 
 def englishS(request):
     exams = Exam.objects.all()
@@ -119,7 +119,7 @@ def addNews(request):
         if form.is_valid():
             form.save()
             #save to db
-            return redirect('homeS')
+            return redirect('home.html')
     else:
         form = AddNewsForm()
 
@@ -131,12 +131,12 @@ def addNews_summit(request):
     # date = request.POST["date"]
     # news = News(title=title)
     # news.save()
-    return redirect('homeS')
+    return redirect('home.html')
 
 def delete_news(request,**kwargs):
     pk = kwargs['pk']
     delete_news = News.objects.filter(pk=pk).delete()
-    return redirect('homeS')
+    return redirect('home.html')
 
 def updateNews(request,**kwargs):
     pk = kwargs['pk']
@@ -148,15 +148,15 @@ def updateNews2(request,**kwargs):
     # pylint: disable=no-member
     u = News.objects.get(pk=pk)
     if not u:
-        return redirect('homeS')
+        return redirect('home.html')
     if request.method == 'POST':
         form = AddNewsForm(request.POST,request.FILES,instance=u)
         if form.is_valid():
             form.save()
-            return redirect('homeS')
+            return redirect('/')
     else:
         form = AddNewsForm(instance=u)
-    return render(request,'staff/update_news.html',{'form' : form,'u' : u})
+    return render(request,'staff/update_news.html',{'form' : form})
 
 
 def addActivity(request):
@@ -167,7 +167,7 @@ def addActivity(request):
         if form.is_valid():
             form.save()
             #save to db
-            return redirect('activityS')
+            return redirect('activity.html')
     else:
         form = AddBoard()
     return render(request,'staff/addActivity.html',{'form':form})
@@ -186,29 +186,29 @@ def update_activity(request,**kwargs):
     pk = kwargs['pk']
     u = Board.objects.get(pk=pk)
     if not u:
-        return redirect('activityS')
+        return redirect('activity.html')
     if request.method == 'POST':
         form = AddBoard(request.POST,request.FILES,instance=u)
         if form.is_valid():
             form.save()
-            return redirect('activityS')
+            return redirect('activity.html')
     else:
         form = AddBoard(instance=u)
-    return render(request,'staff/update_activity.html',{'form':form,'u' : u})
+    return render(request,'staff/update_activity.html',{'form':form})
 
 def delete_board(request,**kwargs):
     pk = kwargs['pk']
     # pylint: disable=no-member
     deleteboard = Board.objects.get(pk=pk).delete()
-    return redirect('activityS')
+    return redirect('activity.html')
 
 def addExam(request):
     if request.method == 'POST':
-        form = AddExamForm(request.POST,request.FILES,request.CHOICE)
+        form = AddExamForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             #save to db
-            return redirect('examS')
+            return redirect('exam.html')
     else:
         form = AddExamForm()
     return render(request,'staff/addExam.html',{'form':form})
@@ -220,7 +220,7 @@ def addExam_summit(request):
     # # category = request.POST["category"]
     # exam = Exam(titleexam=titleexam,link=link,date=date)
     # exam.save()
-    return redirect('examS')
+    return redirect('exam.html')
 
 def delete_english(request,id):
     #     #delete
