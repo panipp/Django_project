@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponseRedirect,HttpResponseForbidden,HttpResponseNotFound
-from .models import User,Exam,News,Board
+from .models import User,CategoryExam,Exam,News,Board
 from django.template import loader
 from django.views import generic
 from django.urls import reverse
@@ -27,8 +27,14 @@ def activity(request,**kwargs):
 
 def exam(request):
     context = dict()
+    
     exams = Exam.objects.all()
     context['all'] = exams
+
+    catExams = CategoryExam.objects.all()
+    for cat in catExams:
+        context[str(cat.als)] = Exam.objects.filter(category=cat)[:5]
+
     return render(request,'exam.html',context)
 
 def news(request,**kwargs):
@@ -43,6 +49,14 @@ def activity2(request,**kwargs):
     pk = kwargs['pk']
     activity2 = Board.objects.get(pk=pk)
     return render(request,'activity2.html',{'activity2' : activity2})
+
+def subject(request):
+    context = dict()
+    catExams = CategoryExam.objects.all()
+    for cat in catExams:
+        context[str(cat.als)] = Exam.objects.filter(category=cat)
+    return render(request,'english.html',context)
+    
 
 def english(request,):
     englishs = Exam.objects.all().order_by('-date')[:10]
