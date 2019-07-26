@@ -29,7 +29,6 @@ def exam(request):
     context = dict()
     cate = dict()
     exams = Exam.objects.all()
-    context['all'] = exams
 
     catExams = CategoryExam.objects.all()
     for cat in catExams:
@@ -50,12 +49,12 @@ def activity2(request,**kwargs):
     activity2 = Board.objects.get(pk=pk)
     return render(request,'activity2.html',{'activity2' : activity2})
 
-def subject(request):
+def subject(request, **kwargs):
     context = dict()
-    catExams = CategoryExam.objects.all()
-    for cat in catExams:
-        context[str(cat.als)] = Exam.objects.filter(category=cat)
-    return render(request,'english.html',context)
+    catExams = Exam.objects.filter(category__name=kwargs['name'])
+    context['namesub'] = catExams[0].category.name
+    context['allsub'] = catExams
+    return render(request,'subj.html',context)
     
 
 def english(request,):
