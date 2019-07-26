@@ -4,27 +4,27 @@
 {% endblock %}
 
 {% block content  %}
-<div uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
-    uk-scrollspy="cls:uk-animation-fade">
-    <div class="uk-position-relative uk-visible-toggle uk-light">
-        <ul class="uk-slideshow-items">
-            <li>
-                <img src="{% static 'images/header_home.png' %}" alt="" uk-cover height="500" width="1100">
-            </li>
-            <li>
-                <div style="width:100%; height:90%; background-color:transparent;">
-                    <iframe src="https://www.youtube.com/embed/ltoO6WbFQWA" frameborder="0..0" allowfullscreen
-                        uk-cover></iframe>
-                </div>
-            </li>
-        </ul>
-        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
-            uk-slideshow-item="previous"></a>
-        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
-            uk-slideshow-item="next"></a>
+    <div uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
+        uk-scrollspy="cls:uk-animation-fade">
+        <div class="uk-position-relative uk-visible-toggle uk-light">
+            <ul class="uk-slideshow-items">
+                <li>
+                    <img src="{% static 'images/header_home.png' %}" alt="" uk-cover height="500" width="1100">
+                </li>
+                <li>
+                    <div style="width:100%; height:90%; background-color:transparent;">
+                        <iframe src="https://www.youtube.com/embed/ltoO6WbFQWA" frameborder="0..0" allowfullscreen
+                            uk-cover></iframe>
+                    </div>
+                </li>
+            </ul>
+            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+                uk-slideshow-item="previous"></a>
+            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+                uk-slideshow-item="next"></a>
+        </div>
     </div>
-</div>
-<div class="container" uk-scrollspy="cls:uk-animation-fade">
+    <div class="container" uk-scrollspy="cls:uk-animation-fade">
         <table class="uk-table uk-table-middle uk-table-divider uk-overflow-container">
             <tbody>
                 <h3>
@@ -79,7 +79,7 @@
             <a class="uk-disable"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
         {% endif %}
         </div>
-</div>
+    </div>
 
 {% endblock %}
 

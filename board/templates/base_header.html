@@ -24,48 +24,83 @@
 
 <body>
         <nav class="uk-navbar-container" uk-navbar="mode: click" style="background-color:white;">
-            <div class="uk-navbar-left">
-                <a href="/">
-                    <img src="{% static 'images/b1.png' %}" style="width:300px; margin: 10px;" />
-                </a>
-            </div>
-            <div class="uk-navbar-right" style="margin-right:20px;">
-                <ul class="uk-navbar-nav">
-                    <li>
-                        <a href="/"><span class="hover1">ข่าวสาร</span></a>
-                    </li>
-                    <li>
-                        <a href="/activity/"><span class="hover1">กิจกรรมนักศึกษา</span></a>
-                    </li>
-                    <li>
-                        <a href="/exam/"><span class="hover1">วิชาการ</span></a>
-                    </li>
-                    {% if user.is_anonymous %}
-                    <li>
-                        <a href={% url 'social:begin' 'tu' %}><span class="login-out">ลงชื่อเข้าใช้</span></a>
-                    </li>
-                    {% else %}
-                     <li>
-                        <a href={% url 'logout' %}><span class="login-out">ออกจากระบบ</span></a>
-                    </li>
-                    {% endif %}
-                </ul>
-                <div class="dropdown">
-                    <a class="uk-navbar-toggle" href="#" style="color:white; background-color: #c00832">
-                        <span uk-navbar-toggle-icon></span></a>
-                    <div class="dropdown-content">
-                        <a href="/">ข่าวสาร</a>
-                        <a href="/activity/">กิจกรรมนักศึกษา</a>
-                        <a href="/exam/">วิชาการ</a>
-                        {% if user.is_anonymous %}
-                            <a href={% url 'social:begin' 'tu' %}><span class="login-out">ลงชื่อเข้าใช้</span></a>
-                        {% else %}
-                            <a href={% url 'logout' %}><span class="login-out">ออกจากระบบ</span></a>
-                        {% endif %}
+            {% if user.profile.is_staff or user.is_superuser %}
+                <div class="uk-navbar-left">
+                    <a href="/">
+                        <img src="{% static 'images/b1.png' %}" style="width:300px; margin: 10px;" />
+                    </a>
+                </div>
+                <div class="uk-navbar-right" style="margin-right:20px;">
+                    <ul class="uk-navbar-nav">
+                        <li>
+                            <a href="/homeS/" style="color:black;font-weight: bold;"><span
+                                        class="hover1">ข่าวสาร</span></a>
+                        </li>
+                        <li>
+                            <a href="/activityS/" style="color:black;font-weight: bold;"><span
+                                        class="hover1">กิจกรรมนักศึกษา</span></a>
+                        </li>
+                        <li>
+                            <a href="/examS/" style="color:black;font-weight: bold;"><span
+                                        class="hover1">วิชาการ</span></a>
+                        </li>
+                    </ul>
+                    <div class="dropdown">
+                        <a class="uk-navbar-toggle" href="#" style="color:white; background-color: #c00832">
+                            <span uk-navbar-toggle-icon></span></a>
+                        <div class="dropdown-content">
+                            <a href="/homeS/" style="font-size:20px;">ข่าวสาร</a>
+                            <a href="/activityS/" style="font-size:20px;">กิจกรรมนักศึกษา</a>
+                            <a href="/examS/" style="font-size:20px;">วิชาการ</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% else %}
+                <div class="uk-navbar-left">
+                    <a href="/">
+                        <img src="{% static 'images/b1.png' %}" style="width:300px; margin: 10px;" />
+                    </a>
+                </div>
+                <div class="uk-navbar-right" style="margin-right:20px;">
+                    <ul class="uk-navbar-nav">
+                        <li>
+                            <a href="/"><span class="hover1">ข่าวสาร</span></a>
+                        </li>
+                        <li>
+                            <a href="/activity/"><span class="hover1">กิจกรรมนักศึกษา</span></a>
+                        </li>
+                        <li>
+                            <a href="/exam/"><span class="hover1">วิชาการ</span></a>
+                        </li>
+                        {% if user.is_anonymous %}
+                            <li>
+                                <a href={% url 'social:begin' 'tu' %}><span class="login-out">ออกจากระบบ</span></a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                    <div class="dropdown">
+                        <a class="uk-navbar-toggle" href="#" style="color:white; background-color: #c00832">
+                            <span uk-navbar-toggle-icon></span></a>
+                        <div class="dropdown-content">
+                            <a href="/">ข่าวสาร</a>
+                            <a href="/activity/">กิจกรรมนักศึกษา</a>
+                            <a href="/exam/">วิชาการ</a>
+                            {% if user.is_anonymous %}
+                                <a href={% url 'social:begin' 'tu' %}><span class="login-out">ออกจากระบบ</span></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </nav>
+    <script>
+        $(function(){
+                $("#id_date").datepicker({
+                    dateFormat: "yy-mm-dd",
+                    flat: true,
+                });
+        })
+    </script>
 </body>
 
 
