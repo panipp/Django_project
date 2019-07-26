@@ -16,7 +16,7 @@
     </div>
     <div class="container" uk-scrollspy="cls:uk-animation-fade">
 
-            <table class="uk-table uk-table-middle uk-table-divider">
+            <table class="uk-table uk-table-middle uk-table-divider uk-overflow-container">
                 <tbody>
                     <h3>
                         <span class="uk-text-lead">กิจกรรมนักศึกษา</span>
@@ -26,7 +26,10 @@
                     </h3>
                     <tr>
                         <th class="uk-width-1-4@m uk-width-1-5@l">วันที่</th>
-                        <th class="uk-table-expand uk-width-3-4@m uk-width-4-5@l">หัวข้อ</th>
+                        <th class="uk-table-expand uk-width-1-2@m uk-width-3-5@l">หัวข้อ</th>
+                        {% if user.profile.is_staff or user.is_superuser %}
+                            <th class="uk-width-1-4@m uk-width-1-5@l uk-table-middle">ลบกิจกรรม</th>
+                        {% endif %}
                     </tr>
                     {% for i in board %}
                     <tr>
@@ -39,6 +42,12 @@
                             {% endif %}
                             
                         </td>
+                        {% if user.profile.is_staff or user.is_superuser %}
+                            <td>
+                                <a href="/delete_board/{{i.id}}"><button class="uk-button" type="submit" name="delete" uk-tooltip="title: ลบกิจกรรมนี้; pos: right;">
+                                <i class="fa fa-trash fa-lg" aria-hidden="true"></i></button></a>
+                            </td>
+                        {% endif %}
                     </tr>
                     {% endfor %}
 

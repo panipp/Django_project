@@ -157,7 +157,7 @@ def delete_news(request,**kwargs):
     if check_permission(request):
         pk = kwargs['pk']
         News.objects.filter(pk=pk).delete()
-        return redirect('home.html')
+        return redirect('/')
 
 @login_required
 def updateNews(request,**kwargs):
@@ -193,7 +193,7 @@ def addActivity(request):
             if form.is_valid():
                 form.save()
                 #save to db
-                return redirect('activity.html')
+                return redirect('/activity')
         else:
             form = AddBoard()
         return render(request,'staff/addActivity.html',{'form':form})
@@ -216,12 +216,12 @@ def update_activity(request,**kwargs):
         pk = kwargs['pk']
         u = Board.objects.get(pk=pk)
         if not u:
-            return redirect('activity.html')
+            return redirect('/activity')
         if request.method == 'POST':
             form = AddBoard(request.POST,request.FILES,instance=u)
             if form.is_valid():
                 form.save()
-                return redirect('activity.html')
+                return redirect('/activity')
         else:
             form = AddBoard(instance=u)
         return render(request,'staff/update_activity.html',{'form':form})
@@ -232,7 +232,7 @@ def delete_board(request,**kwargs):
         pk = kwargs['pk']
         # pylint: disable=no-member
         Board.objects.get(pk=pk).delete()
-        return redirect('activity.html')
+        return redirect('/activity')
 
 @login_required
 def addExam(request):

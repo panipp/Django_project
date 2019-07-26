@@ -35,19 +35,27 @@
                 </h3>
                 <tr>
                     <th class="uk-width-1-4@m uk-width-1-5@l">วันที่</th>
-                    <th class="uk-table-expand uk-width-3-4@m uk-width-4-5@l">หัวข้อ</th>
+                    <th class="uk-table-expand uk-width-1-2@m uk-width-3-5@l">หัวข้อ</th>
+                    {% if user.profile.is_staff or user.is_superuser %}
+                        <th class="uk-width-1-4@m uk-width-1-5@l">ลบประกาศ</th>
+                    {% endif %}
                 </tr>
                 {% for i in news %}
                 <tr>
                     <td>{{i.date}}</td>
                     <td>
                         {% if user.profile.is_staff or user.is_superuser %}
-                            <a href="/updateNews2/{{i.id}}">{{i.title}}{{context}}</a>
+                            <a href="/updateNews2/{{i.id}}">{{i.title}}</a>
                         {% else %}
-                            <a href="/news/{{i.id}}">{{i.title}}{{context}}</a>
+                            <a href="/news/{{i.id}}">{{i.title}}</a>
                         {% endif %}
-                        
                     </td>
+                    {% if user.profile.is_staff or user.is_superuser %}
+                        <td>
+                            <a href="/delete_news/{{i.id}}"><button class="uk-button" type="submit" name="delete" uk-tooltip="title: ลบประกาศนี้; pos: right;">
+                            <i class="fa fa-trash fa-lg" aria-hidden="true"></i></button></a>
+                        </td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
