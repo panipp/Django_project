@@ -1,0 +1,47 @@
+{% load static %}
+{% block header %}
+{% include 'base_header.html' %}
+{% endblock %}
+
+{% block content  %}
+<div uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
+    uk-scrollspy="cls:uk-animation-fade">
+    <div class="uk-position-relative uk-visible-toggle uk-light">
+        <ul class="uk-slideshow-items">
+            <li>
+                <img src="{% static 'images/header_english.png' %}" alt="" uk-cover height="500" width="1100">
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="container" uk-scrollspy="cls:uk-animation-fade">
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <tbody>
+                <h3>
+                    <span class="uk-text-lead">{{ namesub }}</span>
+                </h3>
+                <tr>
+                    <th class="uk-width-1-4@m uk-width-1-5@l">วันที่</th>
+                    <th class="uk-table-expand uk-width-3-4@m uk-width-4-5@l">หัวข้อ</th>
+                </tr>
+                {% for i in allsub%}
+                <tr>
+                    <td>{{i.date}}</td>
+                    <td>
+                        <a href="{{i.link}}">{{i.titleexam}}</a>
+                    </td>
+                </tr>
+                {% endfor%}
+                
+
+            </tbody>
+
+        </table>
+</div>
+{% endblock %}
+
+
+
+{% block footer %}
+{% include 'base_footer.html' %}
+{% endblock %}

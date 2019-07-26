@@ -1,10 +1,10 @@
 from django.urls import path
-from scinews.views import (home,activity,exam,news 
+from scinews.views import (home,activity,exam,news,subject
 ,addNews_summit,activity2,english,math,others,homeS,activityS,examS,englishS,delete_english,mathS,
 delete_math,othersS,delete_others,addNews,updateNews,updateNews2,delete_news,addActivity,addActivity,
 addActivity_summit,update_activity,delete_board,addExam,addExam_summit,pdf_view,)
 
-app_name = 'studentloan'
+app_name = 'scinews'
 
 urlpatterns = [
     path('',home,name='home'),
@@ -15,6 +15,7 @@ urlpatterns = [
     path('activity/id/<int:id>/',activity,name='activity'),
 
     path('exam/',exam,name='exam'),
+    path('exam/<str:name>/',subject,name='examsub'),
 
     path('news/<int:pk>/',news,name='news'),
 
