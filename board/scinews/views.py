@@ -89,7 +89,7 @@ def homeS(request):
         p = Paginator(news, 5)
         page = request.GET.get('page')
         news = p.get_page(page)
-        return render(request,'home.html',{'news':news})
+        return render(request,'scinews:home',{'news':news})
     else:
         return HttpResponseForbidden()
 
@@ -136,7 +136,7 @@ def addNews(request):
             if form.is_valid():
                 form.save()
                 #save to db
-                return redirect('home.html')
+                return redirect('scinews:home')
         else:
             form = AddNewsForm()
 
@@ -150,7 +150,7 @@ def addNews_summit(request):
         # date = request.POST["date"]
         # news = News(title=title)
         # news.save()
-        return redirect('home.html')
+        return redirect('scinews:home')
 
 @login_required
 def delete_news(request,**kwargs):
@@ -173,12 +173,12 @@ def updateNews2(request,**kwargs):
         # pylint: disable=no-member
         u = News.objects.get(pk=pk)
         if not u:
-            return redirect('home.html')
+            return redirect('scinews:home')
         if request.method == 'POST':
             form = AddNewsForm(request.POST,request.FILES,instance=u)
             if form.is_valid():
                 form.save()
-                return redirect('/')
+                return redirect('scinews:home')
         else:
             form = AddNewsForm(instance=u)
         return render(request,'staff/update_news.html',{'form' : form})
@@ -193,7 +193,7 @@ def addActivity(request):
             if form.is_valid():
                 form.save()
                 #save to db
-                return redirect('/activity')
+                return redirect('scinews:activity')
         else:
             form = AddBoard()
         return render(request,'staff/addActivity.html',{'form':form})
@@ -216,12 +216,12 @@ def update_activity(request,**kwargs):
         pk = kwargs['pk']
         u = Board.objects.get(pk=pk)
         if not u:
-            return redirect('/activity')
+            return redirect('scinews:activity')
         if request.method == 'POST':
             form = AddBoard(request.POST,request.FILES,instance=u)
             if form.is_valid():
                 form.save()
-                return redirect('/activity')
+                return redirect('scinews:activity')
         else:
             form = AddBoard(instance=u)
         return render(request,'staff/update_activity.html',{'form':form})
@@ -232,7 +232,7 @@ def delete_board(request,**kwargs):
         pk = kwargs['pk']
         # pylint: disable=no-member
         Board.objects.get(pk=pk).delete()
-        return redirect('/activity')
+        return redirect('scinews:activity')
 
 @login_required
 def addExam(request):
@@ -242,21 +242,21 @@ def addExam(request):
             if form.is_valid():
                 form.save()
                 #save to db
-                return redirect('exam.html')
+                return redirect('scinews:exam')
         else:
             form = AddExamForm()
         return render(request,'staff/addExam.html',{'form':form})
 
-@login_required
-def addExam_summit(request):
-    if check_permission(request):
+# @login_required
+# def addExam_summit(request):
+#     if check_permission(request):
         # titleexam = request.POST["titleexam"]
         # link = request.POST["link"]
         # date = request.POST["date"]
         # # category = request.POST["category"]
         # exam = Exam(titleexam=titleexam,link=link,date=date)
         # exam.save()
-        return redirect('exam.html')
+        # return redirect('scinews:exam')
 
 # def delete_english(request,id):
 #     #     #delete

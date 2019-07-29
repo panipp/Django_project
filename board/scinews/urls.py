@@ -1,8 +1,8 @@
 from django.urls import path
 from scinews.views import (home,activity,exam,news,subject
 ,addNews_summit,activity2,homeS,activityS,examS,addNews,updateNews,updateNews2,delete_news,addActivity,addActivity,
-addActivity_summit,update_activity,delete_board,addExam,addExam_summit,pdf_view,)
-
+addActivity_summit,update_activity,delete_board,addExam,,pdf_view,)
+# addExam_summit
 app_name = 'scinews'
 
 urlpatterns = [
@@ -42,6 +42,6 @@ urlpatterns = [
     path('update_activity/<int:pk>/',update_activity,name='update_activity'),
     path('delete_board/<int:pk>',delete_board,name="delete_board"),
     path('addExam/',addExam,name='addExam'),
-    path('addExam_summit/',addExam_summit,name="addExam_summit"),
+    # path('addExam_summit/',addExam_summit,name="addExam_summit"),
     path('pdf_view/<int:id>/',pdf_view,name="pdf_view"),
 ]
