@@ -1,7 +1,7 @@
 from django.urls import path
 from scinews.views import (home,activity,exam,news,subject
 ,addNews_summit,activity2,homeS,activityS,examS,addNews,updateNews,updateNews2,delete_news,addActivity,addActivity,
-addActivity_summit,update_activity,delete_board,addExam,,pdf_view,)
+addActivity_summit,update_activity,delete_board,addExam,pdf_view,)
 # addExam_summit
 app_name = 'scinews'
 
