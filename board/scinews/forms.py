@@ -2,6 +2,7 @@ from django import forms
 from .models import News,Board,Exam
 from django.utils.translation import gettext_lazy as _
 from django.forms import DateTimeField,FileInput,TextInput
+from django.utils.safestring import mark_safe
 
 class DateInput(forms.DateInput):
     input_type = 'date'
@@ -11,7 +12,7 @@ class ChoiceInput(forms.ChoiceField):
 
 class AddNewsForm(forms.ModelForm):
     title = News('title')
-    file = forms.FileField()
+    file = forms.FileField(label='เอกสารแนบ ')
     date = forms.DateField(widget=forms.widgets.DateInput(attrs={'autocomplete':'off'}),input_formats=['%Y-%m-%d'],label="วันที่ ")
     class Meta:
         model = News
@@ -27,7 +28,7 @@ class AddNewsForm(forms.ModelForm):
 class AddBoard(forms.ModelForm):
     titleboard = Board('titleboard')
     date = forms.DateField(widget=forms.widgets.DateInput(attrs={'autocomplete':'off'}),input_formats=['%Y-%m-%d'],label="วันที่ ")
-    image = forms.ImageField()
+    image = forms.ImageField(label='รูปภาพ ')
     class Meta:
         model = Board
         widget = {

@@ -4,26 +4,26 @@
 {% endblock %}
 
 {% block content  %}
-<div uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
-    uk-scrollspy="cls:uk-animation-fade">
-    <div class="uk-position-relative uk-visible-toggle uk-light">
-        <ul class="uk-slideshow-items">
-            <li>
-                <img src="{% static 'images/header_activity.png' %}" alt="" uk-cover height="500" width="1100">
-            </li>
-        </ul>
+    <div uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
+        uk-scrollspy="cls:uk-animation-fade">
+        <div class="uk-position-relative uk-visible-toggle uk-light">
+            <ul class="uk-slideshow-items">
+                <li>
+                    <img src="{% static 'images/header_activity.png' %}" alt="" uk-cover height="500" width="1100">
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
-<div class="container" uk-scrollspy="cls:uk-animation-fade">
-    <h3>
-        <span class="uk-text-lead" style="font-family: TUFont;font-size: 20px;font-weight: bolder;">{{activity2.titleboard}}</span>
-    </h3>
-    <h6>วันที่ {{activity2.date}}</h6>
-    <p>{{activity2.detail}}</p>
-    <div class="uk-width-1-1 uk-margin-large-top">
-        <img src="{{activity2.image.url}}"  alt="" class="uk-thumbnail uk-align-center">
+    <div class="container" uk-scrollspy="cls:uk-animation-fade">
+        <h3>
+            <span class="uk-text-lead" style="font-family: TUFont;font-size: 20px;font-weight: bolder;">{{activity2.titleboard}}</span>
+        </h3>
+        <h6>วันที่ {{activity2.date}}</h6>
+        <p>{{activity2.detail}}</p>
+        <div class="uk-width-1-1 uk-margin-large-top">
+            <img src="{{activity2.image.url}}"  alt="" class="uk-thumbnail uk-align-center">
+        </div>
     </div>
-</div>
 {% endblock %}
 {% block footer %}
 {% include 'base_footer.html' %}

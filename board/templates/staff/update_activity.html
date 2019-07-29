@@ -1,6 +1,6 @@
 {% load static %}
 {% block header %}
-{% include 'base_header2.html' %}
+{% include 'base_header.html' %}
 {% endblock %}
 {% load widget_tweaks %}
 
@@ -22,6 +22,9 @@
                 {%csrf_token%}
                 {%for f in form%} 
                 {{f.label_tag}}
+                {% if f.label == 'รูปภาพ ' %}
+                <br><img class="uk-width-1-2@l uk-width-1-1@m" style="margin-bottom:2%" src="{{ form.instance.image.url }}"><br>
+                {% endif %}
                 {% render_field f %}
                 {%endfor%}
                 <div style="text-align:center">

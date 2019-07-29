@@ -4,27 +4,25 @@
 {% endblock %}
 
 {% block content  %}
-<div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
-    uk-scrollspy="cls:uk-animation-fade">
-    <div class="uk-position-relative uk-visible-toggle uk-light">
-        <ul class="uk-slideshow-items">
-            <li>
-                <img src="{% static 'images/header_home.png' %}" alt="" uk-cover height="500" width="1100">
-            </li>
-        </ul>
+    <div style="position: relative;" uk-slideshow="animation: push; min-height: 300; max-height: 500; autoplay: true"
+        uk-scrollspy="cls:uk-animation-fade">
+        <div class="uk-position-relative uk-visible-toggle uk-light">
+            <ul class="uk-slideshow-items">
+                <li>
+                    <img src="{% static 'images/header_home.png' %}" alt="" uk-cover height="500" width="1100">
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
-<div class="container" uk-scrollspy="cls:uk-animation-fade">
-    <h3>
-        <span class="uk-text-lead">{{news.title}}</span>
-    </h3>
-    <h6>วันที่ {{news.date}}</h6>
-    <embed class="uk-width-1-1" src="{{ news.file.url }}#toolbar=0" type="application/pdf" height="800px">
-    <p style="font-weight: bold;">Download: <a href="/media/{{ news.file }}" download>{{news.file}}</a></p>
-</div>
-    
+    <div class="container" uk-scrollspy="cls:uk-animation-fade">
+        <h3>
+            <span class="uk-text-lead">{{news.title}}</span>
+        </h3>
+        <h6>วันที่ {{news.date}}</h6>
+        <embed class="uk-width-1-1" src="{{ news.file.url }}#toolbar=0" type="application/pdf" height="800px">
+        <p style="font-weight: bold;">Download: <a href="/media/{{ news.file }}" download>{{news.file}}</a></p>
+    </div>
 {% endblock %}
-
 {% block footer %}
 {% include 'base_footer.html' %}
 {% endblock %}

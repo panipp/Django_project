@@ -193,7 +193,7 @@ def addActivity(request):
             if form.is_valid():
                 form.save()
                 #save to db
-                return redirect('activity.html')
+                return redirect('/activity')
         else:
             form = AddBoard()
         return render(request,'staff/addActivity.html',{'form':form})
