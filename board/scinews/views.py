@@ -157,7 +157,7 @@ def delete_news(request,**kwargs):
     if check_permission(request):
         pk = kwargs['pk']
         News.objects.filter(pk=pk).delete()
-        return redirect('/')
+        return redirect('scinews:home')
 
 @login_required
 def updateNews(request,**kwargs):
