@@ -4,7 +4,7 @@ from .models import User,CategoryExam,Exam,News,Board
 from django.template import loader
 from django.views import generic
 from django.urls import reverse
-from .forms import AddNewsForm,AddExamForm,AddBoard
+from .forms import AddNewsForm,AddExamForm,AddBoard,AddCategoryExamForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 
@@ -58,6 +58,7 @@ def subject(request, **kwargs):
     context['allsub'] = catExams
     return render(request,'subj.html',context)
 
+@login_required
 def pdf_view(request,**kwargs):
     pk=kwargs['pk']
     pdf = News.objects.get(pk=pk)
@@ -82,16 +83,32 @@ def pdf_view(request,**kwargs):
 #     return render(request,'others.html',{'otherss' : otherss})
 
 # ------------------Staff-------------------
+
 @login_required
-def homeS(request):
+def addCategory(request):
     if check_permission(request):
-        news = News.objects.all().order_by('-date')
-        p = Paginator(news, 5)
-        page = request.GET.get('page')
-        news = p.get_page(page)
-        return render(request,'scinews:home',{'news':news})
-    else:
-        return HttpResponseForbidden()
+        context = dict()
+        if request.method == 'POST':
+            form = AddCategoryExamForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('scinews:exam')
+        else:
+            context['form'] = AddCategoryExamForm()
+            context['title'] = 'เพิ่มหมวดหมู่'
+
+        return render(request,'staff/addNews.html',context)
+
+# @login_required
+# def homeS(request):
+#     if check_permission(request):
+#         news = News.objects.all().order_by('-date')
+#         p = Paginator(news, 5)
+#         page = request.GET.get('page')
+#         news = p.get_page(page)
+#         return render(request,'scinews:home',{'news':news})
+#     else:
+#         return HttpResponseForbidden()
 
 @login_required
 def activityS(request):
@@ -135,12 +152,11 @@ def addNews(request):
             form = AddNewsForm(request.POST,request.FILES)
             if form.is_valid():
                 form.save()
-                #save to db
                 return redirect('scinews:home')
         else:
             form = AddNewsForm()
 
-        return render(request,'staff/addNews.html',{'form' : form})
+        return render(request,'staff/addNews.html',{'form' : form,'title': 'เพื่มข่าวสาร'})
 
 @login_required
 def addNews_summit(request):

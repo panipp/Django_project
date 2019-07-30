@@ -1,8 +1,8 @@
 from django.urls import path
 from scinews.views import (home,activity,exam,news,subject
-,addNews_summit,activity2,homeS,activityS,examS,addNews,updateNews,updateNews2,delete_news,addActivity,addActivity,
-addActivity_summit,update_activity,delete_board,addExam,pdf_view,)
-# addExam_summit
+,addNews_summit,activity2,activityS,examS,addNews,updateNews,updateNews2,delete_news,addActivity,addActivity,
+addActivity_summit,update_activity,delete_board,addExam,pdf_view,addCategory)
+# addExam_summit,homeS
 app_name = 'scinews'
 
 urlpatterns = [
@@ -24,7 +24,7 @@ urlpatterns = [
     # path('math/',math,name='math'),
     # path('others/',others,name='others'),
 
-    path('homeS/',homeS,name='homeS'),
+    # path('homeS/',homeS,name='homeS'),
     path('activityS/',activityS,name='activityS'),
     path('examS/',examS,name='examS'),
     # path('englishS/',englishS,name='englishS'),
@@ -44,4 +44,6 @@ urlpatterns = [
     path('addExam/',addExam,name='addExam'),
     # path('addExam_summit/',addExam_summit,name="addExam_summit"),
     path('pdf_view/<int:id>/',pdf_view,name="pdf_view"),
+
+    path('addCategory/',addCategory,name='addCategory'),
 ]

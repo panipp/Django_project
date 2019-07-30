@@ -18,8 +18,8 @@
 <div class="container" uk-scrollspy="cls:uk-animation-fade">
     <div style="text-align: center">
       <div class="centerform uk-width-1-1 uk-padding-large uk-child-width-4-5">
-        <h3><span class="uk-text-lead">เพิ่มประกาศใหม่</span></h3>
-        <form method="post" enctype="multipart/form-data" action = "/addNews/">
+        <h3><span class="uk-text-lead">{{ title }}</span></h3>
+        <form method="post" enctype="multipart/form-data">
             {%csrf_token%}
             {%for f in form%} 
             {{f.label_tag}}

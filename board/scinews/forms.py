@@ -1,5 +1,5 @@
 from django import forms
-from .models import News,Board,Exam
+from .models import News,Board,Exam,CategoryExam
 from django.utils.translation import gettext_lazy as _
 from django.forms import DateTimeField,FileInput,TextInput
 from django.utils.safestring import mark_safe
@@ -58,3 +58,15 @@ class AddExamForm(forms.ModelForm):
         }
         
         fields = ['titleexam','date','link','category']
+
+
+class AddCategoryExamForm(forms.ModelForm):
+    class Meta:
+        model = CategoryExam
+        
+        labels = {
+            "als" : _("ตัวย่อ  "),
+            "name" : _("ชื่อเต็ม "),
+        }
+        
+        fields = ['als','name']
