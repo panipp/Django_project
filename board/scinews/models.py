@@ -16,6 +16,7 @@ class Profile(models.Model):
     company = models.CharField(max_length=128,null=True)
     department = models.CharField(max_length=128,null=True)
     email = models.EmailField(null=True, help_text="เช่น somename@example.com")
+    role = models.SmallIntegerField()
 
     is_staff = models.BooleanField(default = False)
     def __str__(self):
@@ -78,5 +79,6 @@ def logged_in_handle(sender, user, request, **kwargs):
                 firstname = api['firstname'],
                 lastname = api['lastname'],
                 email = api['tumail'],
+                role = api['role']
             )
 user_logged_in.connect(logged_in_handle)

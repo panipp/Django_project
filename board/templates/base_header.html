@@ -76,6 +76,10 @@
                             <li>
                                 <a href={% url 'social:begin' 'tu' %}><span class="login-out">ลงชื่อเข้าใช้</span></a>
                             </li>
+                        {% else %}
+                            <li>
+                                <a href={% url 'logout' %}><span class='login-out'>ออกจากระบบ</span></a>
+                            </li>
                         {% endif %}
                     </ul>
                     <div class="dropdown">
@@ -87,6 +91,8 @@
                             <a href="/exam/">วิชาการ</a>
                             {% if user.is_anonymous %}
                                 <a href={% url 'social:begin' 'tu' %}><span class="login-out">ลงชื่อเข้าใช้</span></a>
+                            {% else %}
+                                <a href={% url 'logout' %}><span class='login-out'>ออกจากระบบ</span></a>
                             {% endif %}
                         </div>
                     </div>
