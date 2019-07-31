@@ -9,7 +9,7 @@
     <div class="uk-position-relative uk-visible-toggle uk-light">
         <ul class="uk-slideshow-items">
             <li>
-                <img src="{% static 'images/header_english.png' %}" alt="" uk-cover height="500" width="1100">
+                {% comment %} <img src="{% static 'images/header_english.png' %}" alt="" uk-cover height="500" width="1100"> {% endcomment %}
             </li>
         </ul>
     </div>
@@ -30,6 +30,15 @@
                     <td>
                         <a href="{{i.link}}">{{i.titleexam}}</a>
                     </td>
+                    {% if user.profile.is_staff or user.is_superuser %}
+                            <td>
+                                <a href="{% url 'scinews:delCategory' pk=i.id %}">
+                                    <button class="uk-button" type="submit" name="delete" uk-tooltip="title: ลบวิชาการนี้; pos: right;">
+                                        <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
+                                    </button>
+                                </a>
+                            </td>
+                        {% endif %}
                 </tr>
                 {% endfor%}
                 

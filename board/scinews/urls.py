@@ -1,8 +1,11 @@
 from django.urls import path
 from scinews.views import (home,activity,exam,news,subject
-,addNews_summit,activity2,activityS,examS,addNews,updateNews,updateNews2,delete_news,addActivity,addActivity,
-addActivity_summit,update_activity,delete_board,addExam,pdf_view,addCategory)
-# addExam_summit,homeS
+,activity2,activityS,examS,addNews,updateNews,updateNews2
+,delete_news,addActivity,addActivity
+,addActivity_summit,update_activity
+,delete_board,addExam,pdf_view
+,addCategory,delete_CategoryExam)
+# addExam_summit,homeS,addNews_summit
 app_name = 'scinews'
 
 urlpatterns = [
@@ -18,7 +21,7 @@ urlpatterns = [
 
     path('news/<int:pk>/',news,name='news'),
 
-    path('addNews_summit/',addNews_summit,name='addNews_summit'),
+    # path('addNews_summit/',addNews_summit,name='addNews_summit'),
     # path('activity2/<int:pk>/',activity2,name='activity2'),
     # path('english/',english,name='english'),
     # path('math/',math,name='math'),
@@ -45,5 +48,7 @@ urlpatterns = [
     # path('addExam_summit/',addExam_summit,name="addExam_summit"),
     path('pdf_view/<int:id>/',pdf_view,name="pdf_view"),
 
+    # Add by King
     path('addCategory/',addCategory,name='addCategory'),
+    path('delCat/<int:pk>/',delete_CategoryExam,name='delCategory'),
 ]

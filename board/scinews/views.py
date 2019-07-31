@@ -99,6 +99,17 @@ def addCategory(request):
 
         return render(request,'staff/addNews.html',context)
 
+@login_required
+def delete_CategoryExam(request,pk):
+        if check_permission(request):
+                cate = CategoryExam.objects.filter(pk=pk)
+                if cate.exists():
+                        cate = cate[0]
+                else:
+                        return HttpResponseNotFound()
+                cate.delete()
+                return redirect('scinews:exam')
+
 # @login_required
 # def homeS(request):
 #     if check_permission(request):
@@ -158,21 +169,25 @@ def addNews(request):
 
         return render(request,'staff/addNews.html',{'form' : form,'title': 'เพื่มข่าวสาร'})
 
-@login_required
-def addNews_summit(request):
-    if check_permission(request):
-        # title = request.POST["title"]
-        # # file = request.FILES["file"]
-        # date = request.POST["date"]
-        # news = News(title=title)
-        # news.save()
-        return redirect('scinews:home')
+# @login_required
+# def addNews_summit(request):
+#     if check_permission(request):
+#         # title = request.POST["title"]
+#         # # file = request.FILES["file"]
+#         # date = request.POST["date"]
+#         # news = News(title=title)
+#         # news.save()
+#         return redirect('scinews:home')
 
 @login_required
-def delete_news(request,**kwargs):
+def delete_news(request,pk):
     if check_permission(request):
-        pk = kwargs['pk']
-        News.objects.filter(pk=pk).delete()
+        news = News.objects.filter(pk=pk)
+        if news.exists():
+                news = news[0]
+        else:
+                return HttpResponseNotFound()
+        news.delete()
         return redirect('scinews:home')
 
 @login_required
