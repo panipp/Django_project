@@ -25,9 +25,8 @@
             <tbody>
                     <h3>
                     <span class="uk-text-lead">{{ key }}
-                        
-                        
-                        <a href="{% url 'scinews:examsub' name=key %}">(ดูทั้งหมด)</a>
+                        <a href="{% url 'scinews:examsub' name=key %}">(ดูทั้งหมด)</a>                        
+                        <a href="{% url 'scinews:delCategory' name=key %}">(ลบหมวดนี้ทั้งหมด)</a>
                     </span>
                 </h3>
                     <tr>
@@ -45,7 +44,7 @@
                             <a href=""></a>
                         {% if user.profile.is_staff or user.is_superuser %}
                             <td>
-                                <a href="{% url 'scinews:delCategory' pk=i.id %}">
+                                <a href="{% url 'scinews:delExam' pk=i.id %}">
                                     <button class="uk-button" type="submit" name="delete" uk-tooltip="title: ลบวิชาการนี้; pos: right;">
                                         <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
                                     </button>

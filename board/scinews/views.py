@@ -100,13 +100,26 @@ def addCategory(request):
         return render(request,'staff/addNews.html',context)
 
 @login_required
-def delete_CategoryExam(request,pk):
+def delete_Exam(request,pk):
         if check_permission(request):
                 cate = CategoryExam.objects.filter(pk=pk)
                 if cate.exists():
                         cate = cate[0]
                 else:
                         return HttpResponseNotFound()
+                cate.delete()
+                return redirect('scinews:exam')
+
+@login_required
+def delete_CategoryExam(request,name):
+        if check_permission(request):
+                cate = CategoryExam.objects.filter(name=name)
+                if cate.exists():
+                        cate = cate[0]
+                        allcate = Exam.objects.filter(category=cate)
+                else:
+                        return HttpResponseNotFound()
+                allcate.delete()
                 cate.delete()
                 return redirect('scinews:exam')
 
