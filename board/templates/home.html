@@ -52,8 +52,19 @@
                     </td>
                     {% if user.profile.is_staff or user.is_superuser %}
                         <td>
-                            <a href="/delete_news/{{i.id}}"><button class="uk-button" type="submit" name="delete" uk-tooltip="title: ลบประกาศนี้; pos: right;">
-                            <i class="fa fa-trash fa-lg" aria-hidden="true"></i></button></a>
+                            <button class="uk-button" type="submit" name="delete" uk-tooltip="title: ลบวิชาการนี้; pos: right;"
+                                    uk-toggle="target: #del-news">
+                                        <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
+                                    </button>
+                                    <div id="del-news" uk-modal>
+                                        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                                            <p class="uk-margin-remove-top">คุณแน่ใจที่จะทำการลบ "{{ i.title}}" หรือไม่</p>
+                                            <p class="uk-text-right uk-margin-remove-top">
+                                                <a href="/delete_news/{{i.id}}" class="uk-button uk-button-primary" type="button">ลบ</a>
+                                                <button class="uk-button uk-button-default uk-modal-close" type="button">ยกเลิก</button>
+                                            </p>
+                                        </div>
+                                    </div>
                         </td>
                     {% endif %}
                 </tr>

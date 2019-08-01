@@ -13,7 +13,7 @@ from scinews.helper import check_permission
 # ------------------Student-------------------
 def home(request,**kwargs):
     news = News.objects.all().order_by('-date')
-    p = Paginator(news, 5)
+    p = Paginator(news, 10)
     page = request.GET.get('page')
     news = p.get_page(page)
     return render(request,'home.html',{'news': news})
@@ -21,7 +21,7 @@ def home(request,**kwargs):
 @login_required
 def activity(request,**kwargs):
     board = Board.objects.all().order_by('-date')
-    p = Paginator(board, 5)
+    p = Paginator(board, 10)
     page = request.GET.get('page')
     board = p.get_page(page)
     return render(request,'activity.html',{'board': board})
@@ -102,13 +102,14 @@ def addCategory(request):
 @login_required
 def delete_Exam(request,pk):
         if check_permission(request):
-                cate = CategoryExam.objects.filter(pk=pk)
+                cate = Exam.objects.filter(pk=pk)
                 if cate.exists():
                         cate = cate[0]
                 else:
                         return HttpResponseNotFound()
                 cate.delete()
-                return redirect('scinews:exam')
+                
+                return redirect('scinews:examsub',name=cate.category.name)
 
 @login_required
 def delete_CategoryExam(request,name):
@@ -138,7 +139,7 @@ def delete_CategoryExam(request,name):
 def activityS(request):
     if check_permission(request):
         activity = Board.objects.all().order_by('-date')
-        p = Paginator(activity, 5)
+        p = Paginator(activity, 10)
         page = request.GET.get('page')
         activity = p.get_page(page)
         return render(request,'activity.html',{'activity' : activity})
@@ -180,7 +181,7 @@ def addNews(request):
         else:
             form = AddNewsForm()
 
-        return render(request,'staff/addNews.html',{'form' : form,'title': 'เพื่มข่าวสาร'})
+        return render(request,'staff/addNews.html',{'form' : form,'title': 'เพิ่มข่าวสาร'})
 
 # @login_required
 # def addNews_summit(request):

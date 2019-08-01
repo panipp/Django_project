@@ -25,8 +25,9 @@
             <tbody>
                     <h3>
                     <span class="uk-text-lead">{{ key }}
-                        <a href="{% url 'scinews:examsub' name=key %}">(ดูทั้งหมด)</a>                        
-                        <a href="{% url 'scinews:delCategory' name=key %}">(ลบหมวดนี้ทั้งหมด)</a>
+                        {% if value|length > 0 %}
+                            <a href="{% url 'scinews:examsub' name=key %}">(ดูทั้งหมด)</a> 
+                        {% endif %}                       
                     </span>
                 </h3>
                     <tr>
@@ -40,19 +41,6 @@
                         <td>
                             <a href="http://{{i.link}}">{{i.titleexam}}</a>
                         </td>
-                        <td>
-                            <a href=""></a>
-                        {% if user.profile.is_staff or user.is_superuser %}
-                            <td>
-                                <a href="{% url 'scinews:delExam' pk=i.id %}">
-                                    <button class="uk-button" type="submit" name="delete" uk-tooltip="title: ลบวิชาการนี้; pos: right;">
-                                        <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
-                                    </button>
-                                </a>
-                            </td>
-                        {% endif %}
-                        </td>
-                        
                         </tr>
                     {% endfor %}
                     </tbody>

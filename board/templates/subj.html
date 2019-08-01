@@ -9,7 +9,7 @@
     <div class="uk-position-relative uk-visible-toggle uk-light">
         <ul class="uk-slideshow-items">
             <li>
-                {% comment %} <img src="{% static 'images/header_english.png' %}" alt="" uk-cover height="500" width="1100"> {% endcomment %}
+                <img src="{% static 'images/header_exam.png' %}" alt="" uk-cover height="500" width="1100">
             </li>
         </ul>
     </div>
@@ -19,10 +19,27 @@
             <tbody>
                 <h3>
                     <span class="uk-text-lead">{{ namesub }}</span>
+                    {% if user.profile.is_staff or user.is_superuser %}
+                        <span><button class="uk-button uk-button-primary" style="margin-left:15px;"
+                        uk-toggle="target: #del-group" >ลบหมวด</button></span>
+                        <div id="del-group" uk-modal>
+                            <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                                <p class="uk-margin-remove-top">คุณแน่ใจที่จะทำการลบหมวด "{{ namesub }}" หรือไม่</p>
+                                <p class="uk-text-right uk-margin-remove-top">
+                                    <a href="{% url 'scinews:delCategory' name=namesub %}" class="uk-button uk-button-primary" type="button">ลบ</a>
+                                    <button class="uk-button uk-button-default uk-modal-close" type="button">ยกเลิก</button>
+                                </p>
+                            </div>
+                        </div>
+                    {% endif %}
                 </h3>
                 <tr>
                     <th class="uk-width-1-4@m uk-width-1-5@l">วันที่</th>
-                    <th class="uk-table-expand uk-width-3-4@m uk-width-4-5@l">หัวข้อ</th>
+                    <th class="uk-table-expand uk-width-1-2@m uk-width-3-5@l">หัวข้อ</th>
+                    {% if user.profile.is_staff or user.is_superuser %}
+                        <th class="uk-width-1-4@m uk-width-1-5@l">ลบประกาศ</th>
+                    {% endif %}
+
                 </tr>
                 {% for i in allsub%}
                 <tr>
@@ -32,11 +49,19 @@
                     </td>
                     {% if user.profile.is_staff or user.is_superuser %}
                             <td>
-                                <a href="{% url 'scinews:delExam' pk=i.id %}">
-                                    <button class="uk-button" type="submit" name="delete" uk-tooltip="title: ลบวิชาการนี้; pos: right;">
+                                    <button class="uk-button" type="submit" name="delete" uk-tooltip="title: ลบวิชาการนี้; pos: right;"
+                                    uk-toggle="target: #del-list-{{ i.id }}">
                                         <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
                                     </button>
-                                </a>
+                                    <div id="del-list-{{ i.id }}" uk-modal>
+                                        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                                            <p class="uk-margin-remove-top">คุณแน่ใจที่จะทำการลบ "{{ i.titleexam}}" หรือไม่</p>
+                                            <p class="uk-text-right uk-margin-remove-top">
+                                                <a href="{% url 'scinews:delExam' pk=i.id %}" class="uk-button uk-button-primary" type="button">ลบ</a>
+                                                <button class="uk-button uk-button-default uk-modal-close" type="button">ยกเลิก</button>
+                                            </p>
+                                        </div>
+                                    </div>
                             </td>
                         {% endif %}
                 </tr>
