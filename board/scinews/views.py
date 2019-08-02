@@ -126,6 +126,21 @@ def delete_CategoryExam(request,name):
                 cate.delete()
                 return redirect('scinews:exam')
 
+@login_required
+def edit_Exam(request,pk):
+        # pylint: disable=no-member
+        u = Exam.objects.filter(pk=pk)
+        if not u:
+            return redirect('scinews:home')
+        if request.method == 'POST':
+            form = AddExamForm(request.POST,request.FILES,instance=u)
+            if form.is_valid():
+                form.save()
+                return redirect('scinews:exam')
+        else:
+            form = AddExamForm(instance=u)
+        return render(request,'staff/update_news.html',{'form' : form})
+
 # @login_required
 # def homeS(request):
 #     if check_permission(request):

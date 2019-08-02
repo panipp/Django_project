@@ -49,6 +49,9 @@
                     </td>
                     {% if user.profile.is_staff or user.is_superuser %}
                             <td>
+                                {% comment %} <a class="uk-button" href="{% url 'scinews:editExam' pk=i.id %}">
+                                    <span uk-icon="icon: pencil; ratio: 1" uk-tooltip="title: แก้ไข {{ i.titleexam}}; pos: right;"></span>
+                                </a> {% endcomment %}
                                     <button class="uk-button" type="submit" name="delete" uk-tooltip="title: ลบวิชาการนี้; pos: right;"
                                     uk-toggle="target: #del-list-{{ i.id }}">
                                         <i class="fa fa-trash fa-lg" aria-hidden="true"></i>

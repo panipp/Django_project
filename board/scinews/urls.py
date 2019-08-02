@@ -4,7 +4,7 @@ from scinews.views import (home,activity,exam,news,subject
 ,delete_news,addActivity,addActivity
 ,addActivity_summit,update_activity
 ,delete_board,addExam,pdf_view
-,addCategory,delete_Exam,delete_CategoryExam)
+,addCategory,delete_Exam,delete_CategoryExam,edit_Exam)
 # addExam_summit,homeS,addNews_summit
 app_name = 'scinews'
 
@@ -19,6 +19,7 @@ urlpatterns = [
 
     path('exam/',exam,name='exam'),
     path('exam/<str:name>/',subject,name='examsub'),
+    path('edit/<int:pk>/',edit_Exam,name='editExam'),
     path('addCategory/',addCategory,name='addCategory'),
     path('delExam/<int:pk>/',delete_Exam,name='delExam'),
     path('delCategory/<str:name>/',delete_CategoryExam,name='delCategory'),
