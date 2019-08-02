@@ -54,10 +54,13 @@ def activity2(request,**kwargs):
 def subject(request, **kwargs):
     context = dict()
     catExams = Exam.objects.filter(category__name=kwargs['name'])
-    context['namesub'] = catExams[0].category.name
-    context['allsub'] = catExams
-    return render(request,'subj.html',context)
-
+    if catExams.exists():
+        context['namesub'] = catExams[0].category.name
+        context['allsub'] = catExams
+        return render(request,'subj.html',context)
+    else:
+        return HttpResponseNotFound()
+    
 @login_required
 def pdf_view(request,**kwargs):
     pk=kwargs['pk']
@@ -108,7 +111,6 @@ def delete_Exam(request,pk):
                 else:
                         return HttpResponseNotFound()
                 cate.delete()
-                
                 return redirect('scinews:examsub',name=cate.category.name)
 
 @login_required
