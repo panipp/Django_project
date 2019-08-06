@@ -3,6 +3,7 @@ from .models import News,Board,Exam,CategoryExam
 from django.utils.translation import gettext_lazy as _
 from django.forms import DateTimeField,FileInput,TextInput
 from django.utils.safestring import mark_safe
+from django.core.validators import FileExtensionValidator
 
 class DateInput(forms.DateInput):
     input_type = 'date'
@@ -12,7 +13,7 @@ class ChoiceInput(forms.ChoiceField):
 
 class AddNewsForm(forms.ModelForm):
     title = News('title')
-    file = forms.FileField(label='เอกสารแนบ ')
+    file = forms.FileField(widget=forms.widgets.FileInput(attrs={'accept':'application/pdf'}),label='เอกสารแนบ ')
     date = forms.DateField(widget=forms.widgets.DateInput(attrs={'autocomplete':'off'}),input_formats=['%Y-%m-%d'],label="วันที่ ")
     class Meta:
         model = News
